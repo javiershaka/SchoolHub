@@ -11,6 +11,12 @@ package schoolhub.presentacion;
  */
 public class SchoolHubPresentacion extends javax.swing.JFrame {
 
+    SchoolHubRegistro SHR = new SchoolHubRegistro();
+    SchoolHubPrincipal SHP = new SchoolHubPrincipal();
+    int xMouse;
+    int xMouse2;
+   int yMouse;
+   int yMouse2;
     /**
      * Creates new form SchoolHubPresentacion
      */
@@ -43,6 +49,9 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblFondo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(821, 417));
+        setMinimumSize(new java.awt.Dimension(821, 417));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         lblLogo1.setFont(new java.awt.Font("HACKED", 0, 70)); // NOI18N
@@ -75,9 +84,9 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         getContentPane().add(lblNombre);
         lblNombre.setBounds(480, 210, 120, 20);
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(560, 240, 210, 20);
+        txtUsuario.setBounds(560, 240, 210, 30);
         getContentPane().add(pdfContraseña);
-        pdfContraseña.setBounds(560, 310, 210, 20);
+        pdfContraseña.setBounds(560, 310, 210, 30);
 
         lblPassword.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,28 +103,96 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblLogin.setFont(new java.awt.Font("Earth Orbiter", 3, 18)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(255, 255, 255));
         lblLogin.setText("Iniciar Sesión");
+        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLoginMouseClicked(evt);
+            }
+        });
         getContentPane().add(lblLogin);
         lblLogin.setBounds(490, 380, 180, 20);
 
         lblSignin.setFont(new java.awt.Font("Earth Orbiter", 3, 18)); // NOI18N
         lblSignin.setForeground(new java.awt.Color(255, 255, 255));
         lblSignin.setText("Registrarse");
+        lblSignin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSigninMouseClicked(evt);
+            }
+        });
         getContentPane().add(lblSignin);
         lblSignin.setBounds(670, 380, 140, 20);
 
         lblFondo2.setBackground(new java.awt.Color(0, 153, 0));
         lblFondo2.setOpaque(true);
+        lblFondo2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                lblFondo2MouseDragged(evt);
+            }
+        });
+        lblFondo2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblFondo2MousePressed(evt);
+            }
+        });
         getContentPane().add(lblFondo2);
         lblFondo2.setBounds(470, 0, 360, 420);
 
         lblFondo1.setBackground(new java.awt.Color(0, 102, 204));
         lblFondo1.setForeground(new java.awt.Color(0, 51, 153));
         lblFondo1.setOpaque(true);
+        lblFondo1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                lblFondo1MouseDragged(evt);
+            }
+        });
+        lblFondo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblFondo1MousePressed(evt);
+            }
+        });
         getContentPane().add(lblFondo1);
         lblFondo1.setBounds(0, 0, 470, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblSigninMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSigninMouseClicked
+       SHR.setVisible(true);
+       
+    }//GEN-LAST:event_lblSigninMouseClicked
+
+    private void lblFondo1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MouseDragged
+    int x = evt.getXOnScreen();
+    int y = evt.getYOnScreen(); 
+    this.setLocation(x - xMouse, y - yMouse);
+
+
+
+    }//GEN-LAST:event_lblFondo1MouseDragged
+
+    private void lblFondo2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MousePressed
+  xMouse = evt.getX();
+  yMouse = evt.getY();       
+    }//GEN-LAST:event_lblFondo2MousePressed
+
+    private void lblFondo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MousePressed
+       xMouse = evt.getX();
+       yMouse = evt.getY();
+    }//GEN-LAST:event_lblFondo1MousePressed
+
+    private void lblFondo2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MouseDragged
+
+    int x = evt.getXOnScreen();
+    int y = evt.getYOnScreen(); 
+    this.setLocation(x - xMouse, y - yMouse);
+
+    }//GEN-LAST:event_lblFondo2MouseDragged
+
+    private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
+
+    SHP.setVisible(true);
+
+    }//GEN-LAST:event_lblLoginMouseClicked
 
     /**
      * @param args the command line arguments
