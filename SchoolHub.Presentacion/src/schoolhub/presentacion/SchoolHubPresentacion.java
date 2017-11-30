@@ -49,26 +49,25 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblFondo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(821, 417));
         setMinimumSize(new java.awt.Dimension(821, 417));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        lblLogo1.setFont(new java.awt.Font("HACKED", 0, 70)); // NOI18N
+        lblLogo1.setFont(new java.awt.Font("Cracked Code", 0, 48)); // NOI18N
         lblLogo1.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogo1.setText("School");
+        lblLogo1.setText("SCHOOL");
         getContentPane().add(lblLogo1);
-        lblLogo1.setBounds(70, 20, 204, 60);
+        lblLogo1.setBounds(30, 20, 400, 60);
 
-        lblLogo2.setFont(new java.awt.Font("HACKED", 0, 70)); // NOI18N
+        lblLogo2.setFont(new java.awt.Font("Cracked Code", 0, 48)); // NOI18N
         lblLogo2.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogo2.setText("Hub");
+        lblLogo2.setText("HUB");
         getContentPane().add(lblLogo2);
-        lblLogo2.setBounds(180, 80, 110, 60);
+        lblLogo2.setBounds(150, 90, 150, 60);
 
         lblLogo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/hacking.png"))); // NOI18N
         getContentPane().add(lblLogo3);
-        lblLogo3.setBounds(100, 80, 70, 70);
+        lblLogo3.setBounds(60, 80, 70, 70);
 
         lblAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/user.png"))); // NOI18N
         getContentPane().add(lblAlumno);
