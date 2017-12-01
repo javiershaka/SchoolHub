@@ -4,7 +4,13 @@
  * and open the template in the editor.
  */
 package schoolhub.presentacion;
-
+import java.awt.Color;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import mx.itson.SchoolHub.entidades.TipoUsuario;
+import mx.itson.SchoolHub.entidades.Usuario;
 /**
  *
  * @author Cristian
@@ -15,6 +21,7 @@ int yMouse;
 
     public SchoolHubRegistro() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -53,19 +60,19 @@ int yMouse;
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(158, 165, 90, 15);
+        jLabel1.setBounds(158, 165, 90, 19);
 
         jLabel2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Correo :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(158, 216, 90, 15);
+        jLabel2.setBounds(158, 216, 90, 19);
 
         jLabel3.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tipo de cuenta :");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(160, 330, 160, 15);
+        jLabel3.setBounds(160, 330, 160, 19);
 
         cmbCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Docente", "Alumno" }));
         getContentPane().add(cmbCuenta);
@@ -77,7 +84,7 @@ int yMouse;
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contraseña :");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(160, 270, 110, 15);
+        jLabel5.setBounds(160, 270, 110, 19);
         getContentPane().add(psfContraseña);
         psfContraseña.setBounds(158, 287, 250, 30);
 
@@ -86,6 +93,11 @@ int yMouse;
         jLabel6.setBounds(212, 11, 128, 128);
 
         jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(230, 370, 71, 23);
 
@@ -119,6 +131,75 @@ int yMouse;
      xMouse = evt.getX();
   yMouse = evt.getY();     
     }//GEN-LAST:event_lblFondoMousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Usuario usuario = new Usuario();
+        String email = txtCorreo.getText();
+        Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mat = pat.matcher(email);
+        if (txtNombre.getText().isEmpty()) {
+
+            jLabel1.setText("*Nombre");
+            jLabel1.setForeground(Color.red);
+            
+            
+            String Psw  = "" + Arrays.toString(psfContraseña.getPassword());
+            if (Psw.isEmpty()) {
+
+                jLabel5.setText("*Contraseña");
+                jLabel5.setForeground(Color.red);
+               
+
+            }
+
+            JOptionPane.showMessageDialog(null, "Favor de Revisar la informacion", "Error", JOptionPane.ERROR_MESSAGE);
+ 
+        }else{
+            String Psw  = "" + Arrays.toString(psfContraseña.getPassword());
+            if (Psw.isEmpty()) {
+
+                jLabel5.setText("*Contraseña");
+                jLabel5.setForeground(Color.red);
+                JOptionPane.showMessageDialog(null, "Favor de Revisar la informacion", "Error", JOptionPane.ERROR_MESSAGE);
+ 
+
+            }else{
+            if (mat.find()) {
+
+           
+            usuario.setNombre(txtNombre.getText());
+            usuario.setCorreo(txtCorreo.getText());
+            usuario.setContraseñaUsuario(psfContraseña.getText());
+            if(cmbCuenta.getSelectedItem().toString()=="Docente"){
+                usuario.setTipoUsuario(TipoUsuario.DOCENTE);
+            }
+            else{
+                usuario.setTipoUsuario(TipoUsuario.ALUMNO);
+            }
+            txtNombre.setText("");
+            txtCorreo.setText("");
+            psfContraseña.setText("");
+            jLabel1.setText("Nombre");
+            jLabel5.setText("Contraseña");
+            jLabel1.setForeground(Color.WHITE);
+            jLabel5.setForeground(Color.WHITE);
+            this.setVisible(false);
+            SchoolHubPresentacion SHP = new SchoolHubPresentacion();
+            SHP.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Usuario Registrado con Exito","Registro Exitoso",JOptionPane.INFORMATION_MESSAGE);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "ingrese Correo valido", "Error", JOptionPane.ERROR_MESSAGE);
+            jLabel2.setText("*Usuario");
+            jLabel2.setForeground(Color.red);
+            psfContraseña.setText("");
+            txtNombre.setText("");
+            txtCorreo.setText("");
+
+        }
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
