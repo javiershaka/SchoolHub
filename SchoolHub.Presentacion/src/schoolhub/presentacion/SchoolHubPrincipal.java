@@ -6,6 +6,8 @@
 package schoolhub.presentacion;
 
 import java.awt.Point;
+import mx.itson.SchoolHub.entidades.TipoUsuario;
+import mx.itson.SchoolHub.entidades.Usuario;
 
 /**
  *
@@ -18,6 +20,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
  
     public SchoolHubPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -65,6 +68,11 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblTarea.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblTarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/pencil.png"))); // NOI18N
         lblTarea.setText("Tareas");
+        lblTarea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTareaMouseClicked(evt);
+            }
+        });
         getContentPane().add(lblTarea);
         lblTarea.setBounds(10, 120, 170, 70);
 
@@ -83,11 +91,16 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblComentarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/amplified-speaker.png"))); // NOI18N
         lblComentarios.setText("Comentarios");
         getContentPane().add(lblComentarios);
-        lblComentarios.setBounds(10, 200, 245, 64);
+        lblComentarios.setBounds(10, 200, 203, 64);
 
         lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/cross.png"))); // NOI18N
         lblCerrarSesion.setText("Cerrar Sesión");
+        lblCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCerrarSesionMouseClicked(evt);
+            }
+        });
         getContentPane().add(lblCerrarSesion);
         lblCerrarSesion.setBounds(10, 360, 270, 64);
 
@@ -311,6 +324,24 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     int y = evt.getYOnScreen(); 
     this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_lblFondo1MouseDragged
+
+    private void lblCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseClicked
+        SchoolHubPresentacion SHP = new SchoolHubPresentacion();
+        SHP.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_lblCerrarSesionMouseClicked
+
+    private void lblTareaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTareaMouseClicked
+        Usuario usuario = new Usuario();
+        if(usuario.getTipoUsuario()==TipoUsuario.ALUMNO){
+            SchoolHubTarea SHT = new SchoolHubTarea();
+            SHT.setVisible(true);
+        }    
+        if(usuario.getTipoUsuario()==TipoUsuario.DOCENTE){
+            SchoolHubCrearTarea SHCT = new SchoolHubCrearTarea();
+            SHCT.setVisible(true);
+        }
+    }//GEN-LAST:event_lblTareaMouseClicked
 
     /**
      * @param args the command line arguments
