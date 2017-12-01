@@ -5,6 +5,13 @@
  */
 package schoolhub.presentacion;
 
+import java.awt.Color;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Cristian
@@ -22,6 +29,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
      */
     public SchoolHubPresentacion() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -157,6 +165,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
 
     private void lblSigninMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSigninMouseClicked
        SHR.setVisible(true);
+       this.setVisible(false);
        
     }//GEN-LAST:event_lblSigninMouseClicked
 
@@ -188,8 +197,40 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
     }//GEN-LAST:event_lblFondo2MouseDragged
 
     private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
+    String email = txtUsuario.getText();
+    Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+    Matcher mat = pat.matcher(email);
+    if (txtUsuario.getText().isEmpty()) {
 
-    SHP.setVisible(true);
+        lblNombre.setText("*Usuario");
+        lblNombre.setForeground(Color.red);
+        String Psw  = "" + Arrays.toString(pdfContraseña.getPassword());
+        if (Psw.isEmpty()) {
+
+            lblPassword.setText("*Contraseña");
+            lblPassword.setForeground(Color.red);
+               
+
+            }
+
+        JOptionPane.showMessageDialog(null, "Favor de Revisar la informacion", "Error", JOptionPane.ERROR_MESSAGE);
+ 
+        }else{
+        if (mat.find()) {
+            this.setVisible(false);
+            SHP.setVisible(true);
+            lblNombre.setText("Usuario");
+            lblNombre.setForeground(Color.white);
+            lblPassword.setText("Contraseña");
+            lblPassword.setForeground(Color.white);
+        }else{
+            JOptionPane.showMessageDialog(null, "ingrese Correo valido", "Error", JOptionPane.ERROR_MESSAGE);
+            lblNombre.setText("*Usuario");
+            lblNombre.setForeground(Color.red);
+            pdfContraseña.setText("");
+            txtUsuario.setText("");
+        }
+    }
 
     }//GEN-LAST:event_lblLoginMouseClicked
 
