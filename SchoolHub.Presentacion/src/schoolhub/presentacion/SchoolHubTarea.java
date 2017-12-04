@@ -5,12 +5,19 @@
  */
 package schoolhub.presentacion;
 
-/**
- *
- * @author Cristian
- */
-public class SchoolHubTarea extends javax.swing.JFrame {
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
+
+public class SchoolHubTarea extends javax.swing.JFrame {
+JFileChooser seleccionar = new JFileChooser();
+    File archivo;
     /**
      * Creates new form SchoolHubTarea
      */
@@ -38,7 +45,6 @@ public class SchoolHubTarea extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(595, 378));
         setMinimumSize(new java.awt.Dimension(595, 378));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -69,9 +75,14 @@ public class SchoolHubTarea extends javax.swing.JFrame {
         lblHora.setFont(new java.awt.Font("Earth Orbiter", 2, 18)); // NOI18N
         lblHora.setText("99/99/9999");
         getContentPane().add(lblHora);
-        lblHora.setBounds(420, 40, 130, 19);
+        lblHora.setBounds(420, 40, 130, 24);
 
         btnAgregar.setText("Adjuntar Archivo");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAgregar);
         btnAgregar.setBounds(460, 250, 120, 23);
 
@@ -86,6 +97,25 @@ public class SchoolHubTarea extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+         if (seleccionar.showDialog(null, "Abrir")== JFileChooser.APPROVE_OPTION){
+            archivo=seleccionar.getSelectedFile();
+          if(archivo.canRead()){
+              if(archivo.getName().endsWith("txt")|| archivo.getName().endsWith("pdf")|| archivo.getName().endsWith("docx")){
+                  Path origenPath = FileSystems.getDefault().getPath(archivo.getAbsolutePath());
+        Path destinoPath = FileSystems.getDefault().getPath("C:\\Users\\josef\\Documents\\NetBeansProjects\\EjemploTXT\\xd\\"+ archivo.getName());
+                 try {
+            Files.move(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            System.err.println(e);
+        }
+              }else{
+                  JOptionPane.showMessageDialog(null, "Archivo no compatible");
+              }
+          }  
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
