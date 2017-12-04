@@ -5,6 +5,9 @@
  */
 package mx.itson.SchoolHub.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author javiershaka
@@ -16,6 +19,7 @@ public class Usuario {
     private String correo;
     private String contraseñaUsuario;
     private double calificaciones;
+    static List<Usuario> UsuariosRegistrados = new ArrayList<>();
 
     public Usuario() {
     }
@@ -35,6 +39,14 @@ public class Usuario {
         this.correo = correo;
         this.contraseñaUsuario = contraseñaUsuario;
         this.calificaciones = calificaciones;
+    }
+
+    public static List<Usuario> getUsuariosRegistrados() {
+        return UsuariosRegistrados;
+    }
+
+    public static void setUsuariosRegistrados(List<Usuario> UsuariosRegistrados) {
+        Usuario.UsuariosRegistrados = UsuariosRegistrados;
     }
     
 
