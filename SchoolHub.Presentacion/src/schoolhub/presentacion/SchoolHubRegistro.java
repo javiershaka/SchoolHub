@@ -5,7 +5,9 @@
  */
 package schoolhub.presentacion;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -186,6 +188,11 @@ int yMouse;
             this.setVisible(false);
             SchoolHubPresentacion SHP = new SchoolHubPresentacion();
             SHP.setVisible(true);
+            List<Usuario> nuevousuario = new ArrayList<>();
+            nuevousuario.add((Usuario) Usuario.getUsuariosRegistrados());
+            nuevousuario.add(usuario);
+            Usuario.setUsuariosRegistrados(nuevousuario);
+            //Usuario.setUsuariosRegistrados();
             JOptionPane.showMessageDialog(null, "Usuario Registrado con Exito","Registro Exitoso",JOptionPane.INFORMATION_MESSAGE);
 
         } else {
