@@ -8,6 +8,7 @@ package schoolhub.presentacion;
 import java.awt.Point;
 import mx.itson.SchoolHub.entidades.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
+import mx.itson.SchoolHub.entidades.UsuariosRegistrados;
 
 /**
  *
@@ -16,13 +17,21 @@ import mx.itson.SchoolHub.entidades.Usuario;
 public class SchoolHubPrincipal extends javax.swing.JFrame {
  int yMouse;
  int xMouse;
+ Usuario Usuario;
  
  
     public SchoolHubPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+    public void InicioSesion(int numeroregistro){
+        Usuario.setCorreo(UsuariosRegistrados.UsuariosRegistrados.get(numeroregistro).getCorreo());
+        Usuario.setContraseñaUsuario(UsuariosRegistrados.UsuariosRegistrados.get(numeroregistro).getContraseñaUsuario());
+        Usuario.setCalificaciones(UsuariosRegistrados.UsuariosRegistrados.get(numeroregistro).getCalificaciones());
+        Usuario.setNombre(UsuariosRegistrados.UsuariosRegistrados.get(numeroregistro).getNombre());
+        Usuario.setTipoUsuario(UsuariosRegistrados.UsuariosRegistrados.get(numeroregistro).getTipoUsuario());
+        lblNombreUsuario.setText(UsuariosRegistrados.UsuariosRegistrados.get(numeroregistro).getNombre());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -6,10 +6,15 @@
 package schoolhub.presentacion;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
+import mx.itson.SchoolHub.entidades.Usuario;
+import mx.itson.SchoolHub.entidades.UsuariosRegistrados;
 
 
 /**
@@ -217,12 +222,39 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
  
         }else{
         if (mat.find()) {
+            boolean CorreoExistente=false;
+            for (int i = 0; i < UsuariosRegistrados.UsuariosRegistrados.size(); i++) {
+                if(UsuariosRegistrados.UsuariosRegistrados.get(i).getCorreo().toString() == txtUsuario.getText()){
+                    CorreoExistente = true;
+                    if(UsuariosRegistrados.UsuariosRegistrados.get(i).getContraseñaUsuario()==pdfContraseña.getText()){
+                        this.setVisible(false);
+                        SHP.setVisible(true);
+                        SHP.InicioSesion(i);
+                        lblNombre.setText("Usuario");
+                        lblNombre.setForeground(Color.white);
+                        lblPassword.setText("Contraseña");
+                        lblPassword.setForeground(Color.white);
+                    }else{
+                        pdfContraseña.setText("");
+                        JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                    
+            }
+            if(CorreoExistente==false){
+                JOptionPane.showMessageDialog(null, "Correo sin registrar", "Error", JOptionPane.ERROR_MESSAGE);
+                pdfContraseña.setText("");
+                txtUsuario.setText("");
+            }
+        
+    
+            /*
             this.setVisible(false);
             SHP.setVisible(true);
             lblNombre.setText("Usuario");
             lblNombre.setForeground(Color.white);
             lblPassword.setText("Contraseña");
-            lblPassword.setForeground(Color.white);
+            lblPassword.setForeground(Color.white);*/
         }else{
             JOptionPane.showMessageDialog(null, "ingrese Correo valido", "Error", JOptionPane.ERROR_MESSAGE);
             lblNombre.setText("*Usuario");
