@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import mx.itson.SchoolHub.entidades.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
+import mx.itson.SchoolHub.entidades.UsuariosRegistrados;
 /**
  *
  * @author Cristian
@@ -188,11 +189,18 @@ int yMouse;
             this.setVisible(false);
             SchoolHubPresentacion SHP = new SchoolHubPresentacion();
             SHP.setVisible(true);
-            List<Usuario> nuevousuario = new ArrayList<>();
+            UsuariosRegistrados.UsuariosRegistrados.add(usuario);
+                for (int i = 0; i < UsuariosRegistrados.UsuariosRegistrados.size(); i++) {
+                    System.out.println(UsuariosRegistrados.UsuariosRegistrados.get(i).getCorreo());
+                }
+            System.out.println(UsuariosRegistrados.UsuariosRegistrados.toString());
+            /*List<Usuario> nuevousuario = new ArrayList<>();
+            
             nuevousuario.add((Usuario) Usuario.getUsuariosRegistrados());
             nuevousuario.add(usuario);
             Usuario.setUsuariosRegistrados(nuevousuario);
-            //Usuario.setUsuariosRegistrados();
+                //System.out.println(Usuario.getUsuariosRegistrados());
+            //Usuario.setUsuariosRegistrados();*/
             JOptionPane.showMessageDialog(null, "Usuario Registrado con Exito","Registro Exitoso",JOptionPane.INFORMATION_MESSAGE);
 
         } else {
