@@ -9,21 +9,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.awt.Color;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import mx.itson.SchoolHub.entidades.Curso;
-import mx.itson.SchoolHub.entidades.Usuario;
-import mx.itson.SchoolHub.enumeradores.TipoUsuario;
-import static schoolhub.presentacion.SchoolHubPrincipal.lbltipoUsuario;
 import static schoolhub.presentacion.SchoolHubRegistro.curso;
-import static schoolhub.presentacion.SchoolHubPrincipal.btnagregarAsig;
+import static schoolhub.presentacion.SchoolHubPrincipal.lblComentarios;
 import static schoolhub.presentacion.SchoolHubPrincipal.pnlConfiguracion;
 import static schoolhub.presentacion.SchoolHubPrincipal.pnlTareas;
 
@@ -231,18 +223,19 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
                         SchoolHubPrincipal.lblNombreUsuario.setText(curso.getUsuario().get(var).getNombre());
                         SchoolHubPrincipal.lbltipoUsuario.setText(curso.getUsuario().get(var).getTipoUsuario().toString());
                         if (curso.getUsuario().get(var).getTipoUsuario().toString().equals("DOCENTE")) {
-                            btnagregarAsig.setVisible(true);
+                          
                             
                             SchoolHubPrincipal.lblFondo2.setBackground(Color.blue);
 
                             pnlTareas.setBackground(Color.blue);
                             pnlConfiguracion.setBackground(Color.blue);
+                            lblComentarios.setVisible(true);
                           
                         }else{
-                              btnagregarAsig.setVisible(false);
+                            
                             
                             SchoolHubPrincipal.lblFondo2.setBackground(Color.green);
-
+                            lblComentarios.setVisible(false);
                             pnlTareas.setBackground(Color.green);
                             pnlConfiguracion.setBackground(Color.green);
                         }

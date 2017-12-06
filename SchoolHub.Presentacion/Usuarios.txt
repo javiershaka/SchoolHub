@@ -453,6 +453,136 @@
       "calificacion": 0.0,
       "engrega": "NoEntregado",
       "close": false
+    },
+    {
+      "nombre": "c",
+      "asignacion": "ASIGNACION",
+      "comentario": "dd",
+      "fechainicio": "Dec 6, 2017 4:10:24 AM",
+      "fechafinal": "Dec 6, 2017 4:10:24 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "mmmm",
+      "asignacion": "ASIGNACION",
+      "comentario": "hvyfvug kgihk",
+      "fechainicio": "Dec 6, 2017 4:39:34 AM",
+      "fechafinal": "Dec 6, 2017 4:39:34 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": false
+    },
+    {
+      "nombre": "xD",
+      "asignacion": "ASIGNACION",
+      "comentario": "no mames no me acordaba weeeeeeeeeeeeeeee",
+      "fechainicio": "Dec 6, 2017 4:46:54 AM",
+      "fechafinal": "Dec 6, 2017 4:46:54 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "nos pasamos de verga",
+      "asignacion": "ASIGNACION",
+      "comentario": "JAJAJAJAJA",
+      "fechainicio": "Dec 6, 2017 4:47:01 AM",
+      "fechafinal": "Dec 6, 2017 4:47:01 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "no mames wey",
+      "asignacion": "ASIGNACION",
+      "comentario": "xdddddddd",
+      "fechainicio": "Dec 6, 2017 4:49:52 AM",
+      "fechafinal": "Dec 6, 2017 4:49:52 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": false
+    },
+    {
+      "nombre": "nos pasamos de vergota",
+      "asignacion": "ASIGNACION",
+      "comentario": "eerererer",
+      "fechainicio": "Dec 6, 2017 4:50:01 AM",
+      "fechafinal": "Dec 6, 2017 4:50:01 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "dddd",
+      "asignacion": "ASIGNACION",
+      "comentario": "fdfdfdf",
+      "fechainicio": "Dec 6, 2017 4:50:18 AM",
+      "fechafinal": "Dec 6, 2017 4:50:18 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "ddfdfdf",
+      "asignacion": "ASIGNACION",
+      "comentario": "dfdfdf",
+      "fechainicio": "Dec 6, 2017 4:50:26 AM",
+      "fechafinal": "Dec 6, 2017 4:50:26 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "dfdfd",
+      "asignacion": "ASIGNACION",
+      "comentario": "fdfdf",
+      "fechainicio": "Dec 6, 2017 4:50:29 AM",
+      "fechafinal": "Dec 6, 2017 4:50:29 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "d",
+      "asignacion": "ASIGNACION",
+      "comentario": "dfdfdfdfdf",
+      "fechainicio": "Dec 6, 2017 4:50:33 AM",
+      "fechafinal": "Dec 6, 2017 4:50:33 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "dfdf",
+      "asignacion": "ASIGNACION",
+      "comentario": "dfaaa",
+      "fechainicio": "Dec 6, 2017 4:50:39 AM",
+      "fechafinal": "Dec 6, 2017 4:50:39 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "",
+      "asignacion": "ASIGNACION",
+      "comentario": "",
+      "fechainicio": "Dec 6, 2017 4:56:43 AM",
+      "fechafinal": "Dec 6, 2017 4:56:43 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "popo",
+      "asignacion": "ASIGNACION",
+      "comentario": "ikklllllllllll",
+      "fechainicio": "Dec 6, 2017 5:05:47 AM",
+      "fechafinal": "Dec 6, 2017 5:05:47 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
     }
   ]
 }

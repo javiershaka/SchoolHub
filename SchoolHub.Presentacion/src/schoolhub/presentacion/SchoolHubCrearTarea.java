@@ -51,6 +51,8 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
  public static String Fecha2;
  public static String Fecha3;
  public static String Fecha4;
+ int yMouse;
+ int xMouse;
     /**
      * Creates new form SchoolHubCrearTarea
      */
@@ -90,7 +92,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
         getContentPane().add(txtnombreAsig);
-        txtnombreAsig.setBounds(220, 30, 170, 20);
+        txtnombreAsig.setBounds(220, 30, 170, 30);
 
         lblTipo.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,7 +121,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ASIGNACION", "TAREA", "ACTIVIDAD" }));
         getContentPane().add(cmbTipo);
-        cmbTipo.setBounds(220, 70, 80, 20);
+        cmbTipo.setBounds(220, 70, 120, 20);
 
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         getContentPane().add(cmbDia);
@@ -131,7 +133,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
 
         cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
         getContentPane().add(cmbAño);
-        cmbAño.setBounds(320, 100, 56, 20);
+        cmbAño.setBounds(296, 100, 80, 20);
 
         lblEntrega.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblEntrega.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,6 +175,16 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
 
         lblFondo.setBackground(new java.awt.Color(0, 102, 153));
         lblFondo.setOpaque(true);
+        lblFondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                lblFondoMouseDragged(evt);
+            }
+        });
+        lblFondo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblFondoMousePressed(evt);
+            }
+        });
         getContentPane().add(lblFondo);
         lblFondo.setBounds(-4, -5, 420, 380);
 
@@ -269,6 +281,17 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void lblFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMousePressed
+    xMouse = evt.getX();
+    yMouse = evt.getY(); 
+    }//GEN-LAST:event_lblFondoMousePressed
+
+    private void lblFondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMouseDragged
+    int x = evt.getXOnScreen();
+    int y = evt.getYOnScreen(); 
+    this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_lblFondoMouseDragged
 
     /**
      * @param args the command line arguments

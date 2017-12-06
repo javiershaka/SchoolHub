@@ -61,7 +61,6 @@ static Curso curso;
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(557, 436));
         setMinimumSize(new java.awt.Dimension(557, 436));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -74,19 +73,19 @@ static Curso curso;
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(158, 165, 90, 19);
+        jLabel1.setBounds(158, 165, 90, 15);
 
         jLabel2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Correo :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(158, 216, 90, 19);
+        jLabel2.setBounds(158, 216, 90, 15);
 
         jLabel3.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tipo de cuenta :");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(160, 330, 160, 19);
+        jLabel3.setBounds(160, 330, 160, 15);
 
         cmbCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DOCENTE", "ALUMNO" }));
         getContentPane().add(cmbCuenta);
@@ -98,7 +97,7 @@ static Curso curso;
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contraseña :");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(160, 270, 110, 19);
+        jLabel5.setBounds(160, 270, 110, 15);
         getContentPane().add(txtContraseña);
         txtContraseña.setBounds(158, 287, 250, 30);
 
@@ -113,7 +112,7 @@ static Curso curso;
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(230, 370, 71, 23);
+        jButton1.setBounds(230, 370, 110, 23);
 
         lblFondo.setBackground(new java.awt.Color(51, 51, 255));
         lblFondo.setMaximumSize(new java.awt.Dimension(557, 436));

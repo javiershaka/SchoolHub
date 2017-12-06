@@ -17,11 +17,25 @@ import static schoolhub.presentacion.SchoolHubPrincipal.tarea1;
 import static schoolhub.presentacion.SchoolHubPrincipal.tarea2;
 import static schoolhub.presentacion.SchoolHubPrincipal.tarea3;
 import static schoolhub.presentacion.SchoolHubPrincipal.tarea4;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion1;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion2;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion3;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion4;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Fecha1;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Fecha2;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Fecha3;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Fecha4;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea1;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea2;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea3;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea4;
 
 
 public class SchoolHubTarea extends javax.swing.JFrame {
 JFileChooser seleccionar = new JFileChooser();
     File archivo;
+     int yMouse;
+ int xMouse;
     /**
      * Creates new form SchoolHubTarea
      */
@@ -103,6 +117,16 @@ JFileChooser seleccionar = new JFileChooser();
 
         lblFondo.setBackground(new java.awt.Color(0, 204, 0));
         lblFondo.setOpaque(true);
+        lblFondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                lblFondoMouseDragged(evt);
+            }
+        });
+        lblFondo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblFondoMousePressed(evt);
+            }
+        });
         getContentPane().add(lblFondo);
         lblFondo.setBounds(0, 0, 600, 380);
 
@@ -129,26 +153,54 @@ JFileChooser seleccionar = new JFileChooser();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+       
         if(tarea1== true){
-            SchoolHubPrincipal.lblTarea1.setVisible(false);
+            SchoolHubPrincipal.lblTarea1.setText("");
+            SchoolHubPrincipal.lblFecha1.setText("");
+            Fecha1 = null;
+            Tarea1 = null;
+            Descripcion1 = null;
             
         }
         if(tarea2== true){
-            SchoolHubPrincipal.lblTarea2.setVisible(false);
+             SchoolHubPrincipal.lblTarea2.setText("");
+            SchoolHubPrincipal.lblFecha2.setText("");
+            Fecha2 = null;
+            Tarea2 = null;
+            Descripcion2 = null;
             
         }
         if(tarea3== true){
-            SchoolHubPrincipal.lblTarea3.setVisible(false);
+            SchoolHubPrincipal.lblTarea2.setText("");
+            SchoolHubPrincipal.lblFecha2.setText("");
+            Fecha2 = null;
+            Tarea2 = null;
+            Descripcion2 = null;
             
         }
         if(tarea4== true){
-            SchoolHubPrincipal.lblTarea4.setVisible(false);
+            SchoolHubPrincipal.lblTarea3.setText("");
+            SchoolHubPrincipal.lblFecha3.setText("");
+            Fecha3 = null;
+            Tarea3 = null;
+            Descripcion3 = null;
             
         }
         this.setVisible(false);
         
         
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void lblFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMousePressed
+xMouse = evt.getX();
+    yMouse = evt.getY(); 
+    }//GEN-LAST:event_lblFondoMousePressed
+
+    private void lblFondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMouseDragged
+int x = evt.getXOnScreen();
+    int y = evt.getYOnScreen(); 
+    this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_lblFondoMouseDragged
 
     /**
      * @param args the command line arguments

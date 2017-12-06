@@ -5,7 +5,6 @@
  */
 package schoolhub.presentacion;
 
-import java.awt.Point;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion1;
@@ -48,7 +47,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     public SchoolHubPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        btnagregarAsig.setVisible(false);
     }
 
     /**
@@ -61,7 +59,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTarea = new javax.swing.JLabel();
-        lblConfiguracion = new javax.swing.JLabel();
         lblComentarios = new javax.swing.JLabel();
         lblCerrarSesion = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
@@ -85,7 +82,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblFecha3 = new javax.swing.JLabel();
         lblTarea4 = new javax.swing.JLabel();
         lblFecha4 = new javax.swing.JLabel();
-        btnagregarAsig = new javax.swing.JButton();
         lblFondo1 = new javax.swing.JLabel();
         lblFondo2 = new javax.swing.JLabel();
 
@@ -105,22 +101,16 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         getContentPane().add(lblTarea);
         lblTarea.setBounds(10, 120, 170, 70);
 
-        lblConfiguracion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
-        lblConfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/cogwheel.png"))); // NOI18N
-        lblConfiguracion.setText("Configuración");
-        lblConfiguracion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblConfiguracionMouseClicked(evt);
-            }
-        });
-        getContentPane().add(lblConfiguracion);
-        lblConfiguracion.setBounds(10, 280, 270, 70);
-
         lblComentarios.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblComentarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/amplified-speaker.png"))); // NOI18N
-        lblComentarios.setText("Comentarios");
+        lblComentarios.setText("CRear Asignacion");
+        lblComentarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblComentariosMouseClicked(evt);
+            }
+        });
         getContentPane().add(lblComentarios);
-        lblComentarios.setBounds(10, 200, 245, 64);
+        lblComentarios.setBounds(0, 240, 307, 64);
 
         lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/cross.png"))); // NOI18N
@@ -220,7 +210,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         );
 
         getContentPane().add(pnlConfiguracion);
-        pnlConfiguracion.setBounds(310, 20, 20, 30);
+        pnlConfiguracion.setBounds(330, 10, 20, 30);
 
         pnlTareas.setBackground(new java.awt.Color(0, 153, 0));
         pnlTareas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -315,15 +305,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         getContentPane().add(pnlTareas);
         pnlTareas.setBounds(380, 60, 410, 290);
 
-        btnagregarAsig.setText("Crear asignacion");
-        btnagregarAsig.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnagregarAsigActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnagregarAsig);
-        btnagregarAsig.setBounds(340, 400, 150, 23);
-
         lblFondo1.setBackground(new java.awt.Color(255, 255, 255));
         lblFondo1.setOpaque(true);
         lblFondo1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -337,7 +318,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblFondo1);
-        lblFondo1.setBounds(0, 0, 290, 450);
+        lblFondo1.setBounds(0, 0, 320, 450);
 
         lblFondo2.setBackground(new java.awt.Color(0, 153, 0));
         lblFondo2.setOpaque(true);
@@ -346,32 +327,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblConfiguracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblConfiguracionMouseClicked
- if (panel1 == true) {
-        int w2 = pnlConfiguracion.getWidth();
-        int h2 = pnlConfiguracion.getHeight();
-        
-        
-        int w = pnlTareas.getWidth();
-        int h = pnlTareas.getHeight();
-        
-      Point p1 = pnlTareas.getLocation();
-      Point p2 = pnlConfiguracion.getLocation();
-      
-        pnlConfiguracion.setSize(w,h);
-       // pnlConfiguracion.setBounds(300, 300, w, h);
-       pnlConfiguracion.setLocation(p1);
-        
-      pnlTareas.setLocation(p1);
-     
-       pnlTareas.setSize(w2, h2);
-       panel1 = false;
-       panel2 = true;
-        }
-  
-
-    }//GEN-LAST:event_lblConfiguracionMouseClicked
 
     private void lblFondo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MousePressed
     xMouse = evt.getX();
@@ -400,12 +355,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_lblTareaMouseClicked
-
-    private void btnagregarAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarAsigActionPerformed
-        // TODO add your handling code here:
-        SchoolHubCrearTarea SHCT = new SchoolHubCrearTarea();
-            SHCT.setVisible(true);
-    }//GEN-LAST:event_btnagregarAsigActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
@@ -460,6 +409,11 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
        SHT.setVisible(true);
     }//GEN-LAST:event_lblTarea4MouseClicked
 
+    private void lblComentariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComentariosMouseClicked
+   SchoolHubCrearTarea SHCT = new SchoolHubCrearTarea();
+            SHCT.setVisible(true);
+    }//GEN-LAST:event_lblComentariosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -496,7 +450,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnagregarAsig;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel5;
@@ -506,8 +459,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCerrarSesion;
-    private javax.swing.JLabel lblComentarios;
-    private javax.swing.JLabel lblConfiguracion;
+    public static javax.swing.JLabel lblComentarios;
     public static javax.swing.JLabel lblFecha1;
     public static javax.swing.JLabel lblFecha2;
     public static javax.swing.JLabel lblFecha3;
