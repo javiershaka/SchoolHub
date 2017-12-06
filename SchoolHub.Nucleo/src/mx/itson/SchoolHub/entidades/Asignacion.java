@@ -7,6 +7,7 @@ package mx.itson.SchoolHub.entidades;
 
 import mx.itson.SchoolHub.enumeradores.TipoAsignacion;
 import java.util.Date;
+import mx.itson.SchoolHub.enumeradores.TiempoEngrega;
 
 /**
  *
@@ -19,23 +20,13 @@ public class Asignacion {
     private Date fechainicio;
     private Date fechafinal;
     private double calificacion;
-    private EntregaAsignacion engrega;
+    private TiempoEngrega engrega;
     private boolean close;
 
     public Asignacion() {
     }
-    /**
-     * 
-     * @param nombre
-     * @param asignacion
-     * @param comentario
-     * @param fechainicio
-     * @param fechafinal
-     * @param calificacion
-     * @param engrega
-     * @param close 
-     */
-    public Asignacion(String nombre, TipoAsignacion asignacion, String comentario, Date fechainicio, Date fechafinal, double calificacion, EntregaAsignacion engrega, boolean close) {
+
+    public Asignacion(String nombre, TipoAsignacion asignacion, String comentario, Date fechainicio, Date fechafinal, double calificacion, TiempoEngrega engrega, boolean close) {
         this.nombre = nombre;
         this.asignacion = asignacion;
         this.comentario = comentario;
@@ -133,14 +124,14 @@ public class Asignacion {
     /**
      * @return the engrega
      */
-    public EntregaAsignacion getEngrega() {
+    public TiempoEngrega getEngrega() {
         return engrega;
     }
 
     /**
      * @param engrega the engrega to set
      */
-    public void setEngrega(EntregaAsignacion engrega) {
+    public void setEngrega(TiempoEngrega engrega) {
         this.engrega = engrega;
     }
 
@@ -157,7 +148,10 @@ public class Asignacion {
     public void setClose(boolean close) {
         this.close = close;
     }
-     
+    
+    
+
+
     
     
 }
