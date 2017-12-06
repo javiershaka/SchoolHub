@@ -5,15 +5,23 @@
  */
 package schoolhub.presentacion;
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-import mx.itson.SchoolHub.entidades.TipoUsuario;
+import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
-import mx.itson.SchoolHub.entidades.UsuariosRegistrados;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import mx.itson.SchoolHub.entidades.Curso;
 /**
  *
  * @author Cristian
@@ -21,6 +29,8 @@ import mx.itson.SchoolHub.entidades.UsuariosRegistrados;
 public class SchoolHubRegistro extends javax.swing.JFrame {
 int xMouse;
 int yMouse;
+    
+static Curso curso;
 
     public SchoolHubRegistro() {
         initComponents();
@@ -44,7 +54,7 @@ int yMouse;
         cmbCuenta = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        psfContraseña = new javax.swing.JPasswordField();
+        txtContraseña = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
@@ -88,8 +98,8 @@ int yMouse;
         jLabel5.setText("Contraseña :");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(160, 270, 110, 19);
-        getContentPane().add(psfContraseña);
-        psfContraseña.setBounds(158, 287, 250, 30);
+        getContentPane().add(txtContraseña);
+        txtContraseña.setBounds(158, 287, 250, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/team.png"))); // NOI18N
         getContentPane().add(jLabel6);
@@ -136,84 +146,59 @@ int yMouse;
     }//GEN-LAST:event_lblFondoMousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Usuario usuario = new Usuario();
-        String email = txtCorreo.getText();
-        Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        Matcher mat = pat.matcher(email);
-        if (txtNombre.getText().isEmpty()) {
+        try {
+            boolean repe = false;
+            File archivo = new File("Usuarios.txt");
+            BufferedWriter bw;
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-            jLabel1.setText("*Nombre");
-            jLabel1.setForeground(Color.red);
-            
-            
-            String Psw  = "" + Arrays.toString(psfContraseña.getPassword());
-            if (Psw.isEmpty()) {
+            if (archivo.exists()) {
+                curso = new Curso();
+                char[] pass = txtContraseña.getPassword();
+                String passString = new String(pass);
 
-                jLabel5.setText("*Contraseña");
-                jLabel5.setForeground(Color.red);
+             
+
+                    BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
+                    curso = gson.fromJson(rb, Curso.class);
+
+                    for (int i = 0; i < curso.getUsuario().size(); i++) {
+                        if (curso.getUsuario().get(i).getCorreo().equals(txtCorreo.getText())) {
+                            repe = true;
+                        }
+
+                    }
+                    if (repe == false) {
+                        curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.ALUMNO, txtCorreo.getText(), passString, 0));
+                        String textoUsuario = gson.toJson(curso);
+
+                        bw = new BufferedWriter(new FileWriter(archivo));
+                        bw.write("" + textoUsuario);
+
+                        bw.close();
+                        this.setVisible(false);
+
+                    
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Usuario ya existente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+                    }
+
                
 
             }
-
-            JOptionPane.showMessageDialog(null, "Favor de Revisar la informacion", "Error", JOptionPane.ERROR_MESSAGE);
- 
-        }else{
-            String Psw  = "" + Arrays.toString(psfContraseña.getPassword());
-            if (Psw.isEmpty()) {
-
-                jLabel5.setText("*Contraseña");
-                jLabel5.setForeground(Color.red);
-                JOptionPane.showMessageDialog(null, "Favor de Revisar la informacion", "Error", JOptionPane.ERROR_MESSAGE);
- 
-
-            }else{
-            if (mat.find()) {
-
-           
-            usuario.setNombre(txtNombre.getText());
-            usuario.setCorreo(txtCorreo.getText());
-            usuario.setContraseñaUsuario(psfContraseña.getText());
-            if(cmbCuenta.getSelectedItem().toString()=="Docente"){
-                usuario.setTipoUsuario(TipoUsuario.DOCENTE);
-            }
             else{
-                usuario.setTipoUsuario(TipoUsuario.ALUMNO);
-            }
-            txtNombre.setText("");
-            txtCorreo.setText("");
-            psfContraseña.setText("");
-            jLabel1.setText("Nombre");
-            jLabel5.setText("Contraseña");
-            jLabel1.setForeground(Color.WHITE);
-            jLabel5.setForeground(Color.WHITE);
-            this.setVisible(false);
-            SchoolHubPresentacion SHP = new SchoolHubPresentacion();
-            SHP.setVisible(true);
-            UsuariosRegistrados.UsuariosRegistrados.add(usuario);
-                for (int i = 0; i < UsuariosRegistrados.UsuariosRegistrados.size(); i++) {
-                    System.out.println(UsuariosRegistrados.UsuariosRegistrados.get(i).getCorreo());
-                }
-            System.out.println(UsuariosRegistrados.UsuariosRegistrados.toString());
-            /*List<Usuario> nuevousuario = new ArrayList<>();
-            
-            nuevousuario.add((Usuario) Usuario.getUsuariosRegistrados());
-            nuevousuario.add(usuario);
-            Usuario.setUsuariosRegistrados(nuevousuario);
-                //System.out.println(Usuario.getUsuariosRegistrados());
-            //Usuario.setUsuariosRegistrados();*/
-            JOptionPane.showMessageDialog(null, "Usuario Registrado con Exito","Registro Exitoso",JOptionPane.INFORMATION_MESSAGE);
+                curso = new Curso();
+                curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.ALUMNO, txtCorreo.getText(), "asd", 0));
+                String textoUsuario = gson.toJson(curso);
+                bw = new BufferedWriter(new FileWriter(archivo));
+                        bw.write("" + textoUsuario);
 
-        } else {
-            JOptionPane.showMessageDialog(null, "ingrese Correo valido", "Error", JOptionPane.ERROR_MESSAGE);
-            jLabel2.setText("*Usuario");
-            jLabel2.setForeground(Color.red);
-            psfContraseña.setText("");
-            txtNombre.setText("");
-            txtCorreo.setText("");
-
-        }
+                        bw.close();
+                        this.setVisible(false);
             }
+        } catch (IOException ex) {
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -261,7 +246,7 @@ int yMouse;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblFondo;
-    private javax.swing.JPasswordField psfContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
