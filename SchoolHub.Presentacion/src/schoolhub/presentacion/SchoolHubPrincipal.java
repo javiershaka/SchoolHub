@@ -8,7 +8,23 @@ package schoolhub.presentacion;
 import java.awt.Point;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion1;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion2;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion3;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion4;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Fecha1;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Fecha2;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Fecha3;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Fecha4;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea1;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea2;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea3;
+import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea4;
 import static schoolhub.presentacion.SchoolHubPresentacion.SHPR;
+import static schoolhub.presentacion.SchoolHubPresentacion.SHT;
+import static schoolhub.presentacion.SchoolHubTarea.lblHora;
+import static schoolhub.presentacion.SchoolHubTarea.lblNombreTarea;
+import static schoolhub.presentacion.SchoolHubTarea.txaDescripcion;
 
 /**
  *
@@ -204,24 +220,44 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
         lblTarea1.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
         lblTarea1.setForeground(new java.awt.Color(255, 255, 255));
+        lblTarea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTarea1MouseClicked(evt);
+            }
+        });
 
         lblFecha1.setFont(new java.awt.Font("Terminator Two", 0, 11)); // NOI18N
         lblFecha1.setForeground(new java.awt.Color(240, 240, 240));
 
         lblTarea2.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
         lblTarea2.setForeground(new java.awt.Color(255, 255, 255));
+        lblTarea2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTarea2MouseClicked(evt);
+            }
+        });
 
         lblFecha2.setFont(new java.awt.Font("Terminator Two", 0, 11)); // NOI18N
         lblFecha2.setForeground(new java.awt.Color(240, 240, 240));
 
         lblTarea3.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
         lblTarea3.setForeground(new java.awt.Color(255, 255, 255));
+        lblTarea3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTarea3MouseClicked(evt);
+            }
+        });
 
         lblFecha3.setFont(new java.awt.Font("Terminator Two", 0, 11)); // NOI18N
         lblFecha3.setForeground(new java.awt.Color(240, 240, 240));
 
         lblTarea4.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
         lblTarea4.setForeground(new java.awt.Color(255, 255, 255));
+        lblTarea4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTarea4MouseClicked(evt);
+            }
+        });
 
         lblFecha4.setFont(new java.awt.Font("Terminator Two", 0, 11)); // NOI18N
         lblFecha4.setForeground(new java.awt.Color(240, 240, 240));
@@ -232,42 +268,41 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTareasLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblFecha1)
-                        .addComponent(lblTarea1))
-                    .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblFecha2)
-                        .addComponent(lblTarea2))
-                    .addGroup(pnlTareasLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(lblFecha3))
-                    .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblFecha4)
-                        .addComponent(lblTarea4))
-                    .addComponent(lblTarea3))
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblFecha3)
+                    .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblFecha1)
+                            .addComponent(lblTarea1))
+                        .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblFecha2)
+                            .addComponent(lblTarea2))
+                        .addGroup(pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblFecha4)
+                            .addComponent(lblTarea4))
+                        .addComponent(lblTarea3)))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
         pnlTareasLayout.setVerticalGroup(
             pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTareasLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(32, 32, 32)
                 .addComponent(lblTarea1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFecha1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTarea2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFecha2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTarea3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblFecha3)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTarea4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFecha4)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlTareas);
@@ -373,6 +408,34 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private void lblNombreUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreUsuarioMouseClicked
 //lblTarea1.setText("Hola que hace we xddddddddddd");
     }//GEN-LAST:event_lblNombreUsuarioMouseClicked
+
+    private void lblTarea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea1MouseClicked
+      lblNombreTarea.setText(Tarea1);
+       txaDescripcion.setText(Descripcion1);
+       lblHora.setText(Fecha1);
+                SHT.setVisible(true);
+    }//GEN-LAST:event_lblTarea1MouseClicked
+
+    private void lblTarea2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea2MouseClicked
+      lblNombreTarea.setText(Tarea2);
+       txaDescripcion.setText(Descripcion2);
+       lblHora.setText(Fecha2);
+       SHT.setVisible(true);
+    }//GEN-LAST:event_lblTarea2MouseClicked
+
+    private void lblTarea3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea3MouseClicked
+       lblNombreTarea.setText(Tarea3);
+       txaDescripcion.setText(Descripcion3);
+       lblHora.setText(Fecha3);
+       SHT.setVisible(true);
+    }//GEN-LAST:event_lblTarea3MouseClicked
+
+    private void lblTarea4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea4MouseClicked
+        lblNombreTarea.setText(Tarea4);
+       txaDescripcion.setText(Descripcion4);
+       lblHora.setText(Fecha4);
+       SHT.setVisible(true);
+    }//GEN-LAST:event_lblTarea4MouseClicked
 
     /**
      * @param args the command line arguments

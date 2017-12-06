@@ -103,6 +103,356 @@
       "calificacion": 0.0,
       "engrega": "NoEntregado",
       "close": true
+    },
+    {
+      "nombre": "xd",
+      "asignacion": "ASIGNACION",
+      "comentario": "w",
+      "fechainicio": "Dec 6, 2017 3:17:02 AM",
+      "fechafinal": "Dec 6, 2017 3:17:02 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "Tara",
+      "asignacion": "ASIGNACION",
+      "comentario": "wwwwww",
+      "fechainicio": "Dec 6, 2017 3:27:24 AM",
+      "fechafinal": "Dec 6, 2017 3:27:24 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "xddddddd",
+      "asignacion": "ASIGNACION",
+      "comentario": "sdsdsdsd",
+      "fechainicio": "Dec 6, 2017 3:27:32 AM",
+      "fechafinal": "Dec 6, 2017 3:27:32 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "xd",
+      "asignacion": "ASIGNACION",
+      "comentario": "sdsd",
+      "fechainicio": "Dec 6, 2017 3:28:41 AM",
+      "fechafinal": "Dec 6, 2017 3:28:41 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "sssssssssss",
+      "asignacion": "ASIGNACION",
+      "comentario": "ddd",
+      "fechainicio": "Dec 6, 2017 3:28:48 AM",
+      "fechafinal": "Dec 6, 2017 3:28:48 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "sddd",
+      "asignacion": "ASIGNACION",
+      "comentario": "sdsdsd",
+      "fechainicio": "Dec 6, 2017 3:28:51 AM",
+      "fechafinal": "Dec 6, 2017 3:28:51 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "hola que hace",
+      "asignacion": "ASIGNACION",
+      "comentario": "sddddddd",
+      "fechainicio": "Dec 6, 2017 3:29:02 AM",
+      "fechafinal": "Dec 6, 2017 3:29:02 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "dddd",
+      "asignacion": "ASIGNACION",
+      "comentario": "sdsdsd",
+      "fechainicio": "Dec 6, 2017 3:30:04 AM",
+      "fechafinal": "Dec 6, 2017 3:30:04 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "ww",
+      "asignacion": "ASIGNACION",
+      "comentario": "wewe",
+      "fechainicio": "Dec 6, 2017 3:30:08 AM",
+      "fechafinal": "Dec 6, 2017 3:30:08 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "dddddd",
+      "asignacion": "ASIGNACION",
+      "comentario": "ssdsdsdsd",
+      "fechainicio": "Dec 6, 2017 3:30:15 AM",
+      "fechafinal": "Dec 6, 2017 3:30:15 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "vvvvv",
+      "asignacion": "ASIGNACION",
+      "comentario": "wwwwww",
+      "fechainicio": "Dec 6, 2017 3:30:20 AM",
+      "fechafinal": "Dec 6, 2017 3:30:20 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "La tarea no se hace sola",
+      "asignacion": "ACTIVIDAD",
+      "comentario": "sddd",
+      "fechainicio": "Dec 6, 2017 3:31:19 AM",
+      "fechafinal": "Dec 6, 2017 3:31:19 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "VAYANSE A LA PLAYA",
+      "asignacion": "ASIGNACION",
+      "comentario": "xddddd",
+      "fechainicio": "Dec 6, 2017 3:31:38 AM",
+      "fechafinal": "Dec 6, 2017 3:31:38 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "Aqui nomas como la ven ",
+      "asignacion": "ASIGNACION",
+      "comentario": "sd",
+      "fechainicio": "Dec 6, 2017 3:31:48 AM",
+      "fechafinal": "Dec 6, 2017 3:31:48 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "xddddddd",
+      "asignacion": "ASIGNACION",
+      "comentario": "xdddddddd",
+      "fechainicio": "Dec 6, 2017 3:31:56 AM",
+      "fechafinal": "Dec 6, 2017 3:31:56 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "s",
+      "asignacion": "ASIGNACION",
+      "comentario": "s",
+      "fechainicio": "Dec 6, 2017 3:34:15 AM",
+      "fechafinal": "Dec 6, 2017 3:34:15 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "xd",
+      "asignacion": "ASIGNACION",
+      "comentario": "xd",
+      "fechainicio": "Dec 6, 2017 3:34:20 AM",
+      "fechafinal": "Dec 6, 2017 3:34:20 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "xxxxxxxxxxxxxxx",
+      "asignacion": "ASIGNACION",
+      "comentario": "dddd",
+      "fechainicio": "Dec 6, 2017 3:34:25 AM",
+      "fechafinal": "Dec 6, 2017 3:34:25 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "ssssssssssssssssssssssssssssss",
+      "asignacion": "ASIGNACION",
+      "comentario": "sddd",
+      "fechainicio": "Dec 6, 2017 3:34:30 AM",
+      "fechafinal": "Dec 6, 2017 3:34:30 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "x",
+      "asignacion": "ASIGNACION",
+      "comentario": "x",
+      "fechainicio": "Dec 6, 2017 3:34:59 AM",
+      "fechafinal": "Dec 6, 2017 3:34:59 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "d",
+      "asignacion": "ASIGNACION",
+      "comentario": "d",
+      "fechainicio": "Dec 6, 2017 3:35:04 AM",
+      "fechafinal": "Dec 6, 2017 3:35:04 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "x",
+      "asignacion": "ASIGNACION",
+      "comentario": "d",
+      "fechainicio": "Dec 6, 2017 3:35:09 AM",
+      "fechafinal": "Dec 6, 2017 3:35:09 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "x",
+      "asignacion": "ASIGNACION",
+      "comentario": "d",
+      "fechainicio": "Dec 6, 2017 3:35:14 AM",
+      "fechafinal": "Dec 6, 2017 3:35:14 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "x",
+      "asignacion": "ASIGNACION",
+      "comentario": "x",
+      "fechainicio": "Dec 6, 2017 3:36:49 AM",
+      "fechafinal": "Dec 6, 2017 3:36:49 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "x",
+      "asignacion": "ASIGNACION",
+      "comentario": "x",
+      "fechainicio": "Dec 6, 2017 3:36:53 AM",
+      "fechafinal": "Dec 6, 2017 3:36:53 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "x",
+      "asignacion": "ASIGNACION",
+      "comentario": "x",
+      "fechainicio": "Dec 6, 2017 3:36:56 AM",
+      "fechafinal": "Dec 6, 2017 3:36:56 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "x",
+      "asignacion": "ASIGNACION",
+      "comentario": "x",
+      "fechainicio": "Dec 6, 2017 3:36:59 AM",
+      "fechafinal": "Dec 6, 2017 3:36:59 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "Hola",
+      "asignacion": "ASIGNACION",
+      "comentario": "Que hace",
+      "fechainicio": "Dec 6, 2017 3:47:37 AM",
+      "fechafinal": "Dec 6, 2017 3:47:37 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "Ahi nomas",
+      "asignacion": "ASIGNACION",
+      "comentario": "XD",
+      "fechainicio": "Dec 6, 2017 3:47:47 AM",
+      "fechafinal": "Dec 6, 2017 3:47:47 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "Se va hacer ",
+      "asignacion": "ASIGNACION",
+      "comentario": "o no se va hacer",
+      "fechainicio": "Dec 6, 2017 3:47:56 AM",
+      "fechafinal": "Dec 6, 2017 3:47:56 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "La carnita asada",
+      "asignacion": "ASIGNACION",
+      "comentario": "oowhohwowhhow",
+      "fechainicio": "Dec 6, 2017 3:48:08 AM",
+      "fechafinal": "Dec 6, 2017 3:48:08 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "Se va hacer",
+      "asignacion": "ASIGNACION",
+      "comentario": "xd",
+      "fechainicio": "Dec 6, 2017 3:50:04 AM",
+      "fechafinal": "Dec 6, 2017 3:50:04 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "o no se va a hacer",
+      "asignacion": "ASIGNACION",
+      "comentario": "xxxxxxxxddddd",
+      "fechainicio": "Dec 6, 2017 3:50:12 AM",
+      "fechafinal": "Dec 6, 2017 3:50:12 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "La carnita asada ",
+      "asignacion": "ASIGNACION",
+      "comentario": "jejejejeje",
+      "fechainicio": "Dec 6, 2017 3:50:21 AM",
+      "fechafinal": "Dec 6, 2017 3:50:21 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "jotones",
+      "asignacion": "ASIGNACION",
+      "comentario": "xddddsdsadasdsad",
+      "fechainicio": "Dec 6, 2017 3:50:34 AM",
+      "fechafinal": "Dec 6, 2017 3:50:34 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": false
     }
   ]
 }

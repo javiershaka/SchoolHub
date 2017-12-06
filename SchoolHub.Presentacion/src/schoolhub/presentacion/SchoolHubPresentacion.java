@@ -36,6 +36,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
     public static SchoolHubRegistro SHR = new SchoolHubRegistro();
     public static SchoolHubPrincipal SHP = new SchoolHubPrincipal();
     public static SchoolHubPresentacion SHPR = new SchoolHubPresentacion();
+    public static SchoolHubTarea SHT = new SchoolHubTarea();
     int xMouse;
     int xMouse2;
     int yMouse;
@@ -236,6 +237,14 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
 
                             pnlTareas.setBackground(Color.blue);
                             pnlConfiguracion.setBackground(Color.blue);
+                          
+                        }else{
+                              btnagregarAsig.setVisible(false);
+                            
+                            SchoolHubPrincipal.lblFondo2.setBackground(Color.green);
+
+                            pnlTareas.setBackground(Color.green);
+                            pnlConfiguracion.setBackground(Color.green);
                         }
 
                         SHP.setVisible(true);

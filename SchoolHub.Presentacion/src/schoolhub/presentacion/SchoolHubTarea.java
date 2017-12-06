@@ -56,6 +56,7 @@ JFileChooser seleccionar = new JFileChooser();
         getContentPane().add(scpRespuesta);
         scpRespuesta.setBounds(30, 240, 420, 110);
 
+        txaDescripcion.setEditable(false);
         txaDescripcion.setBackground(new java.awt.Color(0, 102, 102));
         txaDescripcion.setColumns(20);
         txaDescripcion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
@@ -168,10 +169,10 @@ JFileChooser seleccionar = new JFileChooser();
     private javax.swing.JButton btnEnviar;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblHora;
-    private javax.swing.JLabel lblNombreTarea;
+    public static javax.swing.JLabel lblHora;
+    public static javax.swing.JLabel lblNombreTarea;
     private javax.swing.JScrollPane scpDescripcion;
     private javax.swing.JScrollPane scpRespuesta;
-    private javax.swing.JTextArea txaDescripcion;
+    public static javax.swing.JTextArea txaDescripcion;
     // End of variables declaration//GEN-END:variables
 }
