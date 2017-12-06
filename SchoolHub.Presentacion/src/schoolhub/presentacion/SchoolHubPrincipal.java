@@ -18,11 +18,16 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
  int yMouse;
  int xMouse;
  Usuario Usuario;
+ boolean panel1 = true;
+ boolean panel2 = false;
  
  
     public SchoolHubPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        txtNombre.setText("xd");
+        txtCorreo.setText("xd");
+        pdfContraseña.setText("xd");
     }
     public void InicioSesion(int numeroregistro){
         Usuario.setCorreo(UsuariosRegistrados.UsuariosRegistrados.get(numeroregistro).getCorreo());
@@ -49,11 +54,11 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblNombreUsuario = new javax.swing.JLabel();
         pnlConfiguracion = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        pdfContraseña = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         pnlTareas = new javax.swing.JPanel();
@@ -135,9 +140,9 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Contraseña :");
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        pdfContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                pdfContraseñaActionPerformed(evt);
             }
         });
 
@@ -161,9 +166,9 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel6)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jPasswordField1))
+                    .addComponent(txtNombre)
+                    .addComponent(txtCorreo)
+                    .addComponent(pdfContraseña))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlConfiguracionLayout.setVerticalGroup(
@@ -172,15 +177,15 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pdfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -296,13 +301,16 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void pdfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdfContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_pdfContraseñaActionPerformed
 
     private void lblConfiguracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblConfiguracionMouseClicked
-  int w2 = pnlConfiguracion.getWidth();
-  int h2 = pnlConfiguracion.getHeight();
+  
+        
+        if (panel1 == true) {
+        int w2 = pnlConfiguracion.getWidth();
+        int h2 = pnlConfiguracion.getHeight();
         
         
         int w = pnlTareas.getWidth();
@@ -318,6 +326,10 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
       pnlTareas.setLocation(p1);
      
        pnlTareas.setSize(w2, h2);
+       panel1 = false;
+       panel2 = true;
+        }
+  
 
 
     }//GEN-LAST:event_lblConfiguracionMouseClicked
@@ -340,15 +352,51 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
     private void lblTareaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTareaMouseClicked
-        Usuario usuario = new Usuario();
-        if(usuario.getTipoUsuario()==TipoUsuario.ALUMNO){
-            SchoolHubTarea SHT = new SchoolHubTarea();
-            SHT.setVisible(true);
-        }    
-        if(usuario.getTipoUsuario()==TipoUsuario.DOCENTE){
-            SchoolHubCrearTarea SHCT = new SchoolHubCrearTarea();
-            SHCT.setVisible(true);
+ 
+        
+        if (panel2 == true) {
+            int w2 = pnlConfiguracion.getWidth();
+  int h2 = pnlConfiguracion.getHeight();
+        
+        
+        int w = pnlTareas.getWidth();
+        int h = pnlTareas.getHeight();
+        
+      Point p1 = pnlTareas.getLocation();
+      Point p2 = pnlConfiguracion.getLocation();
+      
+        pnlConfiguracion.setSize(w,h);
+       // pnlConfiguracion.setBounds(300, 300, w, h);
+       pnlConfiguracion.setLocation(p1);
+        
+      pnlTareas.setLocation(p1);
+     
+       pnlTareas.setSize(w2, h2); 
+            panel2 = false;
+            panel1 = true;
         }
+        
+       
+        
+
+
+
+
+
+
+
+
+
+
+// Usuario usuario = new Usuario();
+//        if(usuario.getTipoUsuario()==TipoUsuario.ALUMNO){
+//            SchoolHubTarea SHT = new SchoolHubTarea();
+//            SHT.setVisible(true);
+////        }    
+//        if(usuario.getTipoUsuario()==TipoUsuario.DOCENTE){
+//            SchoolHubCrearTarea SHCT = new SchoolHubCrearTarea();
+//            SHCT.setVisible(true);
+//        }
     }//GEN-LAST:event_lblTareaMouseClicked
 
     /**
@@ -392,9 +440,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblComentarios;
     private javax.swing.JLabel lblConfiguracion;
@@ -411,7 +456,10 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblTarea3;
     private javax.swing.JLabel lblTarea4;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JPasswordField pdfContraseña;
     public static javax.swing.JPanel pnlConfiguracion;
     public static javax.swing.JPanel pnlTareas;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
