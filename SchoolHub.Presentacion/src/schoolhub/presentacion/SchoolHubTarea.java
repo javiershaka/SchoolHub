@@ -75,7 +75,7 @@ JFileChooser seleccionar = new JFileChooser();
         lblHora.setFont(new java.awt.Font("Earth Orbiter", 2, 18)); // NOI18N
         lblHora.setText("99/99/9999");
         getContentPane().add(lblHora);
-        lblHora.setBounds(420, 40, 130, 24);
+        lblHora.setBounds(420, 40, 130, 19);
 
         btnAgregar.setText("Adjuntar Archivo");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +87,11 @@ JFileChooser seleccionar = new JFileChooser();
         btnAgregar.setBounds(460, 250, 120, 23);
 
         btnEnviar.setText("Enviar");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEnviar);
         btnEnviar.setBounds(460, 300, 120, 23);
 
@@ -116,6 +121,12 @@ JFileChooser seleccionar = new JFileChooser();
           }  
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+       
+        
+        
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
      * @param args the command line arguments

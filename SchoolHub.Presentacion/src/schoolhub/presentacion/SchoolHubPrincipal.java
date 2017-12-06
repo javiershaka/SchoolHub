@@ -8,6 +8,7 @@ package schoolhub.presentacion;
 import java.awt.Point;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
+import static schoolhub.presentacion.SchoolHubPresentacion.SHPR;
 
 /**
  *
@@ -16,6 +17,9 @@ import mx.itson.SchoolHub.entidades.Usuario;
 public class SchoolHubPrincipal extends javax.swing.JFrame {
  int yMouse;
  int xMouse;
+ 
+ boolean panel1 = true;
+ boolean panel2 = false;
  
  
     public SchoolHubPrincipal() {
@@ -93,7 +97,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblComentarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/amplified-speaker.png"))); // NOI18N
         lblComentarios.setText("Comentarios");
         getContentPane().add(lblComentarios);
-        lblComentarios.setBounds(10, 200, 203, 64);
+        lblComentarios.setBounds(10, 200, 245, 64);
 
         lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/cross.png"))); // NOI18N
@@ -112,6 +116,11 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
         lblNombreUsuario.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblNombreUsuario.setText("nombre USUARIO");
+        lblNombreUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNombreUsuarioMouseClicked(evt);
+            }
+        });
         getContentPane().add(lblNombreUsuario);
         lblNombreUsuario.setBounds(30, 80, 240, 20);
 
@@ -195,35 +204,27 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
         lblTarea1.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
         lblTarea1.setForeground(new java.awt.Color(255, 255, 255));
-        lblTarea1.setText("Lorem ipsum dolor sit amet");
 
         lblFecha1.setFont(new java.awt.Font("Terminator Two", 0, 11)); // NOI18N
         lblFecha1.setForeground(new java.awt.Color(240, 240, 240));
-        lblFecha1.setText("Fecha de entrega : 10 / 10 / 9999 : 11:59 PM");
 
         lblTarea2.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
         lblTarea2.setForeground(new java.awt.Color(255, 255, 255));
-        lblTarea2.setText("Lorem ipsum dolor sit amet");
 
         lblFecha2.setFont(new java.awt.Font("Terminator Two", 0, 11)); // NOI18N
         lblFecha2.setForeground(new java.awt.Color(240, 240, 240));
-        lblFecha2.setText("Fecha de entrega : 10 / 10 / 9999 : 11:59 PM");
 
         lblTarea3.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
         lblTarea3.setForeground(new java.awt.Color(255, 255, 255));
-        lblTarea3.setText("Lorem ipsum dolor sit amet");
 
         lblFecha3.setFont(new java.awt.Font("Terminator Two", 0, 11)); // NOI18N
         lblFecha3.setForeground(new java.awt.Color(240, 240, 240));
-        lblFecha3.setText("Fecha de entrega : 10 / 10 / 9999 : 11:59 PM");
 
         lblTarea4.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
         lblTarea4.setForeground(new java.awt.Color(255, 255, 255));
-        lblTarea4.setText("Lorem ipsum dolor sit amet");
 
         lblFecha4.setFont(new java.awt.Font("Terminator Two", 0, 11)); // NOI18N
         lblFecha4.setForeground(new java.awt.Color(240, 240, 240));
-        lblFecha4.setText("Fecha de entrega : 10 / 10 / 9999 : 11:59 PM");
 
         javax.swing.GroupLayout pnlTareasLayout = new javax.swing.GroupLayout(pnlTareas);
         pnlTareas.setLayout(pnlTareasLayout);
@@ -245,7 +246,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
                         .addComponent(lblFecha4)
                         .addComponent(lblTarea4))
                     .addComponent(lblTarea3))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
         pnlTareasLayout.setVerticalGroup(
             pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +267,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
                 .addComponent(lblTarea4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFecha4)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlTareas);
@@ -305,8 +306,9 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblConfiguracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblConfiguracionMouseClicked
-  int w2 = pnlConfiguracion.getWidth();
-  int h2 = pnlConfiguracion.getHeight();
+ if (panel1 == true) {
+        int w2 = pnlConfiguracion.getWidth();
+        int h2 = pnlConfiguracion.getHeight();
         
         
         int w = pnlTareas.getWidth();
@@ -322,7 +324,10 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
       pnlTareas.setLocation(p1);
      
        pnlTareas.setSize(w2, h2);
-
+       panel1 = false;
+       panel2 = true;
+        }
+  
 
     }//GEN-LAST:event_lblConfiguracionMouseClicked
 
@@ -338,8 +343,8 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_lblFondo1MouseDragged
 
     private void lblCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseClicked
-        SchoolHubPresentacion SHP = new SchoolHubPresentacion();
-        SHP.setVisible(true);
+//        SchoolHubPresentacion SHP = new SchoolHubPresentacion();
+        SHPR.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
@@ -364,6 +369,10 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void lblNombreUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreUsuarioMouseClicked
+//lblTarea1.setText("Hola que hace we xddddddddddd");
+    }//GEN-LAST:event_lblNombreUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -413,18 +422,18 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblComentarios;
     private javax.swing.JLabel lblConfiguracion;
-    private javax.swing.JLabel lblFecha1;
-    private javax.swing.JLabel lblFecha2;
-    private javax.swing.JLabel lblFecha3;
-    private javax.swing.JLabel lblFecha4;
+    public static javax.swing.JLabel lblFecha1;
+    public static javax.swing.JLabel lblFecha2;
+    public static javax.swing.JLabel lblFecha3;
+    public static javax.swing.JLabel lblFecha4;
     private javax.swing.JLabel lblFondo1;
     public static javax.swing.JLabel lblFondo2;
     public static javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JLabel lblTarea;
-    private javax.swing.JLabel lblTarea1;
-    private javax.swing.JLabel lblTarea2;
-    private javax.swing.JLabel lblTarea3;
-    private javax.swing.JLabel lblTarea4;
+    public static javax.swing.JLabel lblTarea1;
+    public static javax.swing.JLabel lblTarea2;
+    public static javax.swing.JLabel lblTarea3;
+    public static javax.swing.JLabel lblTarea4;
     private javax.swing.JLabel lblUsuario;
     public static javax.swing.JLabel lbltipoUsuario;
     public static javax.swing.JPanel pnlConfiguracion;

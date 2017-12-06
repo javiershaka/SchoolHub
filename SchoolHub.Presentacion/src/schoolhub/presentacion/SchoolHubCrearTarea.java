@@ -21,6 +21,8 @@ import mx.itson.SchoolHub.entidades.Usuario;
 import mx.itson.SchoolHub.enumeradores.TiempoEngrega;
 import mx.itson.SchoolHub.enumeradores.TipoAsignacion;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
+import static schoolhub.presentacion.SchoolHubPrincipal.lblFecha1;
+import static schoolhub.presentacion.SchoolHubPrincipal.lblTarea1;
 import static schoolhub.presentacion.SchoolHubRegistro.curso;
 
 /**
@@ -159,7 +161,8 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-        
+        lblTarea1.setText(txtnombreAsig.getText());
+         lblFecha1.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
          try {
              boolean bloqueo = false;
             SchoolHubPresentacion SHP = new SchoolHubPresentacion();
@@ -181,6 +184,9 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
                             bloqueo= true;
                         }
                         curso.getAsignacion().add(new Asignacion(txtnombreAsig.getText(), TipoAsignacion.valueOf(cmbTipo.getSelectedItem().toString()), txaDescripcion.getText(), new Date(), new Date(), 0, TiempoEngrega.NoEntregado, bloqueo));
+                        lblTarea1.setText(txtnombreAsig.getText());
+                        lblFecha1.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
+                        
                         String textoUsuario = gson.toJson(curso);
 
                         bw = new BufferedWriter(new FileWriter(archivo));
@@ -202,7 +208,8 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
                 String textoUsuario = gson.toJson(curso);
                 bw = new BufferedWriter(new FileWriter(archivo));
                         bw.write("" + textoUsuario);
-
+ lblTarea1.setText(txtnombreAsig.getText());
+                        lblFecha1.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
                         bw.close();
                         SHP.setVisible(true);
                         this.setVisible(false);

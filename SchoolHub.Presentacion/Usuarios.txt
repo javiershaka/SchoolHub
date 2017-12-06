@@ -1,0 +1,108 @@
+{
+  "usuario": [
+    {
+      "nombre": "Shaka",
+      "tipoUsuario": "DOCENTE",
+      "correo": "shakita@hotmail.com",
+      "contraseñaUsuario": "asd",
+      "calificaciones": 0.0
+    },
+    {
+      "nombre": "hola",
+      "tipoUsuario": "DOCENTE",
+      "correo": "hola@hotmail.com",
+      "contraseñaUsuario": "xd",
+      "calificaciones": 0.0
+    },
+    {
+      "nombre": "Cristian",
+      "tipoUsuario": "DOCENTE",
+      "correo": "elcristian3@hotmail.com",
+      "contraseñaUsuario": "popo",
+      "calificaciones": 0.0
+    },
+    {
+      "nombre": "popo@hotmail.com",
+      "tipoUsuario": "DOCENTE",
+      "correo": "cagada@hotmail.com",
+      "contraseñaUsuario": "xdddd",
+      "calificaciones": 0.0
+    },
+    {
+      "nombre": "Alumno",
+      "tipoUsuario": "ALUMNO",
+      "correo": "alumno@hotmail.com",
+      "contraseñaUsuario": "alumno",
+      "calificaciones": 0.0
+    },
+    {
+      "nombre": "",
+      "tipoUsuario": "DOCENTE",
+      "correo": "",
+      "contraseñaUsuario": "",
+      "calificaciones": 0.0
+    }
+  ],
+  "asignacion": [
+    {
+      "nombre": "A la verga me vale verga perro",
+      "asignacion": "TAREA",
+      "comentario": "Y jalate a la verga (clap clap clap)",
+      "fechainicio": "Dec 5, 2017 11:34:14 PM",
+      "fechafinal": "Dec 5, 2017 11:34:14 PM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "Asignacion 1",
+      "asignacion": "ASIGNACION",
+      "comentario": "Hola que hace, alv me vale vrg perro ",
+      "fechainicio": "Dec 6, 2017 12:22:32 AM",
+      "fechafinal": "Dec 6, 2017 12:22:32 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "ssdsdsd",
+      "asignacion": "ASIGNACION",
+      "comentario": "ssssssssssss",
+      "fechainicio": "Dec 6, 2017 12:24:24 AM",
+      "fechafinal": "Dec 6, 2017 12:24:24 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    },
+    {
+      "nombre": "ssssss",
+      "asignacion": "ACTIVIDAD",
+      "comentario": "xddddddddddd",
+      "fechainicio": "Dec 6, 2017 12:28:48 AM",
+      "fechafinal": "Dec 6, 2017 12:28:48 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": false
+    },
+    {
+      "nombre": "xd",
+      "asignacion": "ASIGNACION",
+      "comentario": "xd",
+      "fechainicio": "Dec 6, 2017 12:32:48 AM",
+      "fechafinal": "Dec 6, 2017 12:32:48 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": false
+    },
+    {
+      "nombre": "quepedo",
+      "asignacion": "ASIGNACION",
+      "comentario": "ddddddddddddd",
+      "fechainicio": "Dec 6, 2017 12:37:49 AM",
+      "fechafinal": "Dec 6, 2017 12:37:49 AM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": true
+    }
+  ]
+}

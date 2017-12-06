@@ -33,8 +33,9 @@ import static schoolhub.presentacion.SchoolHubPrincipal.pnlTareas;
  */
 public class SchoolHubPresentacion extends javax.swing.JFrame {
 
-    SchoolHubRegistro SHR = new SchoolHubRegistro();
-    SchoolHubPrincipal SHP = new SchoolHubPrincipal();
+    public static SchoolHubRegistro SHR = new SchoolHubRegistro();
+    public static SchoolHubPrincipal SHP = new SchoolHubPrincipal();
+    public static SchoolHubPresentacion SHPR = new SchoolHubPresentacion();
     int xMouse;
     int xMouse2;
     int yMouse;
