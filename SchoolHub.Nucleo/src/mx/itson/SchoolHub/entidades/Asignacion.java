@@ -5,6 +5,7 @@
  */
 package mx.itson.SchoolHub.entidades;
 
+import mx.itson.SchoolHub.enumeradores.TipoAsignacion;
 import java.util.Date;
 
 /**

@@ -5,6 +5,7 @@
  */
 package mx.itson.SchoolHub.entidades;
 
+import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,40 +16,20 @@ import java.util.List;
 public class Usuario {
     private String nombre;
     private TipoUsuario tipoUsuario;
-    private Materia materia;
     private String correo;
     private String contraseñaUsuario;
     private double calificaciones;
-    static List<Usuario> UsuariosRegistrados = new ArrayList<>();
 
     public Usuario() {
     }
-    /**
-     * 
-     * @param nombre
-     * @param tipoUsuario
-     * @param materia
-     * @param correo
-     * @param contraseñaUsuario
-     * @param calificaciones 
-     */
-    public Usuario(String nombre, TipoUsuario tipoUsuario, Materia materia, String correo, String contraseñaUsuario, double calificaciones) {
+
+    public Usuario(String nombre, TipoUsuario tipoUsuario, String correo, String contraseñaUsuario, double calificaciones) {
         this.nombre = nombre;
         this.tipoUsuario = tipoUsuario;
-        this.materia = materia;
         this.correo = correo;
         this.contraseñaUsuario = contraseñaUsuario;
         this.calificaciones = calificaciones;
     }
-
-    public static List<Usuario> getUsuariosRegistrados() {
-        return UsuariosRegistrados;
-    }
-
-    public static void setUsuariosRegistrados(List<Usuario> UsuariosRegistrados) {
-        Usuario.UsuariosRegistrados = UsuariosRegistrados;
-    }
-    
 
     /**
      * @return the nombre
@@ -76,20 +57,6 @@ public class Usuario {
      */
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
-    }
-
-    /**
-     * @return the materia
-     */
-    public Materia getMateria() {
-        return materia;
-    }
-
-    /**
-     * @param materia the materia to set
-     */
-    public void setMateria(Materia materia) {
-        this.materia = materia;
     }
 
     /**
@@ -133,6 +100,16 @@ public class Usuario {
     public void setCalificaciones(double calificaciones) {
         this.calificaciones = calificaciones;
     }
+    /**
+     * 
+     * @param nombre
+     * @param tipoUsuario
+     * @param materia
+     * @param correo
+     * @param contraseñaUsuario
+     * @param calificaciones 
+     */
+    
     
     
     
