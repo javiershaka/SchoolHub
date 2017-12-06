@@ -13,6 +13,10 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import static schoolhub.presentacion.SchoolHubPrincipal.tarea1;
+import static schoolhub.presentacion.SchoolHubPrincipal.tarea2;
+import static schoolhub.presentacion.SchoolHubPrincipal.tarea3;
+import static schoolhub.presentacion.SchoolHubPrincipal.tarea4;
 
 
 public class SchoolHubTarea extends javax.swing.JFrame {
@@ -23,6 +27,7 @@ JFileChooser seleccionar = new JFileChooser();
      */
     public SchoolHubTarea() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -124,7 +129,23 @@ JFileChooser seleccionar = new JFileChooser();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-       
+        if(tarea1== true){
+            SchoolHubPrincipal.lblTarea1.setVisible(false);
+            
+        }
+        if(tarea2== true){
+            SchoolHubPrincipal.lblTarea2.setVisible(false);
+            
+        }
+        if(tarea3== true){
+            SchoolHubPrincipal.lblTarea3.setVisible(false);
+            
+        }
+        if(tarea4== true){
+            SchoolHubPrincipal.lblTarea4.setVisible(false);
+            
+        }
+        this.setVisible(false);
         
         
     }//GEN-LAST:event_btnEnviarActionPerformed

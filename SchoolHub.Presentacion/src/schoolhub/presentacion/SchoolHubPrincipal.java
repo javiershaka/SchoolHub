@@ -26,6 +26,7 @@ import static schoolhub.presentacion.SchoolHubTarea.lblHora;
 import static schoolhub.presentacion.SchoolHubTarea.lblNombreTarea;
 import static schoolhub.presentacion.SchoolHubTarea.txaDescripcion;
 
+
 /**
  *
  * @author Cristian
@@ -36,6 +37,12 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
  
  boolean panel1 = true;
  boolean panel2 = false;
+ static boolean tarea1 = false;
+ static boolean tarea2 = false;
+ static boolean tarea3 = false;
+ static boolean tarea4 = false;
+ 
+
  
  
     public SchoolHubPrincipal() {
@@ -410,7 +417,11 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_lblNombreUsuarioMouseClicked
 
     private void lblTarea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea1MouseClicked
-      lblNombreTarea.setText(Tarea1);
+        tarea1 = true;
+        tarea2 = false;
+        tarea3 = false;
+        tarea4 = false;
+        lblNombreTarea.setText(Tarea1);
        txaDescripcion.setText(Descripcion1);
        lblHora.setText(Fecha1);
                 SHT.setVisible(true);
@@ -418,6 +429,10 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
     private void lblTarea2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea2MouseClicked
       lblNombreTarea.setText(Tarea2);
+      tarea1 = false;
+        tarea2 = true;
+        tarea3 = false;
+        tarea4 = false;
        txaDescripcion.setText(Descripcion2);
        lblHora.setText(Fecha2);
        SHT.setVisible(true);
@@ -425,6 +440,10 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
     private void lblTarea3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea3MouseClicked
        lblNombreTarea.setText(Tarea3);
+       tarea1 = false;
+        tarea2 = false;
+        tarea3 = true;
+        tarea4 = false;
        txaDescripcion.setText(Descripcion3);
        lblHora.setText(Fecha3);
        SHT.setVisible(true);
@@ -432,6 +451,10 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
     private void lblTarea4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea4MouseClicked
         lblNombreTarea.setText(Tarea4);
+        tarea1 = false;
+        tarea2 = false;
+        tarea3 = false;
+        tarea4 = true;
        txaDescripcion.setText(Descripcion4);
        lblHora.setText(Fecha4);
        SHT.setVisible(true);
