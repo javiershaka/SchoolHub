@@ -66,10 +66,9 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblTarea4 = new javax.swing.JLabel();
         lblFecha4 = new javax.swing.JLabel();
         lblFondo1 = new javax.swing.JLabel();
-        lblFondo2 = new javax.swing.JLabel();
+        lblFondo20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(867, 444));
         setMinimumSize(new java.awt.Dimension(867, 444));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -100,7 +99,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblComentarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/amplified-speaker.png"))); // NOI18N
         lblComentarios.setText("Comentarios");
         getContentPane().add(lblComentarios);
-        lblComentarios.setBounds(10, 200, 203, 64);
+        lblComentarios.setBounds(10, 200, 245, 64);
 
         lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/cross.png"))); // NOI18N
@@ -289,10 +288,10 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         getContentPane().add(lblFondo1);
         lblFondo1.setBounds(0, 0, 290, 450);
 
-        lblFondo2.setBackground(new java.awt.Color(0, 153, 0));
-        lblFondo2.setOpaque(true);
-        getContentPane().add(lblFondo2);
-        lblFondo2.setBounds(290, 0, 580, 450);
+        lblFondo20.setBackground(new java.awt.Color(0, 153, 0));
+        lblFondo20.setOpaque(true);
+        getContentPane().add(lblFondo20);
+        lblFondo20.setBounds(290, 0, 580, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -404,7 +403,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblFecha3;
     private javax.swing.JLabel lblFecha4;
     private javax.swing.JLabel lblFondo1;
-    private javax.swing.JLabel lblFondo2;
+    public static javax.swing.JLabel lblFondo20;
     private javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JLabel lblTarea;
     private javax.swing.JLabel lblTarea1;
@@ -412,7 +411,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblTarea3;
     private javax.swing.JLabel lblTarea4;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JPanel pnlConfiguracion;
-    private javax.swing.JPanel pnlTareas;
+    public static javax.swing.JPanel pnlConfiguracion;
+    public static javax.swing.JPanel pnlTareas;
     // End of variables declaration//GEN-END:variables
 }

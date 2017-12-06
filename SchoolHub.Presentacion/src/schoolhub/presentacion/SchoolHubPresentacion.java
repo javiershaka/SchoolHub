@@ -6,15 +6,14 @@
 package schoolhub.presentacion;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
-import mx.itson.SchoolHub.entidades.Usuario;
 import mx.itson.SchoolHub.entidades.UsuariosRegistrados;
+import static schoolhub.presentacion.SchoolHubPrincipal.lblFondo20;
+import static schoolhub.presentacion.SchoolHubPrincipal.pnlConfiguracion;
+import static schoolhub.presentacion.SchoolHubPrincipal.pnlTareas;
 
 
 /**
@@ -29,6 +28,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
     int xMouse2;
    int yMouse;
    int yMouse2;
+   String pass;
     /**
      * Creates new form SchoolHubPresentacion
      */
@@ -224,16 +224,24 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         if (mat.find()) {
             boolean CorreoExistente=false;
             for (int i = 0; i < UsuariosRegistrados.UsuariosRegistrados.size(); i++) {
-                if(UsuariosRegistrados.UsuariosRegistrados.get(i).getCorreo().toString() == txtUsuario.getText()){
+                if(UsuariosRegistrados.UsuariosRegistrados.get(i).getCorreo().equals(txtUsuario.getText())){
                     CorreoExistente = true;
-                    if(UsuariosRegistrados.UsuariosRegistrados.get(i).getContraseñaUsuario()==pdfContraseña.getText()){
+//                    for (int j = 0; j <= pdfContraseña.getPassword().length; j++) {
+//                        pass= pass+pdfContraseña.;
+//                    }
+                    if(UsuariosRegistrados.UsuariosRegistrados.get(i).getContraseñaUsuario().equals(pdfContraseña.getText())){
                         this.setVisible(false);
                         SHP.setVisible(true);
-                        SHP.InicioSesion(i);
+                    //    SHP.InicioSesion(i);
                         lblNombre.setText("Usuario");
                         lblNombre.setForeground(Color.white);
                         lblPassword.setText("Contraseña");
                         lblPassword.setForeground(Color.white);
+                        if (UsuariosRegistrados.UsuariosRegistrados.get(i).getTipoUsuario().toString().equals("DOCENTE")){
+                          lblFondo20.setBackground(Color.blue);
+                          pnlTareas.setBackground(Color.blue);
+                          pnlConfiguracion.setBackground(Color.blue);        
+                        }
                     }else{
                         pdfContraseña.setText("");
                         JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
