@@ -5,16 +5,27 @@
  */
 package schoolhub.presentacion;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-import mx.itson.SchoolHub.entidades.UsuariosRegistrados;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblFondo20;
+import mx.itson.SchoolHub.entidades.Curso;
+import mx.itson.SchoolHub.entidades.Usuario;
+import mx.itson.SchoolHub.enumeradores.TipoUsuario;
+import static schoolhub.presentacion.SchoolHubPrincipal.lbltipoUsuario;
+import static schoolhub.presentacion.SchoolHubRegistro.curso;
+import static schoolhub.presentacion.SchoolHubPrincipal.btnagregarAsig;
 import static schoolhub.presentacion.SchoolHubPrincipal.pnlConfiguracion;
 import static schoolhub.presentacion.SchoolHubPrincipal.pnlTareas;
-
 
 /**
  *
@@ -26,9 +37,9 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
     SchoolHubPrincipal SHP = new SchoolHubPrincipal();
     int xMouse;
     int xMouse2;
-   int yMouse;
-   int yMouse2;
-   String pass;
+    int yMouse;
+    int yMouse2;
+
     /**
      * Creates new form SchoolHubPresentacion
      */
@@ -53,7 +64,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblMaestro = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        pdfContraseña = new javax.swing.JPasswordField();
+        txtContraseña = new javax.swing.JPasswordField();
         lblPassword = new javax.swing.JLabel();
         lblEslogan = new javax.swing.JLabel();
         lblLogin = new javax.swing.JLabel();
@@ -97,14 +108,14 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblNombre.setBounds(480, 210, 120, 20);
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(560, 240, 210, 30);
-        getContentPane().add(pdfContraseña);
-        pdfContraseña.setBounds(560, 310, 210, 30);
+        getContentPane().add(txtContraseña);
+        txtContraseña.setBounds(560, 310, 210, 30);
 
         lblPassword.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Contraseña :");
         getContentPane().add(lblPassword);
-        lblPassword.setBounds(480, 280, 140, 19);
+        lblPassword.setBounds(480, 280, 140, 24);
 
         lblEslogan.setFont(new java.awt.Font("Earth Orbiter", 2, 24)); // NOI18N
         lblEslogan.setForeground(new java.awt.Color(255, 255, 255));
@@ -169,109 +180,78 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblSigninMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSigninMouseClicked
-       SHR.setVisible(true);
-       this.setVisible(false);
-       
+        SHR.setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_lblSigninMouseClicked
 
     private void lblFondo1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MouseDragged
-    int x = evt.getXOnScreen();
-    int y = evt.getYOnScreen(); 
-    this.setLocation(x - xMouse, y - yMouse);
-
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
 
 
     }//GEN-LAST:event_lblFondo1MouseDragged
 
     private void lblFondo2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MousePressed
-  xMouse = evt.getX();
-  yMouse = evt.getY();       
+        xMouse = evt.getX();
+        yMouse = evt.getY();
     }//GEN-LAST:event_lblFondo2MousePressed
 
     private void lblFondo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MousePressed
-       xMouse = evt.getX();
-       yMouse = evt.getY();
+        xMouse = evt.getX();
+        yMouse = evt.getY();
     }//GEN-LAST:event_lblFondo1MousePressed
 
     private void lblFondo2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MouseDragged
 
-    int x = evt.getXOnScreen();
-    int y = evt.getYOnScreen(); 
-    this.setLocation(x - xMouse, y - yMouse);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
 
     }//GEN-LAST:event_lblFondo2MouseDragged
 
     private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
-    String email = txtUsuario.getText();
-    Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-    Matcher mat = pat.matcher(email);
-    if (txtUsuario.getText().isEmpty()) {
+        try {
+            File archivo = new File("Usuarios.txt");
+            boolean ventana = false;
 
-        lblNombre.setText("*Usuario");
-        lblNombre.setForeground(Color.red);
-        String Psw  = "" + Arrays.toString(pdfContraseña.getPassword());
-        if (Psw.isEmpty()) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            if (archivo.exists()) {
+                BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
+                curso = gson.fromJson(rb, Curso.class);
+                char[] pass = txtContraseña.getPassword();
+                String passString = new String(pass);
 
-            lblPassword.setText("*Contraseña");
-            lblPassword.setForeground(Color.red);
-               
+                for (int var = 0; var < curso.getUsuario().size(); var++) {
 
-            }
+                    if (txtUsuario.getText().equals(curso.getUsuario().get(var).getCorreo()) && passString.equals(curso.getUsuario().get(var).getContraseñaUsuario())) {
+                        SchoolHubPrincipal.lblNombreUsuario.setText(curso.getUsuario().get(var).getNombre());
+                        SchoolHubPrincipal.lbltipoUsuario.setText(curso.getUsuario().get(var).getTipoUsuario().toString());
+                        if (curso.getUsuario().get(var).getTipoUsuario().toString().equals("DOCENTE")) {
+                            btnagregarAsig.setVisible(true);
+                            
+                            SchoolHubPrincipal.lblFondo2.setBackground(Color.blue);
 
-        JOptionPane.showMessageDialog(null, "Favor de Revisar la informacion", "Error", JOptionPane.ERROR_MESSAGE);
- 
-        }else{
-        if (mat.find()) {
-            boolean CorreoExistente=false;
-            for (int i = 0; i < UsuariosRegistrados.UsuariosRegistrados.size(); i++) {
-                if(UsuariosRegistrados.UsuariosRegistrados.get(i).getCorreo().equals(txtUsuario.getText())){
-                    CorreoExistente = true;
-//                    for (int j = 0; j <= pdfContraseña.getPassword().length; j++) {
-//                        pass= pass+pdfContraseña.;
-//                    }
-                    if(UsuariosRegistrados.UsuariosRegistrados.get(i).getContraseñaUsuario().equals(pdfContraseña.getText())){
-                        this.setVisible(false);
-                        SHP.setVisible(true);
-                    //    SHP.InicioSesion(i);
-                        lblNombre.setText("Usuario");
-                        lblNombre.setForeground(Color.white);
-                        lblPassword.setText("Contraseña");
-                        lblPassword.setForeground(Color.white);
-                        if (UsuariosRegistrados.UsuariosRegistrados.get(i).getTipoUsuario().toString().equals("DOCENTE")){
-                          lblFondo20.setBackground(Color.blue);
-                          pnlTareas.setBackground(Color.blue);
-                          pnlConfiguracion.setBackground(Color.blue);        
+                            pnlTareas.setBackground(Color.blue);
+                            pnlConfiguracion.setBackground(Color.blue);
                         }
-                    }else{
-                        pdfContraseña.setText("");
-                        JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+
+                        SHP.setVisible(true);
+                        this.setVisible(false);
+                        ventana = true;
+                        break;
                     }
                 }
-                    
-            }
-            if(CorreoExistente==false){
-                JOptionPane.showMessageDialog(null, "Correo sin registrar", "Error", JOptionPane.ERROR_MESSAGE);
-                pdfContraseña.setText("");
-                txtUsuario.setText("");
-            }
-        
-    
-            /*
-            this.setVisible(false);
-            SHP.setVisible(true);
-            lblNombre.setText("Usuario");
-            lblNombre.setForeground(Color.white);
-            lblPassword.setText("Contraseña");
-            lblPassword.setForeground(Color.white);*/
-        }else{
-            JOptionPane.showMessageDialog(null, "ingrese Correo valido", "Error", JOptionPane.ERROR_MESSAGE);
-            lblNombre.setText("*Usuario");
-            lblNombre.setForeground(Color.red);
-            pdfContraseña.setText("");
-            txtUsuario.setText("");
-        }
-    }
+                if (ventana == false) {
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+                }
 
+            } else {
+                JOptionPane.showMessageDialog(null, "NO hay usuarios registrados", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (IOException ex) {
+        }
     }//GEN-LAST:event_lblLoginMouseClicked
 
     /**
@@ -322,7 +302,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSignin;
-    private javax.swing.JPasswordField pdfContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

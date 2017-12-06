@@ -98,8 +98,8 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
-            <StringItem index="0" value="Docente"/>
-            <StringItem index="1" value="Alumno"/>
+            <StringItem index="0" value="DOCENTE"/>
+            <StringItem index="1" value="ALUMNO"/>
           </StringArray>
         </Property>
       </Properties>
@@ -135,7 +135,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="psfContrase&#xf1;a">
+    <Component class="javax.swing.JPasswordField" name="txtContrase&#xf1;a">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="158" y="287" width="250" height="30"/>

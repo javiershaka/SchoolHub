@@ -5,6 +5,24 @@
  */
 package schoolhub.presentacion;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import mx.itson.SchoolHub.entidades.Asignacion;
+import mx.itson.SchoolHub.entidades.Curso;
+import mx.itson.SchoolHub.entidades.Usuario;
+import mx.itson.SchoolHub.enumeradores.TiempoEngrega;
+import mx.itson.SchoolHub.enumeradores.TipoAsignacion;
+import mx.itson.SchoolHub.enumeradores.TipoUsuario;
+import static schoolhub.presentacion.SchoolHubRegistro.curso;
+
 /**
  *
  * @author Cristian
@@ -27,7 +45,8 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        txtnombreAsig = new javax.swing.JTextField();
         lblTipo = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         lblNombreTarea = new javax.swing.JLabel();
@@ -38,31 +57,30 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         cmdMes = new javax.swing.JComboBox<>();
         cmbAño = new javax.swing.JComboBox<>();
         lblEntrega = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rbsi = new javax.swing.JRadioButton();
+        rbno = new javax.swing.JRadioButton();
         btnAceptar = new javax.swing.JButton();
         lblHora = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(411, 376));
         setMinimumSize(new java.awt.Dimension(411, 376));
         setUndecorated(true);
         getContentPane().setLayout(null);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(220, 30, 170, 20);
+        getContentPane().add(txtnombreAsig);
+        txtnombreAsig.setBounds(220, 30, 170, 20);
 
         lblTipo.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("TIPO DE ASIGNACION :");
         getContentPane().add(lblTipo);
-        lblTipo.setBounds(30, 70, 180, 15);
+        lblTipo.setBounds(30, 70, 180, 19);
 
         lblDescripcion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripción :");
         getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(30, 160, 120, 15);
+        lblDescripcion.setBounds(30, 160, 120, 19);
 
         lblNombreTarea.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblNombreTarea.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,43 +95,51 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(30, 180, 370, 150);
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asignacion", "Tarea", "Actividad" }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ASIGNACION", "TAREA", "ACTIVIDAD" }));
         getContentPane().add(cmbTipo);
         cmbTipo.setBounds(220, 70, 80, 20);
 
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         getContentPane().add(cmbDia);
-        cmbDia.setBounds(140, 100, 40, 20);
+        cmbDia.setBounds(130, 100, 50, 20);
 
         cmdMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         getContentPane().add(cmdMes);
-        cmdMes.setBounds(190, 100, 56, 20);
+        cmdMes.setBounds(210, 100, 70, 20);
 
         cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
         getContentPane().add(cmbAño);
-        cmbAño.setBounds(260, 100, 56, 20);
+        cmbAño.setBounds(320, 100, 56, 20);
 
         lblEntrega.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblEntrega.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrega.setText("Entrega después de fecha limite :");
         getContentPane().add(lblEntrega);
-        lblEntrega.setBounds(30, 130, 280, 15);
+        lblEntrega.setBounds(30, 130, 280, 19);
 
-        jRadioButton1.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Si");
-        jRadioButton1.setOpaque(false);
-        getContentPane().add(jRadioButton1);
-        jRadioButton1.setBounds(310, 130, 40, 20);
+        buttonGroup1.add(rbsi);
+        rbsi.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
+        rbsi.setForeground(new java.awt.Color(255, 255, 255));
+        rbsi.setSelected(true);
+        rbsi.setText("Si");
+        rbsi.setOpaque(false);
+        getContentPane().add(rbsi);
+        rbsi.setBounds(310, 130, 40, 20);
 
-        jRadioButton2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("No");
-        jRadioButton2.setOpaque(false);
-        getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(350, 130, 50, 20);
+        buttonGroup1.add(rbno);
+        rbno.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
+        rbno.setForeground(new java.awt.Color(255, 255, 255));
+        rbno.setText("No");
+        rbno.setOpaque(false);
+        getContentPane().add(rbno);
+        rbno.setBounds(350, 130, 50, 20);
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAceptar);
         btnAceptar.setBounds(180, 340, 71, 23);
 
@@ -121,7 +147,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblHora.setForeground(new java.awt.Color(255, 255, 255));
         lblHora.setText("Fecha Limite:");
         getContentPane().add(lblHora);
-        lblHora.setBounds(30, 100, 120, 15);
+        lblHora.setBounds(30, 100, 120, 19);
 
         lblFondo.setBackground(new java.awt.Color(0, 102, 153));
         lblFondo.setOpaque(true);
@@ -130,6 +156,61 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+        
+         try {
+             boolean bloqueo = false;
+            SchoolHubPresentacion SHP = new SchoolHubPresentacion();
+            boolean repe = false;
+            File archivo = new File("Usuarios.txt");
+            BufferedWriter bw;
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            if (archivo.exists()) {
+               
+                    
+             
+
+                    BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
+                    curso = gson.fromJson(rb, Curso.class);
+
+                    
+                        if(rbsi.isSelected()){
+                            bloqueo= true;
+                        }
+                        curso.getAsignacion().add(new Asignacion(txtnombreAsig.getText(), TipoAsignacion.valueOf(cmbTipo.getSelectedItem().toString()), txaDescripcion.getText(), new Date(), new Date(), 0, TiempoEngrega.NoEntregado, bloqueo));
+                        String textoUsuario = gson.toJson(curso);
+
+                        bw = new BufferedWriter(new FileWriter(archivo));
+                        bw.write("" + textoUsuario);
+
+                        bw.close();
+                        
+                        this.setVisible(false);
+
+                    
+                    
+
+               
+
+            }
+            else{
+                curso = new Curso();
+                //curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), "asd", 0));
+                String textoUsuario = gson.toJson(curso);
+                bw = new BufferedWriter(new FileWriter(archivo));
+                        bw.write("" + textoUsuario);
+
+                        bw.close();
+                        SHP.setVisible(true);
+                        this.setVisible(false);
+            }
+        } catch (IOException ex) {
+        }
+
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,20 +249,21 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbAño;
     private javax.swing.JComboBox<String> cmbDia;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JComboBox<String> cmdMes;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblEntrega;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblNombreTarea;
     private javax.swing.JLabel lblTipo;
-    private javax.swing.JTextArea txaDescripcion;
+    public static javax.swing.JRadioButton rbno;
+    public static javax.swing.JRadioButton rbsi;
+    public static javax.swing.JTextArea txaDescripcion;
+    public static javax.swing.JTextField txtnombreAsig;
     // End of variables declaration//GEN-END:variables
 }

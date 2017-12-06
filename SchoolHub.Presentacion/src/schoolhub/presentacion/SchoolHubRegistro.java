@@ -27,6 +27,7 @@ import mx.itson.SchoolHub.entidades.Curso;
  * @author Cristian
  */
 public class SchoolHubRegistro extends javax.swing.JFrame {
+    
 int xMouse;
 int yMouse;
     
@@ -87,7 +88,7 @@ static Curso curso;
         getContentPane().add(jLabel3);
         jLabel3.setBounds(160, 330, 160, 19);
 
-        cmbCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Docente", "Alumno" }));
+        cmbCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DOCENTE", "ALUMNO" }));
         getContentPane().add(cmbCuenta);
         cmbCuenta.setBounds(300, 330, 110, 20);
         getContentPane().add(jLabel4);
@@ -147,13 +148,13 @@ static Curso curso;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
+            SchoolHubPresentacion SHP = new SchoolHubPresentacion();
             boolean repe = false;
             File archivo = new File("Usuarios.txt");
             BufferedWriter bw;
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
             if (archivo.exists()) {
-                curso = new Curso();
                 char[] pass = txtContraseña.getPassword();
                 String passString = new String(pass);
 
@@ -169,13 +170,15 @@ static Curso curso;
 
                     }
                     if (repe == false) {
-                        curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.ALUMNO, txtCorreo.getText(), passString, 0));
+                        curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), passString, 0));
                         String textoUsuario = gson.toJson(curso);
 
                         bw = new BufferedWriter(new FileWriter(archivo));
                         bw.write("" + textoUsuario);
 
                         bw.close();
+                        
+                        SHP.setVisible(true);
                         this.setVisible(false);
 
                     
@@ -188,12 +191,13 @@ static Curso curso;
             }
             else{
                 curso = new Curso();
-                curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.ALUMNO, txtCorreo.getText(), "asd", 0));
+                curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), "asd", 0));
                 String textoUsuario = gson.toJson(curso);
                 bw = new BufferedWriter(new FileWriter(archivo));
                         bw.write("" + textoUsuario);
 
                         bw.close();
+                        SHP.setVisible(true);
                         this.setVisible(false);
             }
         } catch (IOException ex) {
