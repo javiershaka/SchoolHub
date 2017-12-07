@@ -59,10 +59,12 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTarea = new javax.swing.JLabel();
-        lblComentarios = new javax.swing.JLabel();
+        lblCrearAsignacion = new javax.swing.JLabel();
         lblCerrarSesion = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         lblNombreUsuario = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ltTareas = new javax.swing.JList<>();
         lbltipoUsuario = new javax.swing.JLabel();
         pnlConfiguracion = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -73,6 +75,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         pnlTareas = new javax.swing.JPanel();
         lblTarea1 = new javax.swing.JLabel();
         lblFecha1 = new javax.swing.JLabel();
@@ -82,16 +85,15 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblFecha3 = new javax.swing.JLabel();
         lblTarea4 = new javax.swing.JLabel();
         lblFecha4 = new javax.swing.JLabel();
-        lblFondo1 = new javax.swing.JLabel();
         lblFondo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(867, 444));
+        setMinimumSize(new java.awt.Dimension(914, 444));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         lblTarea.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
-        lblTarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/pencil.png"))); // NOI18N
+        lblTarea.setForeground(new java.awt.Color(255, 255, 255));
         lblTarea.setText("Tareas");
         lblTarea.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -99,21 +101,21 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblTarea);
-        lblTarea.setBounds(10, 120, 170, 70);
+        lblTarea.setBounds(90, 160, 110, 30);
 
-        lblComentarios.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
-        lblComentarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/amplified-speaker.png"))); // NOI18N
-        lblComentarios.setText("CRear Asignacion");
-        lblComentarios.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblCrearAsignacion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
+        lblCrearAsignacion.setForeground(new java.awt.Color(255, 255, 255));
+        lblCrearAsignacion.setText("CRear Asignacion");
+        lblCrearAsignacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblComentariosMouseClicked(evt);
+                lblCrearAsignacionMouseClicked(evt);
             }
         });
-        getContentPane().add(lblComentarios);
-        lblComentarios.setBounds(0, 240, 307, 64);
+        getContentPane().add(lblCrearAsignacion);
+        lblCrearAsignacion.setBounds(30, 130, 250, 25);
 
-        lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
-        lblCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/cross.png"))); // NOI18N
+        lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
+        lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         lblCerrarSesion.setText("Cerrar Sesión");
         lblCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -121,13 +123,14 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblCerrarSesion);
-        lblCerrarSesion.setBounds(10, 360, 270, 64);
+        lblCerrarSesion.setBounds(750, 10, 150, 20);
 
-        lblUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/user (2).png"))); // NOI18N
+        lblUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/SchoolHub/imagenes/user (6).png"))); // NOI18N
         getContentPane().add(lblUsuario);
-        lblUsuario.setBounds(120, 10, 64, 64);
+        lblUsuario.setBounds(410, 10, 64, 64);
 
         lblNombreUsuario.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
+        lblNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreUsuario.setText("nombre USUARIO");
         lblNombreUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -135,14 +138,20 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblNombreUsuario);
-        lblNombreUsuario.setBounds(30, 80, 240, 20);
+        lblNombreUsuario.setBounds(320, 80, 240, 20);
+
+        ltTareas.setBackground(new java.awt.Color(34, 35, 38));
+        jScrollPane1.setViewportView(ltTareas);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(60, 200, 170, 190);
 
         lbltipoUsuario.setForeground(new java.awt.Color(255, 0, 0));
         lbltipoUsuario.setText("Tipo de usuario");
         getContentPane().add(lbltipoUsuario);
-        lbltipoUsuario.setBounds(10, 30, 80, 14);
+        lbltipoUsuario.setBounds(30, 20, 80, 14);
 
-        pnlConfiguracion.setBackground(new java.awt.Color(0, 153, 0));
+        pnlConfiguracion.setBackground(new java.awt.Color(34, 35, 38));
 
         jLabel5.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,31 +175,41 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
         jButton3.setText("Aceptar");
 
+        jLabel1.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CONFIGURACION");
+
         javax.swing.GroupLayout pnlConfiguracionLayout = new javax.swing.GroupLayout(pnlConfiguracion);
         pnlConfiguracion.setLayout(pnlConfiguracionLayout);
         pnlConfiguracionLayout.setHorizontalGroup(
             pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConfiguracionLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConfiguracionLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(36, 36, 36))
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jPasswordField1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlConfiguracionLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConfiguracionLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                                .addComponent(jButton3)
+                                .addGap(36, 36, 36))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2)
+                            .addComponent(jPasswordField1)))
+                    .addGroup(pnlConfiguracionLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlConfiguracionLayout.setVerticalGroup(
             pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConfiguracionLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,9 +229,9 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         );
 
         getContentPane().add(pnlConfiguracion);
-        pnlConfiguracion.setBounds(330, 10, 20, 30);
+        pnlConfiguracion.setBounds(370, 150, 420, 250);
 
-        pnlTareas.setBackground(new java.awt.Color(0, 153, 0));
+        pnlTareas.setBackground(new java.awt.Color(34, 35, 38));
         pnlTareas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblTarea1.setFont(new java.awt.Font("Terminator Two", 0, 18)); // NOI18N
@@ -278,7 +297,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
                             .addComponent(lblFecha4)
                             .addComponent(lblTarea4))
                         .addComponent(lblTarea3)))
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         pnlTareasLayout.setVerticalGroup(
             pnlTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,45 +318,29 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
                 .addComponent(lblTarea4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFecha4)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlTareas);
-        pnlTareas.setBounds(380, 60, 410, 290);
+        pnlTareas.setBounds(340, 400, 350, 20);
 
-        lblFondo1.setBackground(new java.awt.Color(255, 255, 255));
-        lblFondo1.setOpaque(true);
-        lblFondo1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                lblFondo1MouseDragged(evt);
-            }
-        });
-        lblFondo1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblFondo1MousePressed(evt);
-            }
-        });
-        getContentPane().add(lblFondo1);
-        lblFondo1.setBounds(0, 0, 320, 450);
-
-        lblFondo2.setBackground(new java.awt.Color(0, 153, 0));
+        lblFondo2.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo2.setOpaque(true);
+        lblFondo2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                lblFondo2MouseDragged(evt);
+            }
+        });
+        lblFondo2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblFondo2MousePressed(evt);
+            }
+        });
         getContentPane().add(lblFondo2);
-        lblFondo2.setBounds(290, 0, 580, 450);
+        lblFondo2.setBounds(-10, 0, 930, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblFondo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MousePressed
-    xMouse = evt.getX();
-    yMouse = evt.getY(); 
-    }//GEN-LAST:event_lblFondo1MousePressed
-
-    private void lblFondo1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MouseDragged
-    int x = evt.getXOnScreen();
-    int y = evt.getYOnScreen(); 
-    this.setLocation(x - xMouse, y - yMouse);
-    }//GEN-LAST:event_lblFondo1MouseDragged
 
     private void lblCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseClicked
 //        SchoolHubPresentacion SHP = new SchoolHubPresentacion();
@@ -409,10 +412,25 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
        SHT.setVisible(true);
     }//GEN-LAST:event_lblTarea4MouseClicked
 
-    private void lblComentariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComentariosMouseClicked
+    private void lblCrearAsignacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearAsignacionMouseClicked
    SchoolHubCrearTarea SHCT = new SchoolHubCrearTarea();
             SHCT.setVisible(true);
-    }//GEN-LAST:event_lblComentariosMouseClicked
+    }//GEN-LAST:event_lblCrearAsignacionMouseClicked
+
+    private void lblFondo2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MousePressed
+       xMouse = evt.getX();
+    yMouse = evt.getY(); 
+        
+        
+        
+        
+    }//GEN-LAST:event_lblFondo2MousePressed
+
+    private void lblFondo2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MouseDragged
+int x = evt.getXOnScreen();
+    int y = evt.getYOnScreen(); 
+    this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_lblFondo2MouseDragged
 
     /**
      * @param args the command line arguments
@@ -452,19 +470,20 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCerrarSesion;
-    public static javax.swing.JLabel lblComentarios;
+    public static javax.swing.JLabel lblCrearAsignacion;
     public static javax.swing.JLabel lblFecha1;
     public static javax.swing.JLabel lblFecha2;
     public static javax.swing.JLabel lblFecha3;
     public static javax.swing.JLabel lblFecha4;
-    private javax.swing.JLabel lblFondo1;
     public static javax.swing.JLabel lblFondo2;
     public static javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JLabel lblTarea;
@@ -474,6 +493,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     public static javax.swing.JLabel lblTarea4;
     private javax.swing.JLabel lblUsuario;
     public static javax.swing.JLabel lbltipoUsuario;
+    private javax.swing.JList<String> ltTareas;
     public static javax.swing.JPanel pnlConfiguracion;
     public static javax.swing.JPanel pnlTareas;
     // End of variables declaration//GEN-END:variables

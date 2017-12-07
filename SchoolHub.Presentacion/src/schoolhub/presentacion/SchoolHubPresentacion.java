@@ -15,9 +15,9 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import mx.itson.SchoolHub.entidades.Curso;
 import static schoolhub.presentacion.SchoolHubRegistro.curso;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblComentarios;
 import static schoolhub.presentacion.SchoolHubPrincipal.pnlConfiguracion;
 import static schoolhub.presentacion.SchoolHubPrincipal.pnlTareas;
+import static schoolhub.presentacion.SchoolHubPrincipal.lblCrearAsignacion;
 
 /**
  *
@@ -63,7 +63,6 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblEslogan = new javax.swing.JLabel();
         lblLogin = new javax.swing.JLabel();
         lblSignin = new javax.swing.JLabel();
-        lblFondo2 = new javax.swing.JLabel();
         lblFondo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,10 +71,10 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         lblLogo1.setFont(new java.awt.Font("Cracked Code", 0, 48)); // NOI18N
-        lblLogo1.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogo1.setForeground(new java.awt.Color(240, 240, 240));
         lblLogo1.setText("SCHOOL");
         getContentPane().add(lblLogo1);
-        lblLogo1.setBounds(30, 20, 400, 60);
+        lblLogo1.setBounds(30, 20, 270, 60);
 
         lblLogo2.setFont(new java.awt.Font("Cracked Code", 0, 48)); // NOI18N
         lblLogo2.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,9 +96,9 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
 
         lblNombre.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombre.setText("Usuario :");
+        lblNombre.setText("Usuario ");
         getContentPane().add(lblNombre);
-        lblNombre.setBounds(480, 210, 120, 20);
+        lblNombre.setBounds(620, 210, 90, 20);
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(560, 240, 210, 30);
         getContentPane().add(txtContraseña);
@@ -107,9 +106,9 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
 
         lblPassword.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword.setText("Contraseña :");
+        lblPassword.setText("Contraseña");
         getContentPane().add(lblPassword);
-        lblPassword.setBounds(480, 280, 140, 24);
+        lblPassword.setBounds(600, 280, 130, 19);
 
         lblEslogan.setFont(new java.awt.Font("Earth Orbiter", 2, 24)); // NOI18N
         lblEslogan.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,22 +138,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         getContentPane().add(lblSignin);
         lblSignin.setBounds(670, 380, 140, 20);
 
-        lblFondo2.setBackground(new java.awt.Color(0, 153, 0));
-        lblFondo2.setOpaque(true);
-        lblFondo2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                lblFondo2MouseDragged(evt);
-            }
-        });
-        lblFondo2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblFondo2MousePressed(evt);
-            }
-        });
-        getContentPane().add(lblFondo2);
-        lblFondo2.setBounds(470, 0, 360, 420);
-
-        lblFondo1.setBackground(new java.awt.Color(0, 102, 204));
+        lblFondo1.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo1.setForeground(new java.awt.Color(0, 51, 153));
         lblFondo1.setOpaque(true);
         lblFondo1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -168,7 +152,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblFondo1);
-        lblFondo1.setBounds(0, 0, 470, 420);
+        lblFondo1.setBounds(0, 0, 820, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,23 +171,10 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
 
     }//GEN-LAST:event_lblFondo1MouseDragged
 
-    private void lblFondo2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
-    }//GEN-LAST:event_lblFondo2MousePressed
-
     private void lblFondo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MousePressed
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_lblFondo1MousePressed
-
-    private void lblFondo2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MouseDragged
-
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
-
-    }//GEN-LAST:event_lblFondo2MouseDragged
 
     private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
         try {
@@ -225,19 +196,12 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
                         if (curso.getUsuario().get(var).getTipoUsuario().toString().equals("DOCENTE")) {
                           
                             
-                            SchoolHubPrincipal.lblFondo2.setBackground(Color.blue);
-
-                            pnlTareas.setBackground(Color.blue);
-                            pnlConfiguracion.setBackground(Color.blue);
-                            lblComentarios.setVisible(true);
-                          
+                      
+                         lblCrearAsignacion.setVisible(true); 
                         }else{
+                        lblCrearAsignacion.setVisible(false);
                             
-                            
-                            SchoolHubPrincipal.lblFondo2.setBackground(Color.green);
-                            lblComentarios.setVisible(false);
-                            pnlTareas.setBackground(Color.green);
-                            pnlConfiguracion.setBackground(Color.green);
+              
                         }
 
                         SHP.setVisible(true);
@@ -296,7 +260,6 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlumno;
     private javax.swing.JLabel lblEslogan;
     private javax.swing.JLabel lblFondo1;
-    private javax.swing.JLabel lblFondo2;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblLogo1;
     private javax.swing.JLabel lblLogo2;

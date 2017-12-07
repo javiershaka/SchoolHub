@@ -64,6 +64,7 @@ JFileChooser seleccionar = new JFileChooser();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(595, 378));
         setMinimumSize(new java.awt.Dimension(595, 378));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -76,7 +77,7 @@ JFileChooser seleccionar = new JFileChooser();
         scpRespuesta.setBounds(30, 240, 420, 110);
 
         txaDescripcion.setEditable(false);
-        txaDescripcion.setBackground(new java.awt.Color(0, 102, 102));
+        txaDescripcion.setBackground(new java.awt.Color(34, 35, 38));
         txaDescripcion.setColumns(20);
         txaDescripcion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         txaDescripcion.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,14 +89,16 @@ JFileChooser seleccionar = new JFileChooser();
         scpDescripcion.setBounds(30, 70, 540, 150);
 
         lblNombreTarea.setFont(new java.awt.Font("Earth Orbiter", 2, 18)); // NOI18N
+        lblNombreTarea.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreTarea.setText("Lorem Ipsum");
         getContentPane().add(lblNombreTarea);
         lblNombreTarea.setBounds(40, 30, 310, 30);
 
         lblHora.setFont(new java.awt.Font("Earth Orbiter", 2, 18)); // NOI18N
-        lblHora.setText("99/99/9999");
+        lblHora.setForeground(new java.awt.Color(255, 255, 255));
+        lblHora.setText("99/99/9999 99:99 XX");
         getContentPane().add(lblHora);
-        lblHora.setBounds(420, 40, 130, 19);
+        lblHora.setBounds(350, 40, 220, 19);
 
         btnAgregar.setText("Adjuntar Archivo");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +118,7 @@ JFileChooser seleccionar = new JFileChooser();
         getContentPane().add(btnEnviar);
         btnEnviar.setBounds(460, 300, 120, 23);
 
-        lblFondo.setBackground(new java.awt.Color(0, 204, 0));
+        lblFondo.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo.setOpaque(true);
         lblFondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -139,7 +142,7 @@ JFileChooser seleccionar = new JFileChooser();
           if(archivo.canRead()){
               if(archivo.getName().endsWith("txt")|| archivo.getName().endsWith("pdf")|| archivo.getName().endsWith("docx")){
                   Path origenPath = FileSystems.getDefault().getPath(archivo.getAbsolutePath());
-        Path destinoPath = FileSystems.getDefault().getPath("C:\\Users\\josef\\Documents\\NetBeansProjects\\EjemploTXT\\xd\\"+ archivo.getName());
+              Path destinoPath = FileSystems.getDefault().getPath("C:\\Users\\Cristian\\Documents\\NetBeansProjects\\SchoolHub\\SchoolHub.Presentacion"+ archivo.getName());
                  try {
             Files.move(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {

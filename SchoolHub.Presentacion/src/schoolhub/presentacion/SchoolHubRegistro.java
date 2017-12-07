@@ -114,7 +114,7 @@ static Curso curso;
         getContentPane().add(jButton1);
         jButton1.setBounds(230, 370, 110, 23);
 
-        lblFondo.setBackground(new java.awt.Color(51, 51, 255));
+        lblFondo.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo.setMaximumSize(new java.awt.Dimension(557, 436));
         lblFondo.setMinimumSize(new java.awt.Dimension(557, 436));
         lblFondo.setOpaque(true);

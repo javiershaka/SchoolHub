@@ -84,11 +84,21 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         rbsi = new javax.swing.JRadioButton();
         rbno = new javax.swing.JRadioButton();
         btnAceptar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         lblHora2 = new javax.swing.JLabel();
+        rbnEntregoNoEntrego = new javax.swing.JRadioButton();
+        rbnEscala = new javax.swing.JRadioButton();
+        lblMaximo = new javax.swing.JTextField();
+        lblCalificacion = new javax.swing.JLabel();
+        lblHoraLimite = new javax.swing.JLabel();
+        cmbHora = new javax.swing.JComboBox<>();
+        cmbMinuto = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(411, 376));
+        setMaximumSize(new java.awt.Dimension(415, 539));
+        setMinimumSize(new java.awt.Dimension(415, 539));
         setUndecorated(true);
         getContentPane().setLayout(null);
         getContentPane().add(txtnombreAsig);
@@ -104,7 +114,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripción :");
         getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(30, 160, 120, 15);
+        lblDescripcion.setBounds(30, 310, 120, 15);
 
         lblNombreTarea2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblNombreTarea2.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,7 +127,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txaDescripcion2);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 180, 370, 150);
+        jScrollPane1.setBounds(30, 330, 370, 150);
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ASIGNACION", "TAREA", "ACTIVIDAD" }));
         getContentPane().add(cmbTipo);
@@ -125,21 +135,21 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
 
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         getContentPane().add(cmbDia);
-        cmbDia.setBounds(130, 100, 50, 20);
+        cmbDia.setBounds(140, 110, 50, 20);
 
         cmdMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         getContentPane().add(cmdMes);
-        cmdMes.setBounds(210, 100, 70, 20);
+        cmdMes.setBounds(210, 110, 70, 20);
 
         cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
         getContentPane().add(cmbAño);
-        cmbAño.setBounds(296, 100, 80, 20);
+        cmbAño.setBounds(300, 110, 80, 20);
 
         lblEntrega.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblEntrega.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrega.setText("Entrega después de fecha limite :");
         getContentPane().add(lblEntrega);
-        lblEntrega.setBounds(30, 130, 280, 15);
+        lblEntrega.setBounds(30, 190, 280, 15);
 
         buttonGroup1.add(rbsi);
         rbsi.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
@@ -148,7 +158,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         rbsi.setText("Si");
         rbsi.setOpaque(false);
         getContentPane().add(rbsi);
-        rbsi.setBounds(310, 130, 40, 20);
+        rbsi.setBounds(310, 190, 40, 20);
 
         buttonGroup1.add(rbno);
         rbno.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
@@ -156,7 +166,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         rbno.setText("No");
         rbno.setOpaque(false);
         getContentPane().add(rbno);
-        rbno.setBounds(350, 130, 50, 20);
+        rbno.setBounds(350, 190, 50, 20);
 
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -165,15 +175,62 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(180, 340, 71, 23);
+        btnAceptar.setBounds(180, 490, 71, 23);
+
+        jLabel1.setBackground(new java.awt.Color(34, 35, 38));
+        jLabel1.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("TIPO DE CALIFICACION :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(120, 220, 200, 15);
 
         lblHora2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblHora2.setForeground(new java.awt.Color(255, 255, 255));
         lblHora2.setText("Fecha Limite:");
         getContentPane().add(lblHora2);
-        lblHora2.setBounds(30, 100, 120, 15);
+        lblHora2.setBounds(30, 110, 120, 15);
 
-        lblFondo.setBackground(new java.awt.Color(0, 102, 153));
+        rbnEntregoNoEntrego.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
+        rbnEntregoNoEntrego.setForeground(new java.awt.Color(255, 255, 255));
+        rbnEntregoNoEntrego.setText("Entrego/No Entrego");
+        rbnEntregoNoEntrego.setOpaque(false);
+        getContentPane().add(rbnEntregoNoEntrego);
+        rbnEntregoNoEntrego.setBounds(30, 250, 200, 23);
+
+        rbnEscala.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
+        rbnEscala.setForeground(new java.awt.Color(255, 255, 255));
+        rbnEscala.setText("Escala");
+        rbnEscala.setOpaque(false);
+        getContentPane().add(rbnEscala);
+        rbnEscala.setBounds(290, 250, 90, 23);
+        getContentPane().add(lblMaximo);
+        lblMaximo.setBounds(250, 280, 40, 20);
+
+        lblCalificacion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
+        lblCalificacion.setForeground(new java.awt.Color(255, 255, 255));
+        lblCalificacion.setText("Maxima :");
+        getContentPane().add(lblCalificacion);
+        lblCalificacion.setBounds(180, 280, 70, 15);
+
+        lblHoraLimite.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
+        lblHoraLimite.setForeground(new java.awt.Color(255, 255, 255));
+        lblHoraLimite.setText("HORA LIMITE :");
+        getContentPane().add(lblHoraLimite);
+        lblHoraLimite.setBounds(30, 150, 120, 20);
+
+        cmbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" }));
+        getContentPane().add(cmbHora);
+        cmbHora.setBounds(150, 150, 50, 20);
+
+        cmbMinuto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "56", "57", "58", "59" }));
+        getContentPane().add(cmbMinuto);
+        cmbMinuto.setBounds(210, 150, 50, 20);
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
+        getContentPane().add(jComboBox3);
+        jComboBox3.setBounds(270, 150, 50, 20);
+
+        lblFondo.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo.setOpaque(true);
         lblFondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -186,7 +243,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblFondo);
-        lblFondo.setBounds(-4, -5, 420, 380);
+        lblFondo.setBounds(-4, -5, 420, 550);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -333,15 +390,24 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbAño;
     private javax.swing.JComboBox<String> cmbDia;
+    private javax.swing.JComboBox<String> cmbHora;
+    private javax.swing.JComboBox<String> cmbMinuto;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JComboBox<String> cmdMes;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCalificacion;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblEntrega;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblHora2;
+    private javax.swing.JLabel lblHoraLimite;
+    private javax.swing.JTextField lblMaximo;
     private javax.swing.JLabel lblNombreTarea2;
     private javax.swing.JLabel lblTipo;
+    private javax.swing.JRadioButton rbnEntregoNoEntrego;
+    private javax.swing.JRadioButton rbnEscala;
     public static javax.swing.JRadioButton rbno;
     public static javax.swing.JRadioButton rbsi;
     public static javax.swing.JTextArea txaDescripcion2;
