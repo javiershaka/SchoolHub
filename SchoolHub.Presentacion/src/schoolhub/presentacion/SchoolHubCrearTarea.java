@@ -70,6 +70,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         txtnombreAsig = new javax.swing.JTextField();
         lblTipo = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
@@ -190,6 +191,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         getContentPane().add(lblHora2);
         lblHora2.setBounds(30, 110, 120, 15);
 
+        buttonGroup2.add(rbnEntregoNoEntrego);
         rbnEntregoNoEntrego.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         rbnEntregoNoEntrego.setForeground(new java.awt.Color(255, 255, 255));
         rbnEntregoNoEntrego.setText("Entrego/No Entrego");
@@ -197,6 +199,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         getContentPane().add(rbnEntregoNoEntrego);
         rbnEntregoNoEntrego.setBounds(30, 250, 200, 23);
 
+        buttonGroup2.add(rbnEscala);
         rbnEscala.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         rbnEscala.setForeground(new java.awt.Color(255, 255, 255));
         rbnEscala.setText("Escala");
@@ -204,7 +207,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         getContentPane().add(rbnEscala);
         rbnEscala.setBounds(290, 250, 90, 23);
         getContentPane().add(lblMaximo);
-        lblMaximo.setBounds(250, 280, 40, 20);
+        lblMaximo.setBounds(250, 280, 50, 20);
 
         lblCalificacion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblCalificacion.setForeground(new java.awt.Color(255, 255, 255));
@@ -388,6 +391,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cmbAño;
     private javax.swing.JComboBox<String> cmbDia;
     private javax.swing.JComboBox<String> cmbHora;

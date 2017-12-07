@@ -58,6 +58,7 @@ static Curso curso;
         txtContraseña = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,7 +113,16 @@ static Curso curso;
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(230, 370, 110, 23);
+        jButton1.setBounds(300, 370, 110, 23);
+
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(160, 370, 110, 23);
 
         lblFondo.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo.setMaximumSize(new java.awt.Dimension(557, 436));
@@ -204,6 +214,12 @@ static Curso curso;
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+               SchoolHubPresentacion SHP = new SchoolHubPresentacion();
+        SHP.setVisible(true);
+                        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -242,6 +258,7 @@ static Curso curso;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCuenta;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

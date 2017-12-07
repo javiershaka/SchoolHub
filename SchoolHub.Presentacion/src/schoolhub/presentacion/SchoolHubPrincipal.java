@@ -119,7 +119,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblCrearAsignacion);
-        lblCrearAsignacion.setBounds(30, 130, 250, 32);
+        lblCrearAsignacion.setBounds(30, 120, 250, 25);
 
         lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));

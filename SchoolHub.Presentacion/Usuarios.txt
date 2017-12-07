@@ -39,6 +39,16 @@
       "calificacion": 0.0,
       "engrega": "NoEntregado",
       "close": true
+    },
+    {
+      "nombre": "",
+      "asignacion": "ASIGNACION",
+      "comentario": "",
+      "fechainicio": "Dec 7, 2017 2:00:22 PM",
+      "fechafinal": "Dec 7, 2017 2:00:22 PM",
+      "calificacion": 0.0,
+      "engrega": "NoEntregado",
+      "close": false
     }
   ]
 }
