@@ -5,6 +5,9 @@
  */
 package schoolhub.presentacion;
 
+import java.awt.Color;
+import java.awt.Cursor;
+
 /**
  *
  * @author Cristian
@@ -40,7 +43,6 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(676, 402));
         setMinimumSize(new java.awt.Dimension(676, 402));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -49,13 +51,13 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre Alumno");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(260, 20, 170, 19);
+        jLabel2.setBounds(260, 20, 170, 24);
 
         jLabel1.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("AQUI VA EL NOMBRE DE LA ASIGNACION");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(150, 60, 400, 19);
+        jLabel1.setBounds(150, 60, 400, 24);
 
         getContentPane().add(cmbCalificacion);
         cmbCalificacion.setBounds(410, 320, 60, 20);
@@ -72,13 +74,18 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         lblCalificacion.setForeground(new java.awt.Color(255, 255, 255));
         lblCalificacion.setText("CALIFICACION");
         getContentPane().add(lblCalificacion);
-        lblCalificacion.setBounds(250, 320, 160, 19);
+        lblCalificacion.setBounds(250, 320, 160, 24);
 
         lblArchivoAdjunti.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblArchivoAdjunti.setForeground(new java.awt.Color(255, 255, 255));
         lblArchivoAdjunti.setText("ABRIR ARCHIVO ADJUNTO");
+        lblArchivoAdjunti.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lblArchivoAdjuntiMouseMoved(evt);
+            }
+        });
         getContentPane().add(lblArchivoAdjunti);
-        lblArchivoAdjunti.setBounds(230, 280, 260, 19);
+        lblArchivoAdjunti.setBounds(230, 280, 260, 24);
 
         btnAceptar.setText("Aceptar");
         getContentPane().add(btnAceptar);
@@ -89,6 +96,9 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         lblFondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 lblFondoMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lblFondoMouseMoved(evt);
             }
         });
         lblFondo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,6 +122,16 @@ xMouse = evt.getX();
     int y = evt.getYOnScreen(); 
     this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_lblFondoMouseDragged
+
+    private void lblArchivoAdjuntiMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblArchivoAdjuntiMouseMoved
+        lblArchivoAdjunti.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        lblArchivoAdjunti.setForeground(Color.BLUE);
+    }//GEN-LAST:event_lblArchivoAdjuntiMouseMoved
+
+    private void lblFondoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMouseMoved
+        lblArchivoAdjunti.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lblFondoMouseMoved
 
     /**
      * @param args the command line arguments

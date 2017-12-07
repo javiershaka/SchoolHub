@@ -170,6 +170,7 @@
         <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="lblLoginMouseMoved"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblLoginMouseClicked"/>
       </Events>
       <Constraints>
@@ -189,6 +190,7 @@
         <Property name="text" type="java.lang.String" value="Registrarse"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="lblSigninMouseMoved"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSigninMouseClicked"/>
       </Events>
       <Constraints>
@@ -209,6 +211,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="lblFondo1MouseDragged"/>
+        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="lblFondo1MouseMoved"/>
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblFondo1MousePressed"/>
       </Events>
       <Constraints>

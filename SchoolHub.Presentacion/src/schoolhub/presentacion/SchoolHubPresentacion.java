@@ -8,6 +8,7 @@ package schoolhub.presentacion;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -108,7 +109,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Contraseña");
         getContentPane().add(lblPassword);
-        lblPassword.setBounds(600, 280, 130, 19);
+        lblPassword.setBounds(600, 280, 130, 24);
 
         lblEslogan.setFont(new java.awt.Font("Earth Orbiter", 2, 24)); // NOI18N
         lblEslogan.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,6 +120,11 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblLogin.setFont(new java.awt.Font("Earth Orbiter", 3, 18)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(255, 255, 255));
         lblLogin.setText("Iniciar Sesión");
+        lblLogin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lblLoginMouseMoved(evt);
+            }
+        });
         lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblLoginMouseClicked(evt);
@@ -130,6 +136,11 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblSignin.setFont(new java.awt.Font("Earth Orbiter", 3, 18)); // NOI18N
         lblSignin.setForeground(new java.awt.Color(255, 255, 255));
         lblSignin.setText("Registrarse");
+        lblSignin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lblSigninMouseMoved(evt);
+            }
+        });
         lblSignin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSigninMouseClicked(evt);
@@ -144,6 +155,9 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblFondo1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 lblFondo1MouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lblFondo1MouseMoved(evt);
             }
         });
         lblFondo1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,6 +234,25 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         } catch (IOException ex) {
         }
     }//GEN-LAST:event_lblLoginMouseClicked
+
+    private void lblLoginMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseMoved
+        lblLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        lblLogin.setForeground(Color.BLUE);
+        lblSignin.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lblLoginMouseMoved
+
+    private void lblSigninMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSigninMouseMoved
+        lblSignin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        lblSignin.setForeground(Color.BLUE);
+        lblLogin.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lblSigninMouseMoved
+
+    private void lblFondo1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo1MouseMoved
+      lblSignin.setForeground(Color.WHITE);
+     lblLogin.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lblFondo1MouseMoved
 
     /**
      * @param args the command line arguments

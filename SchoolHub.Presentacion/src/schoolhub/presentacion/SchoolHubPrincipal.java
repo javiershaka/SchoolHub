@@ -5,6 +5,8 @@
  */
 package schoolhub.presentacion;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion1;
@@ -106,17 +108,27 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblCrearAsignacion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblCrearAsignacion.setForeground(new java.awt.Color(255, 255, 255));
         lblCrearAsignacion.setText("CRear Asignacion");
+        lblCrearAsignacion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lblCrearAsignacionMouseMoved(evt);
+            }
+        });
         lblCrearAsignacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCrearAsignacionMouseClicked(evt);
             }
         });
         getContentPane().add(lblCrearAsignacion);
-        lblCrearAsignacion.setBounds(30, 130, 250, 25);
+        lblCrearAsignacion.setBounds(30, 130, 250, 32);
 
         lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         lblCerrarSesion.setText("Cerrar Sesión");
+        lblCerrarSesion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lblCerrarSesionMouseMoved(evt);
+            }
+        });
         lblCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCerrarSesionMouseClicked(evt);
@@ -330,6 +342,9 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 lblFondo2MouseDragged(evt);
             }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lblFondo2MouseMoved(evt);
+            }
         });
         lblFondo2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -431,6 +446,25 @@ int x = evt.getXOnScreen();
     int y = evt.getYOnScreen(); 
     this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_lblFondo2MouseDragged
+
+    private void lblFondo2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MouseMoved
+       lblCrearAsignacion.setForeground(Color.WHITE);
+       lblCerrarSesion.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lblFondo2MouseMoved
+
+    private void lblCrearAsignacionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearAsignacionMouseMoved
+        lblCrearAsignacion.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        lblCrearAsignacion.setForeground(Color.BLUE);
+        lblCerrarSesion.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lblCrearAsignacionMouseMoved
+
+    private void lblCerrarSesionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseMoved
+        lblCerrarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        lblCerrarSesion.setForeground(Color.BLUE);
+        lblCrearAsignacion.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lblCerrarSesionMouseMoved
 
     /**
      * @param args the command line arguments
