@@ -156,6 +156,7 @@ static Curso curso;
     }//GEN-LAST:event_lblFondoMousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(txtContraseña.getPassword().length !=0 && txtCorreo.getText().length()!=0 && txtNombre.getText().length()!=0){
         try {
             SchoolHubPresentacion SHP = new SchoolHubPresentacion();
             boolean repe = false;
@@ -211,7 +212,10 @@ static Curso curso;
             }
         } catch (IOException ex) {
         }
+}else{
+        JOptionPane.showMessageDialog(null, "Los campos solicitados no han sido completados totalmente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 
+       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
