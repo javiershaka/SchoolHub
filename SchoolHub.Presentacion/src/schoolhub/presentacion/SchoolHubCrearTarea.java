@@ -254,7 +254,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        
+        if(txtnombreAsig.getText().length()!=0 && lblMaximo.getText().length()!=0 && txaDescripcion2.getText().length()!=0){
         boolean tareacerra = false;
         if (lblTarea1.getText().isEmpty()) {
             lblTarea1.setText(txtnombreAsig.getText());
@@ -329,7 +329,10 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
             }
         } catch (IOException ex) {
         }
+}else{
+        JOptionPane.showMessageDialog(null, "Los campos solicitados no han sido completados totalmente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 
+       }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void lblFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMousePressed
