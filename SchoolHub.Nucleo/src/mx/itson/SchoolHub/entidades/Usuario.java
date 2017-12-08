@@ -19,6 +19,7 @@ public class Usuario {
     private String correo;
     private String contraseñaUsuario;
     private double calificaciones;
+    private List<Asignacion> asignacionUsu = new ArrayList<Asignacion>();
 
     public Usuario() {
     }
@@ -100,15 +101,21 @@ public class Usuario {
     public void setCalificaciones(double calificaciones) {
         this.calificaciones = calificaciones;
     }
+
     /**
-     * 
-     * @param nombre
-     * @param tipoUsuario
-     * @param materia
-     * @param correo
-     * @param contraseñaUsuario
-     * @param calificaciones 
+     * @return the asignacionUsu
      */
+    public List<Asignacion> getAsignacionUsu() {
+        return asignacionUsu;
+    }
+
+    /**
+     * @param asignacionUsu the asignacionUsu to set
+     */
+    public void setAsignacionUsu(List<Asignacion> asignacionUsu) {
+        this.asignacionUsu = asignacionUsu;
+    }
+   
     
     
     
