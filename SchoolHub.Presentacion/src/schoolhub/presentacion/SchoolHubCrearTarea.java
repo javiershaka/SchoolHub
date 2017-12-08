@@ -39,20 +39,22 @@ import static schoolhub.presentacion.SchoolHubTarea.txaDescripcion;
  * @author Cristian
  */
 public class SchoolHubCrearTarea extends javax.swing.JFrame {
- public static String Tarea1;
- public static String Tarea2;
- public static String Tarea3;
- public static String Tarea4;
- public static String Descripcion1;
- public static String Descripcion2;
- public static String Descripcion3;
- public static String Descripcion4;
- public static String Fecha1;
- public static String Fecha2;
- public static String Fecha3;
- public static String Fecha4;
- int yMouse;
- int xMouse;
+
+    public static String Tarea1;
+    public static String Tarea2;
+    public static String Tarea3;
+    public static String Tarea4;
+    public static String Descripcion1;
+    public static String Descripcion2;
+    public static String Descripcion3;
+    public static String Descripcion4;
+    public static String Fecha1;
+    public static String Fecha2;
+    public static String Fecha3;
+    public static String Fecha4;
+    int yMouse;
+    int xMouse;
+
     /**
      * Creates new form SchoolHubCrearTarea
      */
@@ -109,13 +111,13 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("TIPO DE ASIGNACION :");
         getContentPane().add(lblTipo);
-        lblTipo.setBounds(30, 70, 180, 15);
+        lblTipo.setBounds(30, 70, 180, 19);
 
         lblDescripcion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripción :");
         getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(30, 310, 120, 15);
+        lblDescripcion.setBounds(30, 310, 120, 19);
 
         lblNombreTarea2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblNombreTarea2.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,7 +152,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblEntrega.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrega.setText("Entrega después de fecha limite :");
         getContentPane().add(lblEntrega);
-        lblEntrega.setBounds(30, 190, 280, 15);
+        lblEntrega.setBounds(30, 190, 280, 19);
 
         buttonGroup1.add(rbsi);
         rbsi.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
@@ -183,13 +185,13 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("TIPO DE CALIFICACION :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(120, 220, 200, 15);
+        jLabel1.setBounds(120, 220, 200, 19);
 
         lblHora2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblHora2.setForeground(new java.awt.Color(255, 255, 255));
         lblHora2.setText("Fecha Limite:");
         getContentPane().add(lblHora2);
-        lblHora2.setBounds(30, 110, 120, 15);
+        lblHora2.setBounds(30, 110, 120, 19);
 
         buttonGroup2.add(rbnEntregoNoEntrego);
         rbnEntregoNoEntrego.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
@@ -197,7 +199,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         rbnEntregoNoEntrego.setText("Entrego/No Entrego");
         rbnEntregoNoEntrego.setOpaque(false);
         getContentPane().add(rbnEntregoNoEntrego);
-        rbnEntregoNoEntrego.setBounds(30, 250, 200, 23);
+        rbnEntregoNoEntrego.setBounds(30, 250, 200, 27);
 
         buttonGroup2.add(rbnEscala);
         rbnEscala.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
@@ -205,7 +207,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         rbnEscala.setText("Escala");
         rbnEscala.setOpaque(false);
         getContentPane().add(rbnEscala);
-        rbnEscala.setBounds(290, 250, 90, 23);
+        rbnEscala.setBounds(290, 250, 90, 27);
         getContentPane().add(lblMaximo);
         lblMaximo.setBounds(250, 280, 50, 20);
 
@@ -213,7 +215,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblCalificacion.setForeground(new java.awt.Color(255, 255, 255));
         lblCalificacion.setText("Maxima :");
         getContentPane().add(lblCalificacion);
-        lblCalificacion.setBounds(180, 280, 70, 15);
+        lblCalificacion.setBounds(180, 280, 70, 19);
 
         lblHoraLimite.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblHoraLimite.setForeground(new java.awt.Color(255, 255, 255));
@@ -252,90 +254,78 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-
         
+        boolean tareacerra = false;
         if (lblTarea1.getText().isEmpty()) {
             lblTarea1.setText(txtnombreAsig.getText());
             Tarea1 = txtnombreAsig.getText();
-            Fecha1 = cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString();
+            Fecha1 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
             Descripcion1 = txaDescripcion2.getText();
-        lblFecha1.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
-        }else if (lblTarea2.getText().isEmpty()) {
-             Tarea2 = txtnombreAsig.getText();
-            Fecha2 = cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString();
+            lblFecha1.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
+        } else if (lblTarea2.getText().isEmpty()) {
+            Tarea2 = txtnombreAsig.getText();
+            Fecha2 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
             Descripcion2 = txaDescripcion2.getText();
             lblTarea2.setText(txtnombreAsig.getText());
-        lblFecha2.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
-        }else if (lblTarea3.getText().isEmpty()) {
-             Tarea3 = txtnombreAsig.getText();
-            Fecha3 = cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString();
+            lblFecha2.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
+        } else if (lblTarea3.getText().isEmpty()) {
+            Tarea3 = txtnombreAsig.getText();
+            Fecha3 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
             Descripcion3 = txaDescripcion2.getText();
             lblTarea3.setText(txtnombreAsig.getText());
-        lblFecha3.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
-        }else if (lblTarea4.getText().isEmpty()) {
-             Tarea4 = txtnombreAsig.getText();
-            Fecha4 = cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString();
+            lblFecha3.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
+        } else if (lblTarea4.getText().isEmpty()) {
+            Tarea4 = txtnombreAsig.getText();
+            Fecha4 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
             Descripcion4 = txaDescripcion2.getText();
             lblTarea4.setText(txtnombreAsig.getText());
-        lblFecha4.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
+            lblFecha4.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
         }
 //        lblTarea1.setText(txtnombreAsig.getText());
 //        lblFecha1.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
-       // lblNombreTarea.setText(txtnombreAsig.getText());
-       // txaDescripcion.setText(txaDescripcion2.getText());
-       // lblHora.setText(cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
+        // lblNombreTarea.setText(txtnombreAsig.getText());
+        // txaDescripcion.setText(txaDescripcion2.getText());
+        // lblHora.setText(cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
         
-        
+        if (rbsi.isSelected()) {
+            tareacerra = false;
+        } else {
+            tareacerra = true;
+        }
         try {
-             boolean bloqueo = false;
+            Asignacion asignacionTarea = new Asignacion(txtnombreAsig.getText() + "", TipoAsignacion.valueOf(cmbTipo.getSelectedItem().toString()), "" + txaDescripcion2.getText(), new Date(), new Date(Integer.parseInt(cmbAño.getSelectedItem().toString()),cmdMes.getSelectedIndex()+1, Integer.parseInt(cmbDia.getSelectedItem().toString())), 0, TiempoEngrega.NoEntregado, tareacerra);
+            boolean bloqueo = false;
             SchoolHubPresentacion SHP = new SchoolHubPresentacion();
             boolean repe = false;
             File archivo = new File("Usuarios.txt");
             BufferedWriter bw;
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
+            
             if (archivo.exists()) {
-               
-                    
-             
-
-                    BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
-                    curso = gson.fromJson(rb, Curso.class);
-
-                    
-                        if(rbsi.isSelected()){
-                            bloqueo= true;
-                        }
-                        curso.getAsignacion().add(new Asignacion(txtnombreAsig.getText(), TipoAsignacion.valueOf(cmbTipo.getSelectedItem().toString()), txaDescripcion2.getText(), new Date(), new Date(), 0, TiempoEngrega.NoEntregado, bloqueo));
-//                        lblTarea1.setText(txtnombreAsig.getText());
-//                        lblFecha1.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
-                        
-                        String textoUsuario = gson.toJson(curso);
-
-                        bw = new BufferedWriter(new FileWriter(archivo));
-                        bw.write("" + textoUsuario);
-
-                        bw.close();
-                        
-                        this.setVisible(false);
-
-                    
-                    
-
-               
-
-            }
-            else{
+                curso.getAsignacion().add(asignacionTarea);
+                BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
+                curso = gson.fromJson(rb, Curso.class);
+                for (int variable = 0; variable < curso.getUsuario().size(); variable++) {
+                    curso.getUsuario().get(variable).getAsignacionUsu().add(asignacionTarea);
+                }
+                
+                String textoUsuario = gson.toJson(curso);
+                
+                bw = new BufferedWriter(new FileWriter(archivo));
+                bw.write("" + textoUsuario);
+                
+                bw.close();
+                
+                this.setVisible(false);
+                
+            } else {
                 curso = new Curso();
-                //curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), "asd", 0));
                 String textoUsuario = gson.toJson(curso);
                 bw = new BufferedWriter(new FileWriter(archivo));
-                        bw.write("" + textoUsuario);
-// lblTarea1.setText(txtnombreAsig.getText());
-//                        lblFecha1.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
-                        bw.close();
-                        SHP.setVisible(true);
-                        this.setVisible(false);
+                bw.write("" + textoUsuario);
+                bw.close();
+                SHP.setVisible(true);
+                this.setVisible(false);
             }
         } catch (IOException ex) {
         }
@@ -343,14 +333,14 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void lblFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMousePressed
-    xMouse = evt.getX();
-    yMouse = evt.getY(); 
+        xMouse = evt.getX();
+        yMouse = evt.getY();        
     }//GEN-LAST:event_lblFondoMousePressed
 
     private void lblFondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMouseDragged
-    int x = evt.getXOnScreen();
-    int y = evt.getYOnScreen(); 
-    this.setLocation(x - xMouse, y - yMouse);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();        
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_lblFondoMouseDragged
 
     /**
