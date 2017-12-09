@@ -17,6 +17,8 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import mx.itson.SchoolHub.entidades.Curso;
@@ -146,15 +148,30 @@ public class SchoolHubTarea extends javax.swing.JFrame {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
             if (archivo.exists()) {
+                
+                
+                Date fechaActual = new Date();
+                
+                SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+                String fecha = formateador.format(curso.getUsuario().get(SchoolHubPrincipal.usuarioNo).getAsignacionUsu().get(SchoolHubPrincipal.tblTareas.getSelectedRow()).getFechafinal());
+                String fechaSistema = formateador.format(fechaActual);
+                if (fechaSistema.compareTo(fecha) >= 1) {
+                    System.out.println("Ya es tardecito no?");
+                                        curso.getUsuario().get(SchoolHubPrincipal.usuarioNo).getAsignacionUsu().get(SchoolHubPrincipal.tblTareas.getSelectedRow()).setEngrega(TiempoEngrega.Retraso);
 
-                curso.getUsuario().get(SchoolHubPrincipal.usuarioNo).getAsignacionUsu().get(SchoolHubPrincipal.tblTareas.getSelectedRow()).setEngrega(TiempoEngrega.ATiemp);
+                }
+
+                if (fechaSistema.compareTo(fecha) <= 0) {
+                    System.out.println("A tiempo");
+                    curso.getUsuario().get(SchoolHubPrincipal.usuarioNo).getAsignacionUsu().get(SchoolHubPrincipal.tblTareas.getSelectedRow()).setEngrega(TiempoEngrega.ATiemp);
+
+                }
                 String textoUsuario = gson.toJson(curso);
                 bw = new BufferedWriter(new FileWriter(archivo));
                 bw.write("" + textoUsuario);
 
                 bw.close();
 
-            
                 this.setVisible(false);
 
             }

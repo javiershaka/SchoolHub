@@ -13,12 +13,14 @@ import java.awt.Cursor;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.SchoolHub.entidades.Curso;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
+import mx.itson.SchoolHub.enumeradores.TiempoEngrega;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion1;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion2;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion3;
@@ -433,43 +435,57 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
             if (isdocente == true) {
                 try {
-                    SchoolHubRevisar.nombreActividad.setText(tblTareas.getValueAt(tblTareas.getSelectedRow(), 0)+"");
+                    SchoolHubRevisar.nombreActividad.setText(tblTareas.getValueAt(tblTareas.getSelectedRow(), 0) + "");
                     File archivo = new File("Usuarios.txt");
                     Gson gson = new GsonBuilder().setPrettyPrinting().create();
                     if (archivo.exists()) {
                         BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
                         curso = gson.fromJson(rb, Curso.class);
                         for (int var = 0; var < curso.getUsuario().size(); var++) {
-                            if(curso.getUsuario().get(var).getTipoUsuario().toString().equals("ALUMNO")){
-                            for(int actividadID = 0; actividadID < curso.getUsuario().get(var).getAsignacionUsu().size(); actividadID++){
-                                if(curso.getAsignacion().get(tblTareas.getSelectedRow()).getNombre().equals(curso.getUsuario().get(var).getAsignacionUsu().get(actividadID).getNombre())){
-                                    model.addRow(new Object[]{""+curso.getUsuario().get(var).getNombre(),""+curso.getUsuario().get(var).getAsignacionUsu().get(actividadID).getEngrega().toString()});
+                            if (curso.getUsuario().get(var).getTipoUsuario().toString().equals("ALUMNO")) {
+                                for (int actividadID = 0; actividadID < curso.getUsuario().get(var).getAsignacionUsu().size(); actividadID++) {
+                                    if (curso.getAsignacion().get(tblTareas.getSelectedRow()).getNombre().equals(curso.getUsuario().get(var).getAsignacionUsu().get(actividadID).getNombre())) {
+                                        model.addRow(new Object[]{"" + curso.getUsuario().get(var).getNombre(), "" + curso.getUsuario().get(var).getAsignacionUsu().get(actividadID).getEngrega().toString()});
+                                    }
+
                                 }
-                               
-                                
                             }
-                        }
-                            
-                            
 
                         }
 
                     }
                     SchoolHubRevisar.tblAsignacion.setModel(model);
 
-                    
-SHRV.setVisible(true);
+                    SHRV.setVisible(true);
                 } catch (IOException ex) {
                 }
             }
 
             if (isdocente == false) {
-                SchoolHubTarea.lblNombreTarea.setText(""+curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(tblTareas.getSelectedRow()).getNombre());
+                Date fechaActual = new Date();
+                  SchoolHubTarea.lblNombreTarea.setText("" + curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(tblTareas.getSelectedRow()).getNombre());
                 SchoolHubTarea.txaDescripcion.setText(curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(tblTareas.getSelectedRow()).getComentario());
-                SchoolHubTarea.lblHora.setText(""+curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(tblTareas.getSelectedRow()).getFechafinal());
+                SchoolHubTarea.lblHora.setText("" + curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(tblTareas.getSelectedRow()).getFechafinal());
+
+                SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+                String fecha = formateador.format(curso.getUsuario().get(SchoolHubPrincipal.usuarioNo).getAsignacionUsu().get(SchoolHubPrincipal.tblTareas.getSelectedRow()).getFechafinal());
+                String fechaSistema = formateador.format(fechaActual);
+                if (curso.getUsuario().get(SchoolHubPrincipal.usuarioNo).getAsignacionUsu().get(SchoolHubPrincipal.tblTareas.getSelectedRow()).isClose() == true) {
+                    if (fechaSistema.compareTo(fecha) >= 1) {
+                        JOptionPane.showMessageDialog(null, "Actividad bloqueada", "Fecha expirada", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+
+                    if (fechaSistema.compareTo(fecha) <= 0) {
+                        SHT.setVisible(true);
+                    }
+                }
+                if (curso.getUsuario().get(SchoolHubPrincipal.usuarioNo).getAsignacionUsu().get(SchoolHubPrincipal.tblTareas.getSelectedRow()).isClose() == false) {
                 
-                SHT.setVisible(true);
-                
+                    SHT.setVisible(true);
+                }
+
+              
             }
         }
 
