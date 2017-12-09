@@ -22,11 +22,13 @@ public class Asignacion {
     private double calificacion;
     private TiempoEngrega engrega;
     private boolean close;
+    
+    private int maxima;
 
     public Asignacion() {
     }
 
-    public Asignacion(String nombre, TipoAsignacion asignacion, String comentario, Date fechainicio, Date fechafinal, double calificacion, TiempoEngrega engrega, boolean close) {
+    public Asignacion(String nombre, TipoAsignacion asignacion, String comentario, Date fechainicio, Date fechafinal, double calificacion, TiempoEngrega engrega, boolean close, int maxima) {
         this.nombre = nombre;
         this.asignacion = asignacion;
         this.comentario = comentario;
@@ -35,8 +37,11 @@ public class Asignacion {
         this.calificacion = calificacion;
         this.engrega = engrega;
         this.close = close;
+        this.maxima = maxima;
     }
 
+    
+    
     /**
      * @return the nombre
      */
@@ -147,6 +152,14 @@ public class Asignacion {
      */
     public void setClose(boolean close) {
         this.close = close;
+    }
+
+ 
+    /**
+     * @return the maxima
+     */
+    public int getMaxima() {
+        return maxima;
     }
     
     
