@@ -4,9 +4,15 @@
  * and open the template in the editor.
  */
 package schoolhub.presentacion;
-
+import java.io.File;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import mx.itson.SchoolHub.entidades.Curso;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Descripcion1;
@@ -23,6 +29,7 @@ import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea3;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea4;
 import static schoolhub.presentacion.SchoolHubPresentacion.SHPR;
 import static schoolhub.presentacion.SchoolHubPresentacion.SHT;
+import static schoolhub.presentacion.SchoolHubRegistro.curso;
 import static schoolhub.presentacion.SchoolHubTarea.lblHora;
 import static schoolhub.presentacion.SchoolHubTarea.lblNombreTarea;
 import static schoolhub.presentacion.SchoolHubTarea.txaDescripcion;
@@ -60,13 +67,14 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnVer = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblTareas = new javax.swing.JTable();
         lblTarea = new javax.swing.JLabel();
         lblCrearAsignacion = new javax.swing.JLabel();
         lblCerrarSesion = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         lblNombreUsuario = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ltTareas = new javax.swing.JList<>();
         lbltipoUsuario = new javax.swing.JLabel();
         pnlConfiguracion = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -94,6 +102,42 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
 
+        btnVer.setText("Ver");
+        btnVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVer);
+        btnVer.setBounds(140, 390, 73, 23);
+
+        tblTareas.setBackground(new java.awt.Color(51, 0, 0));
+        tblTareas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre Asignacion", "Fecha limite"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblTareas.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                tblTareasComponentShown(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblTareas);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(10, 160, 350, 220);
+
         lblTarea.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblTarea.setForeground(new java.awt.Color(255, 255, 255));
         lblTarea.setText("Tareas");
@@ -103,7 +147,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblTarea);
-        lblTarea.setBounds(90, 160, 110, 30);
+        lblTarea.setBounds(130, 120, 110, 30);
 
         lblCrearAsignacion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblCrearAsignacion.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,7 +163,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblCrearAsignacion);
-        lblCrearAsignacion.setBounds(30, 120, 250, 25);
+        lblCrearAsignacion.setBounds(20, 80, 250, 32);
 
         lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,12 +195,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(lblNombreUsuario);
         lblNombreUsuario.setBounds(320, 80, 240, 20);
-
-        ltTareas.setBackground(new java.awt.Color(34, 35, 38));
-        jScrollPane1.setViewportView(ltTareas);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(60, 200, 170, 190);
 
         lbltipoUsuario.setForeground(new java.awt.Color(255, 0, 0));
         lbltipoUsuario.setText("Tipo de usuario");
@@ -352,7 +390,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblFondo2);
-        lblFondo2.setBounds(-10, 0, 930, 450);
+        lblFondo2.setBounds(0, 0, 920, 440);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -466,6 +504,22 @@ int x = evt.getXOnScreen();
         lblCrearAsignacion.setForeground(Color.WHITE);
     }//GEN-LAST:event_lblCerrarSesionMouseMoved
 
+    private void tblTareasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tblTareasComponentShown
+           
+    }//GEN-LAST:event_tblTareasComponentShown
+
+    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        Usuario usuario = new Usuario();
+        if(usuario.getTipoUsuario()==TipoUsuario.ALUMNO){
+            SchoolHubTarea SHT = new SchoolHubTarea();
+            SHT.setVisible(true);
+        }    
+        if(usuario.getTipoUsuario()==TipoUsuario.DOCENTE){
+            SchoolHubRevisar SHR = new SchoolHubRevisar();
+            SHR.setVisible(true);
+        }
+    }//GEN-LAST:event_btnVerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -502,6 +556,7 @@ int x = evt.getXOnScreen();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVer;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -509,7 +564,7 @@ int x = evt.getXOnScreen();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCerrarSesion;
@@ -527,8 +582,8 @@ int x = evt.getXOnScreen();
     public static javax.swing.JLabel lblTarea4;
     private javax.swing.JLabel lblUsuario;
     public static javax.swing.JLabel lbltipoUsuario;
-    private javax.swing.JList<String> ltTareas;
     public static javax.swing.JPanel pnlConfiguracion;
     public static javax.swing.JPanel pnlTareas;
+    private javax.swing.JTable tblTareas;
     // End of variables declaration//GEN-END:variables
 }

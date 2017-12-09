@@ -32,6 +32,8 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblAsignacion = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         cmbCalificacion = new javax.swing.JComboBox<>();
@@ -47,20 +49,41 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
 
+        tblAsignacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre de Alumno", "Estado de entrega"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblAsignacion);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(520, 70, 330, 290);
+
         jLabel2.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre Alumno");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(260, 20, 170, 24);
+        jLabel2.setBounds(210, 20, 170, 24);
 
         jLabel1.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("AQUI VA EL NOMBRE DE LA ASIGNACION");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(150, 60, 400, 24);
+        jLabel1.setBounds(100, 60, 400, 24);
 
         getContentPane().add(cmbCalificacion);
-        cmbCalificacion.setBounds(410, 320, 60, 20);
+        cmbCalificacion.setBounds(340, 320, 60, 20);
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -68,13 +91,13 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(160, 90, 380, 170);
+        jScrollPane1.setBounds(100, 90, 380, 170);
 
         lblCalificacion.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblCalificacion.setForeground(new java.awt.Color(255, 255, 255));
         lblCalificacion.setText("CALIFICACION");
         getContentPane().add(lblCalificacion);
-        lblCalificacion.setBounds(250, 320, 160, 24);
+        lblCalificacion.setBounds(170, 320, 160, 24);
 
         lblArchivoAdjunti.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblArchivoAdjunti.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,11 +108,11 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblArchivoAdjunti);
-        lblArchivoAdjunti.setBounds(230, 280, 260, 24);
+        lblArchivoAdjunti.setBounds(170, 280, 260, 24);
 
         btnAceptar.setText("Aceptar");
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(320, 360, 71, 23);
+        btnAceptar.setBounds(230, 370, 71, 23);
 
         lblFondo.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo.setOpaque(true);
@@ -107,7 +130,7 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblFondo);
-        lblFondo.setBounds(0, 0, 680, 400);
+        lblFondo.setBounds(0, 0, 870, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,9 +198,11 @@ xMouse = evt.getX();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblArchivoAdjunti;
     private javax.swing.JLabel lblCalificacion;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JTable tblAsignacion;
     // End of variables declaration//GEN-END:variables
 }
