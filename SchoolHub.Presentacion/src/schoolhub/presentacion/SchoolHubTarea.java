@@ -5,7 +5,13 @@
  */
 package schoolhub.presentacion;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -13,6 +19,10 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import mx.itson.SchoolHub.entidades.Curso;
+import mx.itson.SchoolHub.entidades.Usuario;
+import mx.itson.SchoolHub.enumeradores.TiempoEngrega;
+import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import static schoolhub.presentacion.SchoolHubPrincipal.tarea1;
 import static schoolhub.presentacion.SchoolHubPrincipal.tarea2;
 import static schoolhub.presentacion.SchoolHubPrincipal.tarea3;
@@ -29,13 +39,15 @@ import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea1;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea2;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea3;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea4;
-
+import static schoolhub.presentacion.SchoolHubRegistro.curso;
 
 public class SchoolHubTarea extends javax.swing.JFrame {
-JFileChooser seleccionar = new JFileChooser();
+
+    JFileChooser seleccionar = new JFileChooser();
     File archivo;
-     int yMouse;
- int xMouse;
+    int yMouse;
+    int xMouse;
+
     /**
      * Creates new form SchoolHubTarea
      */
@@ -96,7 +108,7 @@ JFileChooser seleccionar = new JFileChooser();
         lblHora.setForeground(new java.awt.Color(255, 255, 255));
         lblHora.setText("99/99/9999 99:99 XX");
         getContentPane().add(lblHora);
-        lblHora.setBounds(350, 40, 220, 19);
+        lblHora.setBounds(350, 40, 220, 24);
 
         btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -126,53 +138,43 @@ JFileChooser seleccionar = new JFileChooser();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-       
-        if(tarea1== true){
-            SchoolHubPrincipal.lblTarea1.setText("");
-            SchoolHubPrincipal.lblFecha1.setText("");
-            Fecha1 = null;
-            Tarea1 = null;
-            Descripcion1 = null;
+        try {
+            SchoolHubPresentacion SHP = new SchoolHubPresentacion();
+
+            File archivo = new File("Usuarios.txt");
+            BufferedWriter bw;
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            if (archivo.exists()) {
+
+                curso.getUsuario().get(SchoolHubPrincipal.usuarioNo).getAsignacionUsu().get(SchoolHubPrincipal.tblTareas.getSelectedRow()).setEngrega(TiempoEngrega.ATiemp);
+                String textoUsuario = gson.toJson(curso);
+                bw = new BufferedWriter(new FileWriter(archivo));
+                bw.write("" + textoUsuario);
+
+                bw.close();
+
             
-        }
-        if(tarea2== true){
-             SchoolHubPrincipal.lblTarea2.setText("");
-            SchoolHubPrincipal.lblFecha2.setText("");
-            Fecha2 = null;
-            Tarea2 = null;
-            Descripcion2 = null;
-            
-        }
-        if(tarea3== true){
-            SchoolHubPrincipal.lblTarea2.setText("");
-            SchoolHubPrincipal.lblFecha2.setText("");
-            Fecha2 = null;
-            Tarea2 = null;
-            Descripcion2 = null;
-            
-        }
-        if(tarea4== true){
-            SchoolHubPrincipal.lblTarea3.setText("");
-            SchoolHubPrincipal.lblFecha3.setText("");
-            Fecha3 = null;
-            Tarea3 = null;
-            Descripcion3 = null;
-            
+                this.setVisible(false);
+
+            }
+
+        } catch (IOException ex) {
         }
         this.setVisible(false);
-        
-        
+
+
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void lblFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMousePressed
-xMouse = evt.getX();
-    yMouse = evt.getY(); 
+        xMouse = evt.getX();
+        yMouse = evt.getY();
     }//GEN-LAST:event_lblFondoMousePressed
 
     private void lblFondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMouseDragged
-int x = evt.getXOnScreen();
-    int y = evt.getYOnScreen(); 
-    this.setLocation(x - xMouse, y - yMouse);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_lblFondoMouseDragged
 
     /**

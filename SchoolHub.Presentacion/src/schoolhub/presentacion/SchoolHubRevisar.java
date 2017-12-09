@@ -34,8 +34,7 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAsignacion = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        nombreActividad = new javax.swing.JLabel();
         cmbCalificacion = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -46,7 +45,6 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(869, 459));
         setMinimumSize(new java.awt.Dimension(869, 459));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -72,17 +70,11 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(520, 70, 330, 290);
 
-        jLabel2.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nombre Alumno");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(210, 20, 170, 19);
-
-        jLabel1.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("AQUI VA EL NOMBRE DE LA ASIGNACION");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(100, 60, 400, 19);
+        nombreActividad.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
+        nombreActividad.setForeground(new java.awt.Color(255, 255, 255));
+        nombreActividad.setText("Nombre Actividad");
+        getContentPane().add(nombreActividad);
+        nombreActividad.setBounds(210, 20, 170, 24);
 
         getContentPane().add(cmbCalificacion);
         cmbCalificacion.setBounds(340, 320, 60, 20);
@@ -99,7 +91,7 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         lblCalificacion.setForeground(new java.awt.Color(255, 255, 255));
         lblCalificacion.setText("CALIFICACION");
         getContentPane().add(lblCalificacion);
-        lblCalificacion.setBounds(170, 320, 160, 19);
+        lblCalificacion.setBounds(170, 320, 160, 24);
 
         lblArchivoAdjunti.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblArchivoAdjunti.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,9 +102,14 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblArchivoAdjunti);
-        lblArchivoAdjunti.setBounds(170, 280, 260, 19);
+        lblArchivoAdjunti.setBounds(170, 280, 260, 24);
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAceptar);
         btnAceptar.setBounds(230, 370, 71, 23);
 
@@ -152,15 +149,20 @@ xMouse = evt.getX();
     this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_lblFondoMouseDragged
 
-    private void lblArchivoAdjuntiMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblArchivoAdjuntiMouseMoved
-        lblArchivoAdjunti.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
-        lblArchivoAdjunti.setForeground(Color.BLUE);
-    }//GEN-LAST:event_lblArchivoAdjuntiMouseMoved
-
     private void lblFondoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondoMouseMoved
         lblArchivoAdjunti.setForeground(Color.WHITE);
     }//GEN-LAST:event_lblFondoMouseMoved
+
+    private void lblArchivoAdjuntiMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblArchivoAdjuntiMouseMoved
+        lblArchivoAdjunti.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        lblArchivoAdjunti.setForeground(Color.BLUE);
+    }//GEN-LAST:event_lblArchivoAdjuntiMouseMoved
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,8 +203,6 @@ xMouse = evt.getX();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     public static javax.swing.JComboBox<String> cmbCalificacion;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTextArea jTextArea1;
@@ -210,6 +210,7 @@ xMouse = evt.getX();
     private javax.swing.JLabel lblCalificacion;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JButton lblRevisar;
-    private javax.swing.JTable tblAsignacion;
+    public static javax.swing.JLabel nombreActividad;
+    public static javax.swing.JTable tblAsignacion;
     // End of variables declaration//GEN-END:variables
 }

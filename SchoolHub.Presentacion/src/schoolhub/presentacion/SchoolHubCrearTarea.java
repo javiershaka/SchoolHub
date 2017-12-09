@@ -49,6 +49,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
      */
     public SchoolHubCrearTarea() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -66,6 +67,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblTipo = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         lblNombreTarea2 = new javax.swing.JLabel();
+        txtMaximo = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txaDescripcion2 = new javax.swing.JTextArea();
         cmbTipo = new javax.swing.JComboBox<>();
@@ -78,7 +80,6 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         btnAceptar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblHora2 = new javax.swing.JLabel();
-        txtMaximo = new javax.swing.JTextField();
         lblHoraLimite = new javax.swing.JLabel();
         cmbHora = new javax.swing.JComboBox<>();
         cmbMinuto = new javax.swing.JComboBox<>();
@@ -86,7 +87,6 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(415, 503));
         setMinimumSize(new java.awt.Dimension(415, 503));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -97,19 +97,23 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("TIPO DE ASIGNACION :");
         getContentPane().add(lblTipo);
-        lblTipo.setBounds(30, 70, 180, 15);
+        lblTipo.setBounds(30, 70, 180, 19);
 
         lblDescripcion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripción :");
         getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(30, 270, 120, 15);
+        lblDescripcion.setBounds(30, 270, 120, 19);
 
         lblNombreTarea2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblNombreTarea2.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreTarea2.setText("Nombre de Asignación :");
         getContentPane().add(lblNombreTarea2);
         lblNombreTarea2.setBounds(30, 30, 190, 20);
+
+        txtMaximo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0"))));
+        getContentPane().add(txtMaximo);
+        txtMaximo.setBounds(250, 230, 60, 40);
 
         txaDescripcion2.setColumns(20);
         txaDescripcion2.setRows(5);
@@ -138,7 +142,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblEntrega.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrega.setText("Entrega después de fecha limite :");
         getContentPane().add(lblEntrega);
-        lblEntrega.setBounds(30, 190, 280, 15);
+        lblEntrega.setBounds(30, 190, 280, 19);
 
         buttonGroup1.add(rbsi);
         rbsi.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
@@ -171,15 +175,13 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CALIFICACION MAXIMA :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 230, 200, 15);
+        jLabel1.setBounds(30, 230, 200, 19);
 
         lblHora2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblHora2.setForeground(new java.awt.Color(255, 255, 255));
         lblHora2.setText("Fecha Limite:");
         getContentPane().add(lblHora2);
-        lblHora2.setBounds(30, 110, 120, 15);
-        getContentPane().add(txtMaximo);
-        txtMaximo.setBounds(230, 220, 50, 30);
+        lblHora2.setBounds(30, 110, 120, 19);
 
         lblHoraLimite.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblHoraLimite.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,10 +222,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if(txtnombreAsig.getText().length()!=0 && txtMaximo.getText().length()!=0 && txaDescripcion2.getText().length()!=0){
         boolean tareacerra = false;
-        Object [] row ={txtnombreAsig.getText(),cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString() + "  Hora: "
-                + cmbHora.getSelectedItem().toString()+":"+ cmbMinuto.getSelectedItem().toString()+" "+cmbTiempo.getSelectedItem().toString()};
-    model = (DefaultTableModel) tblTareas.getModel();
-    model.addRow(row);
+        
 //        if (lblTarea1.getText().isEmpty()) {
 //            lblTarea1.setText(txtnombreAsig.getText());
 //            Tarea1 = txtnombreAsig.getText();
@@ -270,9 +269,11 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             
             if (archivo.exists()) {
-                curso.getAsignacion().add(asignacionTarea);
+                
                 BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
+                
                 curso = gson.fromJson(rb, Curso.class);
+                curso.getAsignacion().add(asignacionTarea);
                 for (int variable = 0; variable < curso.getUsuario().size(); variable++) {
                     curso.getUsuario().get(variable).getAsignacionUsu().add(asignacionTarea);
                 }
@@ -283,6 +284,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
                 bw.write("" + textoUsuario);
                 
                 bw.close();
+                SchoolHubPrincipal.ActualizarLista();
                 
                 this.setVisible(false);
                 
@@ -372,7 +374,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     public static javax.swing.JRadioButton rbno;
     public static javax.swing.JRadioButton rbsi;
     public static javax.swing.JTextArea txaDescripcion2;
-    private javax.swing.JTextField txtMaximo;
+    public static javax.swing.JFormattedTextField txtMaximo;
     public static javax.swing.JTextField txtnombreAsig;
     // End of variables declaration//GEN-END:variables
 }

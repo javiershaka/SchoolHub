@@ -201,7 +201,9 @@ static Curso curso;
             }
             else{
                 curso = new Curso();
-                curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), "asd", 0));
+                char[] pass = txtContraseña.getPassword();
+                String passString = new String(pass);
+                curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), ""+passString, 0));
                 String textoUsuario = gson.toJson(curso);
                 bw = new BufferedWriter(new FileWriter(archivo));
                         bw.write("" + textoUsuario);

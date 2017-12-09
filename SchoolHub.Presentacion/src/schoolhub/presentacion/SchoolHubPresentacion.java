@@ -208,18 +208,22 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
                         SchoolHubPrincipal.lblNombreUsuario.setText(curso.getUsuario().get(var).getNombre());
                         SchoolHubPrincipal.lbltipoUsuario.setText(curso.getUsuario().get(var).getTipoUsuario().toString());
                         if (curso.getUsuario().get(var).getTipoUsuario().toString().equals("DOCENTE")) {
+                            SchoolHubPrincipal.isdocente= true;
                           
                             
                       
                          lblCrearAsignacion.setVisible(true); 
                         }else{
                         lblCrearAsignacion.setVisible(false);
-                            
+                        SchoolHubPrincipal.isdocente = false;
+                        SchoolHubPrincipal.usuarioNo = var;
+                        
               
                         }
 
                         SHP.setVisible(true);
                         this.setVisible(false);
+                        SchoolHubPrincipal.ActualizarLista();
                         ventana = true;
                         break;
                     }

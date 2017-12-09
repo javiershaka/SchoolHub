@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 package schoolhub.presentacion;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.SchoolHub.entidades.Curso;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
@@ -39,25 +39,25 @@ import static schoolhub.presentacion.SchoolHubTarea.lblHora;
 import static schoolhub.presentacion.SchoolHubTarea.lblNombreTarea;
 import static schoolhub.presentacion.SchoolHubTarea.txaDescripcion;
 
-
 /**
  *
  * @author Cristian
  */
 public class SchoolHubPrincipal extends javax.swing.JFrame {
- int yMouse;
- int xMouse;
- 
- boolean panel1 = true;
- boolean panel2 = false;
- static boolean tarea1 = false;
- static boolean tarea2 = false;
- static boolean tarea3 = false;
- static boolean tarea4 = false;
- DefaultTableModel model;
 
- 
- 
+    int yMouse;
+    int xMouse;
+
+    boolean panel1 = true;
+    boolean panel2 = false;
+    static boolean tarea1 = false;
+    static boolean tarea2 = false;
+    static boolean tarea3 = false;
+    static boolean tarea4 = false;
+    public static boolean isdocente;
+    static DefaultTableModel model;
+    static int usuarioNo;
+
     public SchoolHubPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -114,9 +114,16 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
                 "Nombre Asignacion", "Fecha limite"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -317,12 +324,12 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
 
     private void lblTareaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTareaMouseClicked
         Usuario usuario = new Usuario();
-        if(usuario.getTipoUsuario()==TipoUsuario.ALUMNO){
+        if (usuario.getTipoUsuario() == TipoUsuario.ALUMNO) {
             SchoolHubTarea SHT = new SchoolHubTarea();
             SHT.setVisible(true);
-        }    
-        if(usuario.getTipoUsuario()==TipoUsuario.DOCENTE){
-            
+        }
+        if (usuario.getTipoUsuario() == TipoUsuario.DOCENTE) {
+
         }
     }//GEN-LAST:event_lblTareaMouseClicked
 
@@ -336,31 +343,31 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         tarea3 = false;
         tarea4 = false;
         lblNombreTarea.setText(Tarea1);
-       txaDescripcion.setText(Descripcion1);
-       lblHora.setText(Fecha1);
-                SHT.setVisible(true);
+        txaDescripcion.setText(Descripcion1);
+        lblHora.setText(Fecha1);
+        SHT.setVisible(true);
     }//GEN-LAST:event_lblTarea1MouseClicked
 
     private void lblTarea2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea2MouseClicked
-      lblNombreTarea.setText(Tarea2);
-      tarea1 = false;
+        lblNombreTarea.setText(Tarea2);
+        tarea1 = false;
         tarea2 = true;
         tarea3 = false;
         tarea4 = false;
-       txaDescripcion.setText(Descripcion2);
-       lblHora.setText(Fecha2);
-       SHT.setVisible(true);
+        txaDescripcion.setText(Descripcion2);
+        lblHora.setText(Fecha2);
+        SHT.setVisible(true);
     }//GEN-LAST:event_lblTarea2MouseClicked
 
     private void lblTarea3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea3MouseClicked
-       lblNombreTarea.setText(Tarea3);
-       tarea1 = false;
+        lblNombreTarea.setText(Tarea3);
+        tarea1 = false;
         tarea2 = false;
         tarea3 = true;
         tarea4 = false;
-       txaDescripcion.setText(Descripcion3);
-       lblHora.setText(Fecha3);
-       SHT.setVisible(true);
+        txaDescripcion.setText(Descripcion3);
+        lblHora.setText(Fecha3);
+        SHT.setVisible(true);
     }//GEN-LAST:event_lblTarea3MouseClicked
 
     private void lblTarea4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTarea4MouseClicked
@@ -369,94 +376,134 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         tarea2 = false;
         tarea3 = false;
         tarea4 = true;
-       txaDescripcion.setText(Descripcion4);
-       lblHora.setText(Fecha4);
-       SHT.setVisible(true);
+        txaDescripcion.setText(Descripcion4);
+        lblHora.setText(Fecha4);
+        SHT.setVisible(true);
     }//GEN-LAST:event_lblTarea4MouseClicked
 
     private void lblCrearAsignacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearAsignacionMouseClicked
-   SchoolHubCrearTarea SHCT = new SchoolHubCrearTarea();
-            SHCT.setVisible(true);
+        SchoolHubCrearTarea SHCT = new SchoolHubCrearTarea();
+        SHCT.setVisible(true);
     }//GEN-LAST:event_lblCrearAsignacionMouseClicked
 
     private void lblFondo2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MousePressed
-       xMouse = evt.getX();
-    yMouse = evt.getY(); 
-        
-        
-        
-        
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+
+
     }//GEN-LAST:event_lblFondo2MousePressed
 
     private void lblFondo2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MouseDragged
-int x = evt.getXOnScreen();
-    int y = evt.getYOnScreen(); 
-    this.setLocation(x - xMouse, y - yMouse);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_lblFondo2MouseDragged
 
     private void lblFondo2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFondo2MouseMoved
-       lblCrearAsignacion.setForeground(Color.WHITE);
-       lblCerrarSesion.setForeground(Color.WHITE);
+        lblCrearAsignacion.setForeground(Color.WHITE);
+        lblCerrarSesion.setForeground(Color.WHITE);
     }//GEN-LAST:event_lblFondo2MouseMoved
 
     private void lblCrearAsignacionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearAsignacionMouseMoved
         lblCrearAsignacion.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
+
         lblCrearAsignacion.setForeground(Color.BLUE);
         lblCerrarSesion.setForeground(Color.WHITE);
     }//GEN-LAST:event_lblCrearAsignacionMouseMoved
 
     private void lblCerrarSesionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseMoved
         lblCerrarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
+
         lblCerrarSesion.setForeground(Color.BLUE);
         lblCrearAsignacion.setForeground(Color.WHITE);
     }//GEN-LAST:event_lblCerrarSesionMouseMoved
 
     private void tblTareasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tblTareasComponentShown
-           
+
     }//GEN-LAST:event_tblTareasComponentShown
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
 //        Usuario usuario = new Usuario();
-        model = (DefaultTableModel) tblTareas.getModel();
-        String nombre = model.getValueAt(tblTareas.getSelectedRow(), 0).toString();
-        String fecha = model.getValueAt(tblTareas.getSelectedRow(), 1).toString();
-      
-        if (lbltipoUsuario.getText().equals("ALUMNO")) {
-            try {
-                File archivo = new File("Usuarios.txt");
-                Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                if (archivo.exists()) {
-                    BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
-                    curso = gson.fromJson(rb, Curso.class);
-                    for (int var = 0; var < curso.getAsignacion().size(); var++) {
-                        if (curso.getAsignacion().get(var).getNombre().equals(nombre)) {
-                            lblNombreTarea.setText(nombre);
-                            lblHora.setText(fecha);
-                            txaDescripcion.setText(curso.getAsignacion().get(var).getComentario());
+        if (tblTareas.getSelectedRow() < 0) {
+            JOptionPane.showMessageDialog(null, "Favor de seleccionar un elemento", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        }
+        if (tblTareas.getSelectedRow() >= 0) {
+            model = (DefaultTableModel) SchoolHubRevisar.tblAsignacion.getModel();
+            model.setRowCount(0);
+
+            if (isdocente == true) {
+                try {
+                    SchoolHubRevisar.nombreActividad.setText(tblTareas.getValueAt(tblTareas.getSelectedRow(), 0)+"");
+                    File archivo = new File("Usuarios.txt");
+                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                    if (archivo.exists()) {
+                        BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
+                        curso = gson.fromJson(rb, Curso.class);
+                        for (int var = 0; var < curso.getUsuario().size(); var++) {
+                            if(curso.getUsuario().get(var).getTipoUsuario().toString().equals("ALUMNO")){
+                            for(int actividadID = 0; actividadID < curso.getUsuario().get(var).getAsignacionUsu().size(); actividadID++){
+                                if(curso.getAsignacion().get(tblTareas.getSelectedRow()).getNombre().equals(curso.getUsuario().get(var).getAsignacionUsu().get(actividadID).getNombre())){
+                                    model.addRow(new Object[]{""+curso.getUsuario().get(var).getNombre(),""+curso.getUsuario().get(var).getAsignacionUsu().get(actividadID).getEngrega().toString()});
+                                }
+                               
+                                
+                            }
+                        }
+                            
+                            
 
                         }
 
                     }
+                    SchoolHubRevisar.tblAsignacion.setModel(model);
 
+                    
+SHRV.setVisible(true);
+                } catch (IOException ex) {
                 }
+            }
+
+            if (isdocente == false) {
+                SchoolHubTarea.lblNombreTarea.setText(""+curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(tblTareas.getSelectedRow()).getNombre());
+                SchoolHubTarea.txaDescripcion.setText(curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(tblTareas.getSelectedRow()).getComentario());
+                SchoolHubTarea.lblHora.setText(""+curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(tblTareas.getSelectedRow()).getFechafinal());
                 
                 SHT.setVisible(true);
-
+                
             }
-            catch (IOException ex) {
-        }
         }
 
-            if (lbltipoUsuario.getText().equals("DOCENTE")) {
-                SHRV.setVisible(true);
-            }
+
     }//GEN-LAST:event_btnVerActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public static void ActualizarLista() {
+        try {
+            model = (DefaultTableModel) tblTareas.getModel();
+            model.setRowCount(0);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
+            curso = gson.fromJson(rb, Curso.class);
+            if (isdocente == true) {
+                for (int var = 0; var < curso.getAsignacion().size(); var++) {
+                    model.addRow(new Object[]{"" + curso.getAsignacion().get(var).getNombre(), "" + curso.getAsignacion().get(var).getFechafinal(),});
+                }
+
+            } else {
+                for (int var = 0; var < curso.getUsuario().get(usuarioNo).getAsignacionUsu().size(); var++) {
+                    model.addRow(new Object[]{"" + curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(var).getNombre(), "" + curso.getUsuario().get(usuarioNo).getAsignacionUsu().get(var).getFechafinal(),});
+                }
+
+            }
+            tblTareas.setModel(model);
+
+        } catch (Exception e) {
+        }
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
