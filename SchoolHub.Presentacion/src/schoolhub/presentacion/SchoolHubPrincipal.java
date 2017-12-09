@@ -517,8 +517,6 @@ int x = evt.getXOnScreen();
         if(usuario.getTipoUsuario()==TipoUsuario.DOCENTE){
             SchoolHubRevisar SHR = new SchoolHubRevisar();
             SHR.setVisible(true);
-        }else{
-            
         }
     }//GEN-LAST:event_btnVerActionPerformed
 
