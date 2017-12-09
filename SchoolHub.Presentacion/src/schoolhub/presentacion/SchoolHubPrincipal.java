@@ -4,14 +4,18 @@
  * and open the template in the editor.
  */
 package schoolhub.presentacion;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import mx.itson.SchoolHub.entidades.Curso;
 import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
@@ -28,6 +32,7 @@ import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea2;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea3;
 import static schoolhub.presentacion.SchoolHubCrearTarea.Tarea4;
 import static schoolhub.presentacion.SchoolHubPresentacion.SHPR;
+import static schoolhub.presentacion.SchoolHubPresentacion.SHRV;
 import static schoolhub.presentacion.SchoolHubPresentacion.SHT;
 import static schoolhub.presentacion.SchoolHubRegistro.curso;
 import static schoolhub.presentacion.SchoolHubTarea.lblHora;
@@ -49,7 +54,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
  static boolean tarea2 = false;
  static boolean tarea3 = false;
  static boolean tarea4 = false;
- 
+ DefaultTableModel model;
 
  
  
@@ -76,16 +81,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         lblNombreUsuario = new javax.swing.JLabel();
         lbltipoUsuario = new javax.swing.JLabel();
-        pnlConfiguracion = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         pnlTareas = new javax.swing.JPanel();
         lblTarea1 = new javax.swing.JLabel();
         lblFecha1 = new javax.swing.JLabel();
@@ -109,9 +104,8 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVer);
-        btnVer.setBounds(140, 390, 73, 23);
+        btnVer.setBounds(410, 400, 73, 23);
 
-        tblTareas.setBackground(new java.awt.Color(51, 0, 0));
         tblTareas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -136,7 +130,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblTareas);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(10, 160, 350, 220);
+        jScrollPane2.setBounds(260, 160, 390, 220);
 
         lblTarea.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
         lblTarea.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,9 +141,9 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblTarea);
-        lblTarea.setBounds(130, 120, 110, 30);
+        lblTarea.setBounds(400, 130, 110, 30);
 
-        lblCrearAsignacion.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
+        lblCrearAsignacion.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblCrearAsignacion.setForeground(new java.awt.Color(255, 255, 255));
         lblCrearAsignacion.setText("CRear Asignacion");
         lblCrearAsignacion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -163,7 +157,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblCrearAsignacion);
-        lblCrearAsignacion.setBounds(20, 80, 250, 32);
+        lblCrearAsignacion.setBounds(720, 40, 190, 25);
 
         lblCerrarSesion.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -200,86 +194,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
         lbltipoUsuario.setText("Tipo de usuario");
         getContentPane().add(lbltipoUsuario);
         lbltipoUsuario.setBounds(30, 20, 80, 14);
-
-        pnlConfiguracion.setBackground(new java.awt.Color(34, 35, 38));
-
-        jLabel5.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Nombre :");
-
-        jLabel6.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Correo :");
-
-        jLabel7.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Contraseña :");
-
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Editar");
-
-        jButton3.setText("Aceptar");
-
-        jLabel1.setFont(new java.awt.Font("Earth Orbiter", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CONFIGURACION");
-
-        javax.swing.GroupLayout pnlConfiguracionLayout = new javax.swing.GroupLayout(pnlConfiguracion);
-        pnlConfiguracion.setLayout(pnlConfiguracionLayout);
-        pnlConfiguracionLayout.setHorizontalGroup(
-            pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlConfiguracionLayout.createSequentialGroup()
-                .addGroup(pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlConfiguracionLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConfiguracionLayout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                                .addComponent(jButton3)
-                                .addGap(36, 36, 36))
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jPasswordField1)))
-                    .addGroup(pnlConfiguracionLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        pnlConfiguracionLayout.setVerticalGroup(
-            pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlConfiguracionLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(pnlConfiguracion);
-        pnlConfiguracion.setBounds(370, 150, 420, 250);
 
         pnlTareas.setBackground(new java.awt.Color(34, 35, 38));
         pnlTareas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -390,7 +304,7 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblFondo2);
-        lblFondo2.setBounds(0, 0, 920, 440);
+        lblFondo2.setBounds(0, 0, 920, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -411,11 +325,6 @@ public class SchoolHubPrincipal extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_lblTareaMouseClicked
-
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void lblNombreUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreUsuarioMouseClicked
 //lblTarea1.setText("Hola que hace we xddddddddddd");
@@ -509,15 +418,40 @@ int x = evt.getXOnScreen();
     }//GEN-LAST:event_tblTareasComponentShown
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        Usuario usuario = new Usuario();
-        if(usuario.getTipoUsuario()==TipoUsuario.ALUMNO){
-            SchoolHubTarea SHT = new SchoolHubTarea();
-            SHT.setVisible(true);
-        }    
-        if(usuario.getTipoUsuario()==TipoUsuario.DOCENTE){
-            SchoolHubRevisar SHR = new SchoolHubRevisar();
-            SHR.setVisible(true);
+//        Usuario usuario = new Usuario();
+        model = (DefaultTableModel) tblTareas.getModel();
+        String nombre = model.getValueAt(tblTareas.getSelectedRow(), 0).toString();
+        String fecha = model.getValueAt(tblTareas.getSelectedRow(), 1).toString();
+      
+        if (lbltipoUsuario.getText().equals("ALUMNO")) {
+            try {
+                File archivo = new File("Usuarios.txt");
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                if (archivo.exists()) {
+                    BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
+                    curso = gson.fromJson(rb, Curso.class);
+                    for (int var = 0; var < curso.getAsignacion().size(); var++) {
+                        if (curso.getAsignacion().get(var).getNombre().equals(nombre)) {
+                            lblNombreTarea.setText(nombre);
+                            lblHora.setText(fecha);
+                            txaDescripcion.setText(curso.getAsignacion().get(var).getComentario());
+
+                        }
+
+                    }
+
+                }
+                
+                SHT.setVisible(true);
+
+            }
+            catch (IOException ex) {
         }
+        }
+
+            if (lbltipoUsuario.getText().equals("DOCENTE")) {
+                SHRV.setVisible(true);
+            }
     }//GEN-LAST:event_btnVerActionPerformed
 
     /**
@@ -557,16 +491,7 @@ int x = evt.getXOnScreen();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVer;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCerrarSesion;
     public static javax.swing.JLabel lblCrearAsignacion;
     public static javax.swing.JLabel lblFecha1;
@@ -582,8 +507,7 @@ int x = evt.getXOnScreen();
     public static javax.swing.JLabel lblTarea4;
     private javax.swing.JLabel lblUsuario;
     public static javax.swing.JLabel lbltipoUsuario;
-    public static javax.swing.JPanel pnlConfiguracion;
     public static javax.swing.JPanel pnlTareas;
-    private javax.swing.JTable tblTareas;
+    public static javax.swing.JTable tblTareas;
     // End of variables declaration//GEN-END:variables
 }

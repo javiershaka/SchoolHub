@@ -15,24 +15,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import mx.itson.SchoolHub.entidades.Asignacion;
 import mx.itson.SchoolHub.entidades.Curso;
-import mx.itson.SchoolHub.entidades.Usuario;
 import mx.itson.SchoolHub.enumeradores.TiempoEngrega;
 import mx.itson.SchoolHub.enumeradores.TipoAsignacion;
-import mx.itson.SchoolHub.enumeradores.TipoUsuario;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblFecha1;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblFecha2;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblFecha3;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblFecha4;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblTarea1;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblTarea2;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblTarea3;
-import static schoolhub.presentacion.SchoolHubPrincipal.lblTarea4;
+import static schoolhub.presentacion.SchoolHubPrincipal.tblTareas;
 import static schoolhub.presentacion.SchoolHubRegistro.curso;
-import static schoolhub.presentacion.SchoolHubTarea.lblHora;
-import static schoolhub.presentacion.SchoolHubTarea.lblNombreTarea;
-import static schoolhub.presentacion.SchoolHubTarea.txaDescripcion;
 
 /**
  *
@@ -54,7 +43,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     public static String Fecha4;
     int yMouse;
     int xMouse;
-
+    DefaultTableModel model;
     /**
      * Creates new form SchoolHubCrearTarea
      */
@@ -89,19 +78,16 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         btnAceptar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblHora2 = new javax.swing.JLabel();
-        rbnEntregoNoEntrego = new javax.swing.JRadioButton();
-        rbnEscala = new javax.swing.JRadioButton();
-        lblMaximo = new javax.swing.JTextField();
-        lblCalificacion = new javax.swing.JLabel();
+        txtMaximo = new javax.swing.JTextField();
         lblHoraLimite = new javax.swing.JLabel();
         cmbHora = new javax.swing.JComboBox<>();
         cmbMinuto = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbTiempo = new javax.swing.JComboBox<>();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(415, 539));
-        setMinimumSize(new java.awt.Dimension(415, 539));
+        setMaximumSize(new java.awt.Dimension(415, 503));
+        setMinimumSize(new java.awt.Dimension(415, 503));
         setUndecorated(true);
         getContentPane().setLayout(null);
         getContentPane().add(txtnombreAsig);
@@ -111,13 +97,13 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("TIPO DE ASIGNACION :");
         getContentPane().add(lblTipo);
-        lblTipo.setBounds(30, 70, 180, 19);
+        lblTipo.setBounds(30, 70, 180, 15);
 
         lblDescripcion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripción :");
         getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(30, 310, 120, 19);
+        lblDescripcion.setBounds(30, 270, 120, 15);
 
         lblNombreTarea2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblNombreTarea2.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,7 +116,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txaDescripcion2);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 330, 370, 150);
+        jScrollPane1.setBounds(30, 290, 370, 150);
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ASIGNACION", "TAREA", "ACTIVIDAD" }));
         getContentPane().add(cmbTipo);
@@ -152,7 +138,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         lblEntrega.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrega.setText("Entrega después de fecha limite :");
         getContentPane().add(lblEntrega);
-        lblEntrega.setBounds(30, 190, 280, 19);
+        lblEntrega.setBounds(30, 190, 280, 15);
 
         buttonGroup1.add(rbsi);
         rbsi.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
@@ -178,44 +164,22 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(180, 490, 71, 23);
+        btnAceptar.setBounds(180, 450, 71, 23);
 
         jLabel1.setBackground(new java.awt.Color(34, 35, 38));
         jLabel1.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("TIPO DE CALIFICACION :");
+        jLabel1.setText("CALIFICACION MAXIMA :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(120, 220, 200, 19);
+        jLabel1.setBounds(30, 230, 200, 15);
 
         lblHora2.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblHora2.setForeground(new java.awt.Color(255, 255, 255));
         lblHora2.setText("Fecha Limite:");
         getContentPane().add(lblHora2);
-        lblHora2.setBounds(30, 110, 120, 19);
-
-        buttonGroup2.add(rbnEntregoNoEntrego);
-        rbnEntregoNoEntrego.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
-        rbnEntregoNoEntrego.setForeground(new java.awt.Color(255, 255, 255));
-        rbnEntregoNoEntrego.setText("Entrego/No Entrego");
-        rbnEntregoNoEntrego.setOpaque(false);
-        getContentPane().add(rbnEntregoNoEntrego);
-        rbnEntregoNoEntrego.setBounds(30, 250, 200, 27);
-
-        buttonGroup2.add(rbnEscala);
-        rbnEscala.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
-        rbnEscala.setForeground(new java.awt.Color(255, 255, 255));
-        rbnEscala.setText("Escala");
-        rbnEscala.setOpaque(false);
-        getContentPane().add(rbnEscala);
-        rbnEscala.setBounds(290, 250, 90, 27);
-        getContentPane().add(lblMaximo);
-        lblMaximo.setBounds(250, 280, 50, 20);
-
-        lblCalificacion.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
-        lblCalificacion.setForeground(new java.awt.Color(255, 255, 255));
-        lblCalificacion.setText("Maxima :");
-        getContentPane().add(lblCalificacion);
-        lblCalificacion.setBounds(180, 280, 70, 19);
+        lblHora2.setBounds(30, 110, 120, 15);
+        getContentPane().add(txtMaximo);
+        txtMaximo.setBounds(230, 220, 50, 30);
 
         lblHoraLimite.setFont(new java.awt.Font("Earth Orbiter", 0, 14)); // NOI18N
         lblHoraLimite.setForeground(new java.awt.Color(255, 255, 255));
@@ -231,9 +195,9 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
         getContentPane().add(cmbMinuto);
         cmbMinuto.setBounds(210, 150, 50, 20);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
-        getContentPane().add(jComboBox3);
-        jComboBox3.setBounds(270, 150, 50, 20);
+        cmbTiempo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
+        getContentPane().add(cmbTiempo);
+        cmbTiempo.setBounds(270, 150, 50, 20);
 
         lblFondo.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo.setOpaque(true);
@@ -254,33 +218,37 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        if(txtnombreAsig.getText().length()!=0 && lblMaximo.getText().length()!=0 && txaDescripcion2.getText().length()!=0){
+        if(txtnombreAsig.getText().length()!=0 && txtMaximo.getText().length()!=0 && txaDescripcion2.getText().length()!=0){
         boolean tareacerra = false;
-        if (lblTarea1.getText().isEmpty()) {
-            lblTarea1.setText(txtnombreAsig.getText());
-            Tarea1 = txtnombreAsig.getText();
-            Fecha1 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
-            Descripcion1 = txaDescripcion2.getText();
-            lblFecha1.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
-        } else if (lblTarea2.getText().isEmpty()) {
-            Tarea2 = txtnombreAsig.getText();
-            Fecha2 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
-            Descripcion2 = txaDescripcion2.getText();
-            lblTarea2.setText(txtnombreAsig.getText());
-            lblFecha2.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
-        } else if (lblTarea3.getText().isEmpty()) {
-            Tarea3 = txtnombreAsig.getText();
-            Fecha3 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
-            Descripcion3 = txaDescripcion2.getText();
-            lblTarea3.setText(txtnombreAsig.getText());
-            lblFecha3.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
-        } else if (lblTarea4.getText().isEmpty()) {
-            Tarea4 = txtnombreAsig.getText();
-            Fecha4 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
-            Descripcion4 = txaDescripcion2.getText();
-            lblTarea4.setText(txtnombreAsig.getText());
-            lblFecha4.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
-        }
+        Object [] row ={txtnombreAsig.getText(),cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString() + "  Hora: "
+                + cmbHora.getSelectedItem().toString()+":"+ cmbMinuto.getSelectedItem().toString()+" "+cmbTiempo.getSelectedItem().toString()};
+    model = (DefaultTableModel) tblTareas.getModel();
+    model.addRow(row);
+//        if (lblTarea1.getText().isEmpty()) {
+//            lblTarea1.setText(txtnombreAsig.getText());
+//            Tarea1 = txtnombreAsig.getText();
+//            Fecha1 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
+//            Descripcion1 = txaDescripcion2.getText();
+//            lblFecha1.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
+//        } else if (lblTarea2.getText().isEmpty()) {
+//            Tarea2 = txtnombreAsig.getText();
+//            Fecha2 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
+//            Descripcion2 = txaDescripcion2.getText();
+//            lblTarea2.setText(txtnombreAsig.getText());
+//            lblFecha2.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
+//        } else if (lblTarea3.getText().isEmpty()) {
+//            Tarea3 = txtnombreAsig.getText();
+//            Fecha3 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
+//            Descripcion3 = txaDescripcion2.getText();
+//            lblTarea3.setText(txtnombreAsig.getText());
+//            lblFecha3.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
+//        } else if (lblTarea4.getText().isEmpty()) {
+//            Tarea4 = txtnombreAsig.getText();
+//            Fecha4 = cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString();
+//            Descripcion4 = txaDescripcion2.getText();
+//            lblTarea4.setText(txtnombreAsig.getText());
+//            lblFecha4.setText("Fecha de entrega: " + cmbDia.getSelectedItem().toString() + "/" + cmdMes.getSelectedItem().toString() + "/" + cmbAño.getSelectedItem().toString());
+//        }
 //        lblTarea1.setText(txtnombreAsig.getText());
 //        lblFecha1.setText("Fecha de entrega: "+cmbDia.getSelectedItem().toString()+"/"+cmdMes.getSelectedItem().toString()+"/"+cmbAño.getSelectedItem().toString());
         // lblNombreTarea.setText(txtnombreAsig.getText());
@@ -293,7 +261,7 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
             tareacerra = true;
         }
         try {
-            Asignacion asignacionTarea = new Asignacion(txtnombreAsig.getText() + "", TipoAsignacion.valueOf(cmbTipo.getSelectedItem().toString()), "" + txaDescripcion2.getText(), new Date(), new Date(Integer.parseInt(cmbAño.getSelectedItem().toString()),cmdMes.getSelectedIndex()+1, Integer.parseInt(cmbDia.getSelectedItem().toString())), 0, TiempoEngrega.NoEntregado, tareacerra);
+            Asignacion asignacionTarea = new Asignacion(txtnombreAsig.getText() + "", TipoAsignacion.valueOf(cmbTipo.getSelectedItem().toString()), "" + txaDescripcion2.getText(), new Date(), new Date(Integer.parseInt(cmbAño.getSelectedItem().toString()),cmdMes.getSelectedIndex()+1, Integer.parseInt(cmbDia.getSelectedItem().toString())), 0, TiempoEngrega.NoEntregado, tareacerra,Integer.parseInt(txtMaximo.getText()));
             boolean bloqueo = false;
             SchoolHubPresentacion SHP = new SchoolHubPresentacion();
             boolean repe = false;
@@ -389,25 +357,22 @@ public class SchoolHubCrearTarea extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbDia;
     private javax.swing.JComboBox<String> cmbHora;
     private javax.swing.JComboBox<String> cmbMinuto;
+    private javax.swing.JComboBox<String> cmbTiempo;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JComboBox<String> cmdMes;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCalificacion;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblEntrega;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblHora2;
     private javax.swing.JLabel lblHoraLimite;
-    private javax.swing.JTextField lblMaximo;
     private javax.swing.JLabel lblNombreTarea2;
     private javax.swing.JLabel lblTipo;
-    private javax.swing.JRadioButton rbnEntregoNoEntrego;
-    private javax.swing.JRadioButton rbnEscala;
     public static javax.swing.JRadioButton rbno;
     public static javax.swing.JRadioButton rbsi;
     public static javax.swing.JTextArea txaDescripcion2;
+    private javax.swing.JTextField txtMaximo;
     public static javax.swing.JTextField txtnombreAsig;
     // End of variables declaration//GEN-END:variables
 }

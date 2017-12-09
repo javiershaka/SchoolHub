@@ -42,10 +42,12 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         lblCalificacion = new javax.swing.JLabel();
         lblArchivoAdjunti = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
+        lblRevisar = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(676, 402));
+        setMaximumSize(new java.awt.Dimension(869, 459));
+        setMinimumSize(new java.awt.Dimension(869, 459));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
@@ -74,13 +76,13 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre Alumno");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(210, 20, 170, 24);
+        jLabel2.setBounds(210, 20, 170, 19);
 
         jLabel1.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("AQUI VA EL NOMBRE DE LA ASIGNACION");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(100, 60, 400, 24);
+        jLabel1.setBounds(100, 60, 400, 19);
 
         getContentPane().add(cmbCalificacion);
         cmbCalificacion.setBounds(340, 320, 60, 20);
@@ -97,7 +99,7 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
         lblCalificacion.setForeground(new java.awt.Color(255, 255, 255));
         lblCalificacion.setText("CALIFICACION");
         getContentPane().add(lblCalificacion);
-        lblCalificacion.setBounds(170, 320, 160, 24);
+        lblCalificacion.setBounds(170, 320, 160, 19);
 
         lblArchivoAdjunti.setFont(new java.awt.Font("Earth Orbiter", 0, 18)); // NOI18N
         lblArchivoAdjunti.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,11 +110,15 @@ public class SchoolHubRevisar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblArchivoAdjunti);
-        lblArchivoAdjunti.setBounds(170, 280, 260, 24);
+        lblArchivoAdjunti.setBounds(170, 280, 260, 19);
 
         btnAceptar.setText("Aceptar");
         getContentPane().add(btnAceptar);
         btnAceptar.setBounds(230, 370, 71, 23);
+
+        lblRevisar.setText("Revisar");
+        getContentPane().add(lblRevisar);
+        lblRevisar.setBounds(650, 30, 73, 23);
 
         lblFondo.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo.setOpaque(true);
@@ -203,6 +209,7 @@ xMouse = evt.getX();
     private javax.swing.JLabel lblArchivoAdjunti;
     private javax.swing.JLabel lblCalificacion;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JButton lblRevisar;
     private javax.swing.JTable tblAsignacion;
     // End of variables declaration//GEN-END:variables
 }

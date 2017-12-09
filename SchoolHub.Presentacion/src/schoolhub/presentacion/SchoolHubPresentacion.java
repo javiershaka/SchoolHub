@@ -16,8 +16,6 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import mx.itson.SchoolHub.entidades.Curso;
 import static schoolhub.presentacion.SchoolHubRegistro.curso;
-import static schoolhub.presentacion.SchoolHubPrincipal.pnlConfiguracion;
-import static schoolhub.presentacion.SchoolHubPrincipal.pnlTareas;
 import static schoolhub.presentacion.SchoolHubPrincipal.lblCrearAsignacion;
 
 /**
@@ -30,6 +28,8 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
     public static SchoolHubPrincipal SHP = new SchoolHubPrincipal();
     public static SchoolHubPresentacion SHPR = new SchoolHubPresentacion();
     public static SchoolHubTarea SHT = new SchoolHubTarea();
+    public static SchoolHubRevisar SHRV = new SchoolHubRevisar();
+    
     int xMouse;
     int xMouse2;
     int yMouse;
@@ -109,7 +109,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Contraseña");
         getContentPane().add(lblPassword);
-        lblPassword.setBounds(600, 280, 130, 24);
+        lblPassword.setBounds(600, 280, 130, 19);
 
         lblEslogan.setFont(new java.awt.Font("Earth Orbiter", 2, 24)); // NOI18N
         lblEslogan.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,7 +166,7 @@ public class SchoolHubPresentacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblFondo1);
-        lblFondo1.setBounds(0, 0, 820, 420);
+        lblFondo1.setBounds(0, 0, 830, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

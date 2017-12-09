@@ -54,24 +54,22 @@ JFileChooser seleccionar = new JFileChooser();
     private void initComponents() {
 
         scpRespuesta = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txaDescripcionAlumno = new javax.swing.JTextArea();
         scpDescripcion = new javax.swing.JScrollPane();
         txaDescripcion = new javax.swing.JTextArea();
         lblNombreTarea = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
-        btnAgregar = new javax.swing.JButton();
         btnEnviar = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(595, 378));
         setMinimumSize(new java.awt.Dimension(595, 378));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        scpRespuesta.setViewportView(jTextArea2);
+        txaDescripcionAlumno.setColumns(20);
+        txaDescripcionAlumno.setRows(5);
+        scpRespuesta.setViewportView(txaDescripcionAlumno);
 
         getContentPane().add(scpRespuesta);
         scpRespuesta.setBounds(30, 240, 420, 110);
@@ -100,15 +98,6 @@ JFileChooser seleccionar = new JFileChooser();
         getContentPane().add(lblHora);
         lblHora.setBounds(350, 40, 220, 19);
 
-        btnAgregar.setText("Adjuntar Archivo");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAgregar);
-        btnAgregar.setBounds(460, 250, 120, 23);
-
         btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +105,7 @@ JFileChooser seleccionar = new JFileChooser();
             }
         });
         getContentPane().add(btnEnviar);
-        btnEnviar.setBounds(460, 300, 120, 23);
+        btnEnviar.setBounds(460, 280, 120, 23);
 
         lblFondo.setBackground(new java.awt.Color(34, 35, 38));
         lblFondo.setOpaque(true);
@@ -135,25 +124,6 @@ JFileChooser seleccionar = new JFileChooser();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-         if (seleccionar.showDialog(null, "Abrir")== JFileChooser.APPROVE_OPTION){
-            archivo=seleccionar.getSelectedFile();
-          if(archivo.canRead()){
-              if(archivo.getName().endsWith("txt")|| archivo.getName().endsWith("pdf")|| archivo.getName().endsWith("docx")){
-                  Path origenPath = FileSystems.getDefault().getPath(archivo.getAbsolutePath());
-              Path destinoPath = FileSystems.getDefault().getPath("C:\\Users\\Cristian\\Documents\\NetBeansProjects\\SchoolHub\\SchoolHub.Presentacion"+ archivo.getName());
-                 try {
-            Files.move(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-              }else{
-                  JOptionPane.showMessageDialog(null, "Archivo no compatible");
-              }
-          }  
-        }
-    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
        
@@ -241,14 +211,13 @@ int x = evt.getXOnScreen();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEnviar;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblFondo;
     public static javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblNombreTarea;
     private javax.swing.JScrollPane scpDescripcion;
     private javax.swing.JScrollPane scpRespuesta;
     public static javax.swing.JTextArea txaDescripcion;
+    private javax.swing.JTextArea txaDescripcionAlumno;
     // End of variables declaration//GEN-END:variables
 }

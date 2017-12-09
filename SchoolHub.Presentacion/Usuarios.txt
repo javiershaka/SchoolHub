@@ -5,28 +5,496 @@
       "tipoUsuario": "DOCENTE",
       "correo": "lolo@hotmail.com",
       "contraseñaUsuario": "asd",
-      "calificaciones": 0.0
+      "calificaciones": 0.0,
+      "asignacionUsu": [
+        {
+          "nombre": "Prueba",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:11:02 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 4
+        },
+        {
+          "nombre": "xd",
+          "asignacion": "ASIGNACION",
+          "comentario": "sd",
+          "fechainicio": "Dec 8, 2017 6:17:07 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto final",
+          "asignacion": "ASIGNACION",
+          "comentario": "Hola chavales",
+          "fechainicio": "Dec 8, 2017 6:20:36 PM",
+          "fechafinal": "Jul 31, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 10
+        },
+        {
+          "nombre": "Proyecto final",
+          "asignacion": "TAREA",
+          "comentario": "XD",
+          "fechainicio": "Dec 8, 2017 6:22:51 PM",
+          "fechafinal": "Apr 14, 3918 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "sd",
+          "asignacion": "ASIGNACION",
+          "comentario": "xdddddddddddddd",
+          "fechainicio": "Dec 8, 2017 6:29:01 PM",
+          "fechafinal": "May 8, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto",
+          "asignacion": "ACTIVIDAD",
+          "comentario": "Hola me gustan caballeros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nbecky g",
+          "fechainicio": "Dec 8, 2017 6:52:28 PM",
+          "fechafinal": "Jun 5, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 99
+        },
+        {
+          "nombre": "ssssss",
+          "asignacion": "ASIGNACION",
+          "comentario": "sssssss\nsssssss\nsssssss\n",
+          "fechainicio": "Dec 8, 2017 6:54:04 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "docente",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:57:08 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "XDD",
+          "asignacion": "ASIGNACION",
+          "comentario": "xddddd",
+          "fechainicio": "Dec 8, 2017 6:58:19 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        }
+      ]
     },
     {
       "nombre": "xddd",
       "tipoUsuario": "DOCENTE",
       "correo": "xddd@hotmail.com",
       "contraseñaUsuario": "5",
-      "calificaciones": 0.0
+      "calificaciones": 0.0,
+      "asignacionUsu": [
+        {
+          "nombre": "Prueba",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:11:02 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 4
+        },
+        {
+          "nombre": "xd",
+          "asignacion": "ASIGNACION",
+          "comentario": "sd",
+          "fechainicio": "Dec 8, 2017 6:17:07 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto final",
+          "asignacion": "ASIGNACION",
+          "comentario": "Hola chavales",
+          "fechainicio": "Dec 8, 2017 6:20:36 PM",
+          "fechafinal": "Jul 31, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 10
+        },
+        {
+          "nombre": "Proyecto final",
+          "asignacion": "TAREA",
+          "comentario": "XD",
+          "fechainicio": "Dec 8, 2017 6:22:51 PM",
+          "fechafinal": "Apr 14, 3918 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "sd",
+          "asignacion": "ASIGNACION",
+          "comentario": "xdddddddddddddd",
+          "fechainicio": "Dec 8, 2017 6:29:01 PM",
+          "fechafinal": "May 8, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto",
+          "asignacion": "ACTIVIDAD",
+          "comentario": "Hola me gustan caballeros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nbecky g",
+          "fechainicio": "Dec 8, 2017 6:52:28 PM",
+          "fechafinal": "Jun 5, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 99
+        },
+        {
+          "nombre": "ssssss",
+          "asignacion": "ASIGNACION",
+          "comentario": "sssssss\nsssssss\nsssssss\n",
+          "fechainicio": "Dec 8, 2017 6:54:04 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "docente",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:57:08 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "XDD",
+          "asignacion": "ASIGNACION",
+          "comentario": "xddddd",
+          "fechainicio": "Dec 8, 2017 6:58:19 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        }
+      ]
     },
     {
       "nombre": "Alumno",
       "tipoUsuario": "ALUMNO",
       "correo": "alumno@hotmail.com",
       "contraseñaUsuario": "alumno",
-      "calificaciones": 0.0
+      "calificaciones": 0.0,
+      "asignacionUsu": [
+        {
+          "nombre": "Prueba",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:11:02 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 4
+        },
+        {
+          "nombre": "xd",
+          "asignacion": "ASIGNACION",
+          "comentario": "sd",
+          "fechainicio": "Dec 8, 2017 6:17:07 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto final",
+          "asignacion": "ASIGNACION",
+          "comentario": "Hola chavales",
+          "fechainicio": "Dec 8, 2017 6:20:36 PM",
+          "fechafinal": "Jul 31, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 10
+        },
+        {
+          "nombre": "Proyecto final",
+          "asignacion": "TAREA",
+          "comentario": "XD",
+          "fechainicio": "Dec 8, 2017 6:22:51 PM",
+          "fechafinal": "Apr 14, 3918 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "sd",
+          "asignacion": "ASIGNACION",
+          "comentario": "xdddddddddddddd",
+          "fechainicio": "Dec 8, 2017 6:29:01 PM",
+          "fechafinal": "May 8, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto",
+          "asignacion": "ACTIVIDAD",
+          "comentario": "Hola me gustan caballeros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nbecky g",
+          "fechainicio": "Dec 8, 2017 6:52:28 PM",
+          "fechafinal": "Jun 5, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 99
+        },
+        {
+          "nombre": "ssssss",
+          "asignacion": "ASIGNACION",
+          "comentario": "sssssss\nsssssss\nsssssss\n",
+          "fechainicio": "Dec 8, 2017 6:54:04 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "docente",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:57:08 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "XDD",
+          "asignacion": "ASIGNACION",
+          "comentario": "xddddd",
+          "fechainicio": "Dec 8, 2017 6:58:19 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        }
+      ]
     },
     {
       "nombre": "docente",
       "tipoUsuario": "DOCENTE",
       "correo": "docente@hotmail.com",
       "contraseñaUsuario": "docente",
-      "calificaciones": 0.0
+      "calificaciones": 0.0,
+      "asignacionUsu": [
+        {
+          "nombre": "Prueba",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:11:02 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 4
+        },
+        {
+          "nombre": "xd",
+          "asignacion": "ASIGNACION",
+          "comentario": "sd",
+          "fechainicio": "Dec 8, 2017 6:17:07 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto final",
+          "asignacion": "ASIGNACION",
+          "comentario": "Hola chavales",
+          "fechainicio": "Dec 8, 2017 6:20:36 PM",
+          "fechafinal": "Jul 31, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 10
+        },
+        {
+          "nombre": "Proyecto final",
+          "asignacion": "TAREA",
+          "comentario": "XD",
+          "fechainicio": "Dec 8, 2017 6:22:51 PM",
+          "fechafinal": "Apr 14, 3918 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "sd",
+          "asignacion": "ASIGNACION",
+          "comentario": "xdddddddddddddd",
+          "fechainicio": "Dec 8, 2017 6:29:01 PM",
+          "fechafinal": "May 8, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto",
+          "asignacion": "ACTIVIDAD",
+          "comentario": "Hola me gustan caballeros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nbecky g",
+          "fechainicio": "Dec 8, 2017 6:52:28 PM",
+          "fechafinal": "Jun 5, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 99
+        },
+        {
+          "nombre": "ssssss",
+          "asignacion": "ASIGNACION",
+          "comentario": "sssssss\nsssssss\nsssssss\n",
+          "fechainicio": "Dec 8, 2017 6:54:04 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "docente",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:57:08 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "XDD",
+          "asignacion": "ASIGNACION",
+          "comentario": "xddddd",
+          "fechainicio": "Dec 8, 2017 6:58:19 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        }
+      ]
+    },
+    {
+      "nombre": "Cristian Valdez",
+      "tipoUsuario": "ALUMNO",
+      "correo": "elcristian3@hotmail.com",
+      "contraseñaUsuario": "popo",
+      "calificaciones": 0.0,
+      "asignacionUsu": [
+        {
+          "nombre": "sd",
+          "asignacion": "ASIGNACION",
+          "comentario": "xdddddddddddddd",
+          "fechainicio": "Dec 8, 2017 6:29:01 PM",
+          "fechafinal": "May 8, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 59
+        },
+        {
+          "nombre": "Proyecto",
+          "asignacion": "ACTIVIDAD",
+          "comentario": "Hola me gustan caballeros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nHola me gustan caballaros que sean interesantes\nbecky g",
+          "fechainicio": "Dec 8, 2017 6:52:28 PM",
+          "fechafinal": "Jun 5, 3917 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": true,
+          "maxima": 99
+        },
+        {
+          "nombre": "ssssss",
+          "asignacion": "ASIGNACION",
+          "comentario": "sssssss\nsssssss\nsssssss\n",
+          "fechainicio": "Dec 8, 2017 6:54:04 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "docente",
+          "asignacion": "ASIGNACION",
+          "comentario": "xd",
+          "fechainicio": "Dec 8, 2017 6:57:08 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        },
+        {
+          "nombre": "XDD",
+          "asignacion": "ASIGNACION",
+          "comentario": "xddddd",
+          "fechainicio": "Dec 8, 2017 6:58:19 PM",
+          "fechafinal": "Feb 1, 3916 12:00:00 AM",
+          "calificacion": 0.0,
+          "engrega": "NoEntregado",
+          "close": false,
+          "maxima": 2
+        }
+      ]
     }
   ],
   "asignacion": [
@@ -38,7 +506,8 @@
       "fechafinal": "Dec 7, 2017 12:00:42 PM",
       "calificacion": 0.0,
       "engrega": "NoEntregado",
-      "close": true
+      "close": true,
+      "maxima": 0
     },
     {
       "nombre": "",
@@ -48,7 +517,8 @@
       "fechafinal": "Dec 7, 2017 2:00:22 PM",
       "calificacion": 0.0,
       "engrega": "NoEntregado",
-      "close": false
+      "close": false,
+      "maxima": 0
     }
   ]
 }
