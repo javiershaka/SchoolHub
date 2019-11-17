@@ -21,7 +21,10 @@ import mx.itson.SchoolHub.enumeradores.TipoUsuario;
 import mx.itson.SchoolHub.entidades.Usuario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import mx.itson.SchoolHub.controller.CursoController;
 import mx.itson.SchoolHub.entidades.Curso;
+import mx.itson.SchoolHub.controller.GsonController;
+import mx.itson.SchoolHub.controller.FileController;
 /**
  *
  * @author Cristian
@@ -157,61 +160,21 @@ static Curso curso;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(txtContraseña.getPassword().length !=0 && txtCorreo.getText().length()!=0 && txtNombre.getText().length()!=0){
+        
+            
+        
+        
         try {
             SchoolHubPresentacion SHP = new SchoolHubPresentacion();
-            boolean repe = false;
-            File archivo = new File("Usuarios.txt");
-            BufferedWriter bw;
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-            if (archivo.exists()) {
-                char[] pass = txtContraseña.getPassword();
-                String passString = new String(pass);
-
-             
-
-                    BufferedReader rb = new BufferedReader(new FileReader("Usuarios.txt"));
-                    curso = gson.fromJson(rb, Curso.class);
-
-                    for (int i = 0; i < curso.getUsuario().size(); i++) {
-                        if (curso.getUsuario().get(i).getCorreo().equals(txtCorreo.getText())) {
-                            repe = true;
-                        }
-
-                    }
-                    if (repe == false) {
-                        curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), passString, 0));
-                        String textoUsuario = gson.toJson(curso);
-
-                        bw = new BufferedWriter(new FileWriter(archivo));
-                        bw.write("" + textoUsuario);
-
-                        bw.close();
-                        
-                        SHP.setVisible(true);
-                        this.setVisible(false);
-
-                    
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Usuario ya existente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-                    }
-
-               
-
-            }
-            else{
-                curso = new Curso();
-                char[] pass = txtContraseña.getPassword();
-                String passString = new String(pass);
-                curso.getUsuario().add(new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), ""+passString, 0));
-                String textoUsuario = gson.toJson(curso);
-                bw = new BufferedWriter(new FileWriter(archivo));
-                        bw.write("" + textoUsuario);
-
-                        bw.close();
-                        SHP.setVisible(true);
-                        this.setVisible(false);
-            }
+            char[] pass = txtContraseña.getPassword();
+            String passString = new String(pass);
+            Usuario user = new Usuario(txtNombre.getText(), TipoUsuario.valueOf(cmbCuenta.getSelectedItem().toString()), txtCorreo.getText(), passString, 0);
+            
+            new CursoController().AddCursoAlumno(user);     
+            SHP.setVisible(true);
+            this.setVisible(false);
+            
+           
         } catch (IOException ex) {
         }
 }else{

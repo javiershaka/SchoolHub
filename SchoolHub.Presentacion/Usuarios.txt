@@ -4,7 +4,6 @@
       "nombre": "CristianDomi",
       "tipoUsuario": "DOCENTE",
       "correo": "lolo@hotmail.com",
-      "contraseñaUsuario": "asd",
       "calificaciones": 0.0,
       "asignacionUsu": [
         {
@@ -112,7 +111,6 @@
       "nombre": "xddd",
       "tipoUsuario": "DOCENTE",
       "correo": "xddd@hotmail.com",
-      "contraseñaUsuario": "5",
       "calificaciones": 0.0,
       "asignacionUsu": [
         {
@@ -220,7 +218,6 @@
       "nombre": "Alumno",
       "tipoUsuario": "ALUMNO",
       "correo": "alumno@hotmail.com",
-      "contraseñaUsuario": "alumno",
       "calificaciones": 0.0,
       "asignacionUsu": [
         {
@@ -328,7 +325,6 @@
       "nombre": "docente",
       "tipoUsuario": "DOCENTE",
       "correo": "docente@hotmail.com",
-      "contraseñaUsuario": "docente",
       "calificaciones": 0.0,
       "asignacionUsu": [
         {
@@ -436,7 +432,6 @@
       "nombre": "Cristian Valdez",
       "tipoUsuario": "ALUMNO",
       "correo": "elcristian3@hotmail.com",
-      "contraseñaUsuario": "popo",
       "calificaciones": 0.0,
       "asignacionUsu": [
         {
@@ -495,6 +490,30 @@
           "maxima": 2
         }
       ]
+    },
+    {
+      "nombre": "8",
+      "tipoUsuario": "ALUMNO",
+      "correo": "8",
+      "contraseñaUsuario": "8",
+      "calificaciones": 0.0,
+      "asignacionUsu": []
+    },
+    {
+      "nombre": "9",
+      "tipoUsuario": "ALUMNO",
+      "correo": "9",
+      "contraseñaUsuario": "9",
+      "calificaciones": 0.0,
+      "asignacionUsu": []
+    },
+    {
+      "nombre": "10",
+      "tipoUsuario": "DOCENTE",
+      "correo": "10",
+      "contraseñaUsuario": "10",
+      "calificaciones": 0.0,
+      "asignacionUsu": []
     }
   ],
   "asignacion": [

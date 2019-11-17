@@ -20,7 +20,6 @@ import mx.itson.SchoolHub.entidades.Asignacion;
 import mx.itson.SchoolHub.entidades.Curso;
 import mx.itson.SchoolHub.enumeradores.TiempoEngrega;
 import mx.itson.SchoolHub.enumeradores.TipoAsignacion;
-import static schoolhub.presentacion.SchoolHubPrincipal.tblTareas;
 import static schoolhub.presentacion.SchoolHubRegistro.curso;
 
 /**

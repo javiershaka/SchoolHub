@@ -22,7 +22,6 @@ public class Asignacion {
     private double calificacion;
     private TiempoEngrega engrega;
     private boolean close;
-    
     private int maxima;
 
     public Asignacion() {
